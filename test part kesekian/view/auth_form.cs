@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project_PBO.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using test_part_kesekian.controller;
+using test_part_kesekian.models;
 
 namespace test_part_kesekian
 {
@@ -30,7 +33,7 @@ namespace test_part_kesekian
                 CurrentUser = user;
                 MessageBox.Show($"{user.Role} berhasil login!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                using (var mainForm = new MainForm())
+                using (var mainForm = new layout_pelanggan())
                 {
                     mainForm.ShowDialog();
                 }
@@ -40,6 +43,11 @@ namespace test_part_kesekian
             {
                 MessageBox.Show("Login gagal! Username atau password salah.", "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void auth_form_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

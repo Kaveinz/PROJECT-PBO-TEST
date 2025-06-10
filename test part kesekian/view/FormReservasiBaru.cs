@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using test_part_kesekian.models;
 
 namespace test_part_kesekian
 {

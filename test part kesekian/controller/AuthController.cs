@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
+using test_part_kesekian.models;
 
-namespace test_part_kesekian
+namespace test_part_kesekian.controller
 {
     public static class AuthController
     {

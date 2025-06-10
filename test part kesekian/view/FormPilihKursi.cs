@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using test_part_kesekian.models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace test_part_kesekian

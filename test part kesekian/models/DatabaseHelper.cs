@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
 
-namespace test_part_kesekian
+namespace test_part_kesekian.models
 {
     public static class DatabaseHelper
     {
-        private static readonly string connectionString = "Host=localhost;Username=postgres;Password=Renpersona5;Database=restaurant_db";
+        private static readonly string connectionString = "Host=localhost;Username=farhan;Password=6yLwsk85;Database=MBOK_WO_RESERVE";
 
         public static NpgsqlConnection GetConnection()
         {
