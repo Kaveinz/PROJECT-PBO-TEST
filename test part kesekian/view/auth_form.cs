@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using test_part_kesekian.controller;
 using test_part_kesekian.models;
+using test_part_kesekian.view;
 
 namespace test_part_kesekian
 {

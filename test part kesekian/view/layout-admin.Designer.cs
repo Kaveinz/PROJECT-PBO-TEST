@@ -1,6 +1,6 @@
-﻿namespace project_PBO.View
+﻿namespace test_part_kesekian.view
 {
-    partial class layout_pelanggan
+    partial class layout_admin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,27 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(layout_pelanggan));
-            fileSystemWatcher1 = new FileSystemWatcher();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(layout_admin));
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
-            btnReservasiBaru = new Button();
+            btnCetakLaporan = new Button();
             button1 = new Button();
-            button3 = new Button();
             panel3 = new Panel();
             button4 = new Button();
-            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // fileSystemWatcher1
-            // 
-            fileSystemWatcher1.EnableRaisingEvents = true;
-            fileSystemWatcher1.SynchronizingObject = this;
             // 
             // flowLayoutPanel1
             // 
@@ -56,15 +48,14 @@
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Controls.Add(button3);
             flowLayoutPanel1.Controls.Add(panel3);
             flowLayoutPanel1.Controls.Add(button4);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(235, 600);
-            flowLayoutPanel1.TabIndex = 1;
+            flowLayoutPanel1.Size = new Size(235, 597);
+            flowLayoutPanel1.TabIndex = 2;
             // 
             // panel1
             // 
@@ -86,33 +77,32 @@
             label1.TabIndex = 1;
             label1.Text = "MBOK WO RESERVE";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
             // panel2
             // 
-            panel2.Controls.Add(btnReservasiBaru);
+            panel2.Controls.Add(btnCetakLaporan);
             panel2.Location = new Point(3, 117);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
             panel2.Size = new Size(225, 43);
             panel2.TabIndex = 1;
             // 
-            // btnReservasiBaru
+            // btnCetakLaporan
             // 
-            btnReservasiBaru.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReservasiBaru.ForeColor = Color.Brown;
-            btnReservasiBaru.Image = (Image)resources.GetObject("btnReservasiBaru.Image");
-            btnReservasiBaru.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReservasiBaru.Location = new Point(0, -4);
-            btnReservasiBaru.Margin = new Padding(3, 4, 3, 4);
-            btnReservasiBaru.Name = "btnReservasiBaru";
-            btnReservasiBaru.Padding = new Padding(23, 0, 0, 0);
-            btnReservasiBaru.Size = new Size(222, 43);
-            btnReservasiBaru.TabIndex = 2;
-            btnReservasiBaru.Text = "          Reservasi Baru";
-            btnReservasiBaru.TextAlign = ContentAlignment.MiddleLeft;
-            btnReservasiBaru.UseVisualStyleBackColor = true;
-            btnReservasiBaru.Click += button2_Click;
+            btnCetakLaporan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCetakLaporan.ForeColor = Color.Brown;
+            btnCetakLaporan.Image = (Image)resources.GetObject("btnCetakLaporan.Image");
+            btnCetakLaporan.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCetakLaporan.Location = new Point(0, -4);
+            btnCetakLaporan.Margin = new Padding(3, 4, 3, 4);
+            btnCetakLaporan.Name = "btnCetakLaporan";
+            btnCetakLaporan.Padding = new Padding(23, 0, 0, 0);
+            btnCetakLaporan.Size = new Size(222, 43);
+            btnCetakLaporan.TabIndex = 2;
+            btnCetakLaporan.Text = "          Cetak Laporan";
+            btnCetakLaporan.TextAlign = ContentAlignment.MiddleLeft;
+            btnCetakLaporan.UseVisualStyleBackColor = true;
+            btnCetakLaporan.Click += btnCetakLaporan_Click;
             // 
             // button1
             // 
@@ -126,31 +116,14 @@
             button1.Padding = new Padding(23, 0, 0, 0);
             button1.Size = new Size(222, 43);
             button1.TabIndex = 0;
-            button1.Text = "          Lihat Reservasi";
+            button1.Text = "          Edit Reservasi";
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Brown;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(3, 219);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Padding = new Padding(23, 0, 0, 0);
-            button3.Size = new Size(225, 43);
-            button3.TabIndex = 2;
-            button3.Text = "          pembatalan";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
             // panel3
             // 
-            panel3.Location = new Point(3, 270);
+            panel3.Location = new Point(3, 219);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(232, 260);
@@ -162,7 +135,7 @@
             button4.ForeColor = Color.Brown;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(3, 538);
+            button4.Location = new Point(3, 487);
             button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
             button4.Padding = new Padding(23, 0, 0, 0);
@@ -172,18 +145,16 @@
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = true;
             // 
-            // layout_pelanggan
+            // layout_admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 597);
             Controls.Add(flowLayoutPanel1);
             IsMdiContainer = true;
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "layout_pelanggan";
-            Text = "layout_pelanggan";
-            Load += layout_pelanggan_Load;
-            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
+            Name = "layout_admin";
+            Text = "layout_admin";
+            Load += layout_admin_Load;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -192,14 +163,12 @@
 
         #endregion
 
-        private FileSystemWatcher fileSystemWatcher1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
         private Label label1;
         private Panel panel2;
+        private Button btnCetakLaporan;
         private Button button1;
-        private Button btnReservasiBaru;
-        private Button button3;
         private Panel panel3;
         private Button button4;
     }

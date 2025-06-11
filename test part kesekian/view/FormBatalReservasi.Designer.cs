@@ -31,7 +31,7 @@
             dgvReservations.Name = "dgvReservations";
             dgvReservations.ReadOnly = true;
             dgvReservations.RowHeadersWidth = 51;
-            dgvReservations.Size = new Size(800, 308);
+            dgvReservations.Size = new Size(827, 308);
             dgvReservations.TabIndex = 0;
             // 
             // btnBatal

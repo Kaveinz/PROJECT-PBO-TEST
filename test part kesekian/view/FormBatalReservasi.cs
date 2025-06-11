@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using test_part_kesekian.controller;
 using test_part_kesekian.models;
 
 namespace test_part_kesekian
@@ -68,7 +69,7 @@ namespace test_part_kesekian
             try
             {
                 DatabaseHelper.ExecuteNonQuery(query, parameters);
-                DatabaseHelper.UpdateTableStatus(tableNumber, "Available");
+                reservationController.UpdateTableStatus(tableNumber, "Available");
                 MessageBox.Show("Reservasi berhasil dibatalkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadReservations();
             }

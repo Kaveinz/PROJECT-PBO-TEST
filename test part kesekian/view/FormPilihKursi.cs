@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using test_part_kesekian.controller;
 using test_part_kesekian.models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
@@ -40,8 +41,8 @@ namespace test_part_kesekian
 
         private void CheckKursiAvailability(Button meja, string kodeKursi)
         {
-            bool isAvailable = DatabaseHelper.IsTableAvailable(kodeKursi, reservationTime);
-            bool isCapacitySufficient = DatabaseHelper.IsTableCapacitySufficient(kodeKursi, jumlahOrang);
+            bool isAvailable = reservationController.IsTableAvailable(kodeKursi, reservationTime);
+            bool isCapacitySufficient = reservationController.IsTableCapacitySufficient(kodeKursi, jumlahOrang);
 
             if (!isAvailable || !isCapacitySufficient)
             {

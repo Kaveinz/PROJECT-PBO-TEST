@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using test_part_kesekian.controller;
 using test_part_kesekian.models;
 
 namespace test_part_kesekian
@@ -61,7 +62,7 @@ namespace test_part_kesekian
                 DatabaseHelper.ExecuteNonQuery(query, parameters);
                 if (newStatus == "Selesai" || newStatus == "Dibatalkan" || newStatus == "Tidak Datang")
                 {
-                    DatabaseHelper.UpdateTableStatus(tableNumber, "Available");
+                    reservationController.UpdateTableStatus(tableNumber, "Available");
                 }
                 MessageBox.Show("Status reservasi berhasil diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadReservations();
