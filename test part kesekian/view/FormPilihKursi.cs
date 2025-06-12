@@ -85,7 +85,7 @@ namespace test_part_kesekian
             if (!string.IsNullOrEmpty(SelectedKursi))
             {
                 OnKursiDipilih?.Invoke(this, SelectedKursi);
-                this.Close(); // atau Hide(), terserah kamu mau tutup form-nya atau tetap buka
+                this.Close(); 
             }
             else
             {

@@ -78,7 +78,7 @@
             // label1
             // 
             label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Coalition", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Brown;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
@@ -141,7 +141,7 @@
             button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
             button3.Padding = new Padding(23, 0, 0, 0);
-            button3.Size = new Size(225, 43);
+            button3.Size = new Size(222, 43);
             button3.TabIndex = 2;
             button3.Text = "          pembatalan";
             button3.TextAlign = ContentAlignment.MiddleLeft;

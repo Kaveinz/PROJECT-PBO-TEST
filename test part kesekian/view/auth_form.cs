@@ -42,7 +42,7 @@ namespace test_part_kesekian
                     }
                     this.Close();
                 }
-                else if(CurrentUser.Role == "admin")
+                else if (CurrentUser.Role == "admin")
                 {
                     MessageBox.Show($"{user.Role} berhasil login!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
@@ -64,6 +64,19 @@ namespace test_part_kesekian
         private void auth_form_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var registerForm = new form_register();
+            registerForm.Show();
+            
         }
     }
 }
