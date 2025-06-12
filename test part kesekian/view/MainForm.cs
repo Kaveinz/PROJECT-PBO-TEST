@@ -94,7 +94,7 @@ namespace test_part_kesekian
                 };
                 btnExport.Click += (s, ev) =>
                 {
-                    DatabaseHelper.ExportToTextFile(dt, "Laporan_Reservasi.txt");
+                    LaporanReservasiController.ExportToTextFile(dt, "Laporan_Reservasi.txt");
                     MessageBox.Show("Laporan telah diekspor ke Laporan_Reservasi.txt", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
 

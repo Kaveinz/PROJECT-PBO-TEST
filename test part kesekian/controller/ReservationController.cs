@@ -63,6 +63,8 @@ namespace test_part_kesekian.controller
             };
             DatabaseHelper.ExecuteNonQuery(query, parameters);
         }
-    }
 
+
+    }
 }
+

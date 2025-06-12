@@ -32,13 +32,28 @@ namespace test_part_kesekian
             if (user != null)
             {
                 CurrentUser = user;
-                MessageBox.Show($"{user.Role} berhasil login!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-                using (var mainForm = new layout_pelanggan())
+                if (CurrentUser.Role == "pengguna")
                 {
-                    mainForm.ShowDialog();
+                    MessageBox.Show($"{user.Role} berhasil login!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    using (var mainForm = new layout_pelanggan())
+                    {
+                        mainForm.ShowDialog();
+                    }
+                    this.Close();
                 }
-                this.Close();
+                else if(CurrentUser.Role == "admin")
+                {
+                    MessageBox.Show($"{user.Role} berhasil login!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    using (var mainForm = new layout_admin())
+                    {
+                        mainForm.ShowDialog();
+                    }
+                    this.Close();
+                }
+
+
             }
             else
             {

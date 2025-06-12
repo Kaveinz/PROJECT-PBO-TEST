@@ -20,6 +20,8 @@ namespace test_part_kesekian
         private string selectedKursi = null;
 
         public string SelectedKursi => selectedKursi;
+        public event EventHandler<string> OnKursiDipilih;
+
 
         public FormPilihKursi(DateTime reservationTime, int jumlahOrang)
         {
@@ -80,14 +82,14 @@ namespace test_part_kesekian
 
         private void btnKonfirmasi_Click(object sender, EventArgs e)
         {
-            if (selectedKursi != null)
+            if (!string.IsNullOrEmpty(SelectedKursi))
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                OnKursiDipilih?.Invoke(this, SelectedKursi);
+                this.Close(); // atau Hide(), terserah kamu mau tutup form-nya atau tetap buka
             }
             else
             {
-                MessageBox.Show("Pilih satu kursi terlebih dahulu!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan pilih kursi terlebih dahulu.");
             }
         }
     }

@@ -36,43 +36,43 @@ namespace test_part_kesekian
 
             DateTime reservationTime = dtpTanggal.Value.Date.Add(dtpWaktu.Value.TimeOfDay);
 
-            using (var formPilihKursi = new FormPilihKursi(reservationTime, jumlahOrang))
+            FormPilihKursi formPilihKursi = new FormPilihKursi(reservationTime, jumlahOrang);
+            formPilihKursi.MdiParent = this.MdiParent; // atur parent-nya agar jadi MDI Child
+            formPilihKursi.OnKursiDipilih += (sender2, kursi) =>
             {
-                if (formPilihKursi.ShowDialog() == DialogResult.OK)
+                if (string.IsNullOrEmpty(kursi))
                 {
-                    string tableNumber = formPilihKursi.SelectedKursi;
-                    if (string.IsNullOrEmpty(tableNumber))
-                    {
-                        MessageBox.Show("Pilih kursi terlebih dahulu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    string query = @"
-                        INSERT INTO reservations (user_id, nomor_hp, reservation_time, jumlah_orang, table_number, status)
-                        VALUES (@user_id, @nomor_hp, @reservation_time, @jumlah_orang, @table_number, 'Menunggu')";
-
-                    var parameters = new NpgsqlParameter[]
-                    {
-                        new NpgsqlParameter("@user_id", auth_form.CurrentUser.Id),
-                        new NpgsqlParameter("@nomor_hp", tbNomorHP.Text),
-                        new NpgsqlParameter("@reservation_time", reservationTime),
-                        new NpgsqlParameter("@jumlah_orang", jumlahOrang),
-                        new NpgsqlParameter("@table_number", tableNumber)
-                    };
-
-                    try
-                    {
-                        DatabaseHelper.ExecuteNonQuery(query, parameters);
-                        reservationController.UpdateTableStatus(tableNumber, "Reserved");
-                        MessageBox.Show("Reservasi berhasil disimpan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Pilih kursi terlebih dahulu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-            }
+
+                string query = @"
+        INSERT INTO reservations (user_id, nomor_hp, reservation_time, jumlah_orang, table_number, status)
+        VALUES (@user_id, @nomor_hp, @reservation_time, @jumlah_orang, @table_number, 'Menunggu')";
+
+                var parameters = new NpgsqlParameter[]
+                {
+        new NpgsqlParameter("@user_id", auth_form.CurrentUser.Id),
+        new NpgsqlParameter("@nomor_hp", tbNomorHP.Text),
+        new NpgsqlParameter("@reservation_time", reservationTime),
+        new NpgsqlParameter("@jumlah_orang", jumlahOrang),
+        new NpgsqlParameter("@table_number", kursi)
+                };
+
+                try
+                {
+                    DatabaseHelper.ExecuteNonQuery(query, parameters);
+                    reservationController.UpdateTableStatus(kursi, "Reserved");
+                    MessageBox.Show("Reservasi berhasil disimpan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
+
+            formPilihKursi.Show();
         }
     }
 }

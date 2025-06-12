@@ -49,25 +49,7 @@ namespace test_part_kesekian.models
 
         
 
-        public static void ExportToTextFile(DataTable dt, string filePath)
-        {
-            using (StreamWriter sw = new StreamWriter(filePath))
-            {
-                sw.WriteLine("Laporan Reservasi");
-                sw.WriteLine("=================");
-                foreach (DataRow row in dt.Rows)
-                {
-                    sw.WriteLine($"ID: {row["id"]}");
-                    sw.WriteLine($"Username: {row["username"]}");
-                    sw.WriteLine($"Nomor HP: {row["nomor_hp"]}");
-                    sw.WriteLine($"Waktu: {Convert.ToDateTime(row["reservation_time"]).ToString("yyyy-MM-dd HH:mm")}");
-                    sw.WriteLine($"Jumlah Orang: {row["jumlah_orang"]}");
-                    sw.WriteLine($"Meja: {row["table_number"]}");
-                    sw.WriteLine($"Status: {row["status"]}");
-                    sw.WriteLine("-----------------");
-                }
-                sw.WriteLine($"Total Reservasi: {dt.Rows.Count}");
-            }
-        }
+        
+        
     }
 }

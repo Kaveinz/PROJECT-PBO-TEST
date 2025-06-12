@@ -149,6 +149,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Black;
             ClientSize = new Size(800, 597);
             Controls.Add(flowLayoutPanel1);
             IsMdiContainer = true;
