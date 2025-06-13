@@ -14,7 +14,7 @@ namespace test_part_kesekian.view
 {
     public partial class CetakLaporan : Form
     {
-        private readonly LaporanReservasiController controller = new LaporanReservasiController();
+        private LaporanReservasiController controller;
         private readonly PrintDocument printDocument = new PrintDocument();
         private DataTable dtLaporan;
 
@@ -44,7 +44,7 @@ namespace test_part_kesekian.view
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            controller.CetakLaporan(e, dtLaporan);
+            controller.CetakLaporan(e); 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -69,18 +69,49 @@ namespace test_part_kesekian.view
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if (dvgLaporan.DataSource is DataTable dt)
+            string jenis = comboBox1.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(jenis))
             {
-                dtLaporan = dt; // simpan ke variabel yang akan digunakan saat print
-                printDocument.PrintPage += PrintDocument_PrintPage;
-
-                PrintPreviewDialog previewDialog = new PrintPreviewDialog
-                {
-                    Document = printDocument
-                };
-
-                previewDialog.ShowDialog();
+                MessageBox.Show("Pilih jenis laporan terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            switch (jenis)
+            {
+                case "Mingguan":
+                    if (comboBox3.SelectedItem == null)
+                    {
+                        MessageBox.Show("Pilih minggu ke-berapa!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    int mingguKe = Convert.ToInt32(comboBox3.SelectedItem);
+                    controller = new LaporanMingguanController(mingguKe);
+                    break;
+
+                case "Bulanan":
+                    if (comboBox2.SelectedItem == null)
+                    {
+                        MessageBox.Show("Pilih bulan ke-berapa!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    int bulanKe = Convert.ToInt32(comboBox2.SelectedItem);
+                    controller = new LaporanBulananController(bulanKe);
+                    break;
+            }
+
+            dtLaporan = controller.AmbilData();
+            dvgLaporan.DataSource = dtLaporan;
+
+            printDocument.PrintPage -= PrintDocument_PrintPage;
+            printDocument.PrintPage += PrintDocument_PrintPage;
+
+            PrintPreviewDialog previewDialog = new PrintPreviewDialog
+            {
+                Document = printDocument
+            };
+
+            previewDialog.ShowDialog();
         }
     }
 

@@ -6,8 +6,12 @@ using test_part_kesekian.models;
 
 namespace test_part_kesekian
 {
-    public class LaporanReservasiController
+    public abstract class LaporanReservasiController
     {
+        public abstract string JudulLaporan { get; }
+
+        public abstract DataTable AmbilData();
+
         private const string Query = @"
         SELECT r.id, u.username, r.nomor_hp, r.reservation_time, r.jumlah_orang, r.table_number, r.status
         FROM reservations r
@@ -41,10 +45,12 @@ namespace test_part_kesekian
         }
 
 
-        public void CetakLaporan(PrintPageEventArgs e, DataTable dt)
+        public void CetakLaporan(PrintPageEventArgs e)
         {
+            DataTable dt = AmbilData(); // Ambil otomatis dari class turunan
+
             float yPos = 100;
-            string header = "Laporan Reservasi";
+            string header = JudulLaporan; // Ganti: pakai property abstract
             string footer = $"Total Reservasi: {dt.Rows.Count}";
 
             e.Graphics.DrawString(header, new Font("Arial", 16, FontStyle.Bold), Brushes.Black, new PointF(100, 50));
@@ -67,5 +73,73 @@ namespace test_part_kesekian
             e.Graphics.DrawString("--------------------------------------------------", new Font("Arial", 12), Brushes.Black, new PointF(100, yPos));
             e.Graphics.DrawString(footer, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, yPos + 20));
         }
+
+
+
     }
+
+    public class LaporanMingguanController : LaporanReservasiController
+    {
+        public override string JudulLaporan => "Laporan Reservasi Mingguan";
+
+        private int mingguKe;
+
+        public LaporanMingguanController(int mingguKe)
+        {
+            this.mingguKe = mingguKe;
+        }
+
+        public override DataTable AmbilData()
+        {
+            DateTime startOfYear = new DateTime(DateTime.Now.Year, 1, 1);
+            DateTime startDate = startOfYear.AddDays((mingguKe - 1) * 7);
+            DateTime endDate = startDate.AddDays(6);
+
+            string query = $@"
+            SELECT r.id, u.username, r.nomor_hp, r.reservation_time, 
+                   r.jumlah_orang, r.table_number, r.status
+            FROM reservations r
+            JOIN users u ON r.user_id = u.id
+            WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')
+            AND r.reservation_time BETWEEN '{startDate:yyyy-MM-dd}' AND '{endDate:yyyy-MM-dd}'";
+
+            return DatabaseHelper.GetData(query);
+        }
+    }
+
+
+    public class LaporanBulananController : LaporanReservasiController
+    {
+        public override string JudulLaporan => "Laporan Reservasi Bulanan";
+
+        private int bulanKe;
+
+        public LaporanBulananController(int bulanKe)
+        {
+            this.bulanKe = bulanKe;
+        }
+
+        public override DataTable AmbilData()
+        {
+            // Tahun bisa disesuaikan, atau bisa juga pakai DateTime.Now.Year
+            int tahunSekarang = DateTime.Now.Year;
+
+            // Tanggal awal dan akhir bulan
+            DateTime startDate = new DateTime(tahunSekarang, bulanKe, 1);
+            DateTime endDate = startDate.AddMonths(1).AddDays(-1);
+
+            string query = $@"
+                SELECT r.id, u.username, r.nomor_hp, r.reservation_time, 
+                       r.jumlah_orang, r.table_number, r.status
+                FROM reservations r
+                JOIN users u ON r.user_id = u.id
+                WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')
+                AND r.reservation_time BETWEEN '{startDate:yyyy-MM-dd}' AND '{endDate:yyyy-MM-dd}'";
+
+            return DatabaseHelper.GetData(query);
+        }
+    }
+
+
+
 }

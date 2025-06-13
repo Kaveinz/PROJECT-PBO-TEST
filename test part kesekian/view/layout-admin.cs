@@ -18,7 +18,7 @@ namespace test_part_kesekian.view
         public layout_admin()
         {
             InitializeComponent();
-            
+
         }
 
         private void closeAllMdiChild()
@@ -45,7 +45,7 @@ namespace test_part_kesekian.view
 
         }
 
-       
+
         private void btnCetakLaporan_Click(object sender, EventArgs e)
         {
 
@@ -54,5 +54,22 @@ namespace test_part_kesekian.view
             laporanForm.MdiParent = this; // Penting: tetapkan parent MDI-nya
             laporanForm.WindowState = FormWindowState.Maximized; // Opsional
             laporanForm.Show();
-        }   }
+        }
+
+ 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
