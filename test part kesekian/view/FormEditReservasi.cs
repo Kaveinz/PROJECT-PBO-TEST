@@ -62,7 +62,7 @@ namespace test_part_kesekian
                 DatabaseHelper.ExecuteNonQuery(query, parameters);
                 if (newStatus == "Selesai" || newStatus == "Dibatalkan" || newStatus == "Tidak Datang")
                 {
-                    reservationController.UpdateTableStatus(tableNumber, "Available");
+                    ReservationController.UpdateTableStatus(tableNumber, "Available");
                 }
                 MessageBox.Show("Status reservasi berhasil diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadReservations();

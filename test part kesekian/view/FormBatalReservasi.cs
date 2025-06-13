@@ -69,7 +69,7 @@ namespace test_part_kesekian
             try
             {
                 DatabaseHelper.ExecuteNonQuery(query, parameters);
-                reservationController.UpdateTableStatus(tableNumber, "Available");
+                ReservationController.UpdateTableStatus(tableNumber, "Available");
                 MessageBox.Show("Reservasi berhasil dibatalkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadReservations();
             }

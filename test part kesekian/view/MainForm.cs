@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
 using test_part_kesekian.models;
+using test_part_kesekian.controller;
 
 namespace test_part_kesekian
 {
@@ -23,11 +24,9 @@ namespace test_part_kesekian
             printDocument = new PrintDocument();
             printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
             ConfigureUI();
-        }
-
-        private void ConfigureUI()
+        }        private void ConfigureUI()
         {
-            if (auth_form.CurrentUser.Role == "admin")
+            if (auth_form.CurrentUser.Role == UserRole.Admin)
             {
                 btnReservasiBaru.Visible = false;
                 btnEditReservasi.Visible = true;
@@ -94,7 +93,7 @@ namespace test_part_kesekian
                 };
                 btnExport.Click += (s, ev) =>
                 {
-                    LaporanReservasiController.ExportToTextFile(dt, "Laporan_Reservasi.txt");
+                    LaporanReservasiController.ExportToTextFileStatic(dt, "Laporan_Reservasi.txt");
                     MessageBox.Show("Laporan telah diekspor ke Laporan_Reservasi.txt", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
 

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using test_part_kesekian.models;
+using test_part_kesekian.controller;
 
 namespace test_part_kesekian.view
 {
@@ -61,7 +62,8 @@ namespace test_part_kesekian.view
 
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
-                    LaporanReservasiController.ExportToTextFile((DataTable)dvgLaporan.DataSource, saveDialog.FileName);
+                    var controller = new LaporanUmumController();
+                    controller.ExportToFile(saveDialog.FileName, ExportFormat.Text);
                     MessageBox.Show("Laporan telah diekspor!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

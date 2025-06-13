@@ -27,43 +27,73 @@ namespace test_part_kesekian.view
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void Login_button_Click(object sender, EventArgs e)
+        }        private void Login_button_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
-            string namaLengkap = txtNama_lengkap.Text.Trim();
-            string email = txtEmail.Text.Trim();
-            string nomorHP = txtNoHp.Text.Trim();
-
-            if (string.IsNullOrEmpty(username) ||
-                string.IsNullOrEmpty(password) ||
-                string.IsNullOrEmpty(namaLengkap) ||
-                string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(nomorHP))
+            try
             {
-                MessageBox.Show("Semua field wajib diisi!", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                string username = txtUsername.Text.Trim();
+                string password = txtPassword.Text.Trim();
+                string namaLengkap = txtNama_lengkap.Text.Trim();
+                string email = txtEmail.Text.Trim();
+                string nomorHP = txtNoHp.Text.Trim();
+
+                // Basic validation
+                if (string.IsNullOrEmpty(username) ||
+                    string.IsNullOrEmpty(password) ||
+                    string.IsNullOrEmpty(namaLengkap) ||
+                    string.IsNullOrEmpty(email) ||
+                    string.IsNullOrEmpty(nomorHP))
+                {
+                    MessageBox.Show("Semua field wajib diisi!", "Validasi", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Create new user using enhanced User model
+                var newUser = new User(username, password, namaLengkap, email, nomorHP)
+                {
+                    Role = UserRole.Pengguna
+                };
+
+                // Validate user data using the built-in validation
+                if (!newUser.ValidateData())
+                {
+                    MessageBox.Show("Data yang dimasukkan tidak valid!\n" +
+                                  "- Username minimal 3 karakter\n" +
+                                  "- Password minimal 6 karakter\n" +
+                                  "- Email harus valid\n" +
+                                  "- Nomor HP minimal 10 digit", 
+                                  "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Try to register
+                bool success = AuthController.Instance.Register(newUser);
+                if (success)
+                {
+                    MessageBox.Show($"Registrasi berhasil!\nSelamat datang, {newUser.NamaLengkap}!", 
+                        "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    this.Hide();
+                    var authForm = new auth_form();
+                    authForm.Show();
+                    this.Close();
+                }
             }
-
-            var newUser = new User
+            catch (AuthenticationException ex)
             {
-                Username = username,
-                Password = password,
-                Role = "pengguna",
-                nama_lengkap = namaLengkap,
-                email = email,
-                nomor_hp = nomorHP
-            };
-
-            bool success = AuthController.Register(newUser);
-            if (success)
+                MessageBox.Show($"Registrasi gagal: {ex.Message}", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentException ex)
             {
-                MessageBox.Show("Registrasi berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); 
-                var auth_form = new auth_form();
-                auth_form.Show();
+                MessageBox.Show($"Data tidak valid: {ex.Message}", "Validasi Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

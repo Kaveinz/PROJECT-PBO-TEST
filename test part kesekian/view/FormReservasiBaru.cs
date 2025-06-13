@@ -18,61 +18,103 @@ namespace test_part_kesekian
         public FormReservasiBaru()
         {
             InitializeComponent();
-        }
-
-        private void btnSimpan_Click(object sender, EventArgs e)
+        }        private void btnSimpan_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbNomorHP.Text) || string.IsNullOrWhiteSpace(tbJumlahOrang.Text))
+            try
             {
-                MessageBox.Show("Harap lengkapi semua kolom!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!int.TryParse(tbJumlahOrang.Text, out int jumlahOrang) || jumlahOrang <= 0)
-            {
-                MessageBox.Show("Jumlah orang harus berupa angka positif!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            DateTime reservationTime = dtpTanggal.Value.Date.Add(dtpWaktu.Value.TimeOfDay);
-
-            FormPilihKursi formPilihKursi = new FormPilihKursi(reservationTime, jumlahOrang);
-            formPilihKursi.MdiParent = this.MdiParent; // atur parent-nya agar jadi MDI Child
-            formPilihKursi.OnKursiDipilih += (sender2, kursi) =>
-            {
-                if (string.IsNullOrEmpty(kursi))
+                // Input validation
+                if (string.IsNullOrWhiteSpace(tbNomorHP.Text) || string.IsNullOrWhiteSpace(tbJumlahOrang.Text))
                 {
-                    MessageBox.Show("Pilih kursi terlebih dahulu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Harap lengkapi semua kolom!", "Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                string query = @"
-        INSERT INTO reservations (user_id, nomor_hp, reservation_time, jumlah_orang, table_number, status)
-        VALUES (@user_id, @nomor_hp, @reservation_time, @jumlah_orang, @table_number, 'Menunggu')";
-
-                var parameters = new NpgsqlParameter[]
+                if (!int.TryParse(tbJumlahOrang.Text, out int jumlahOrang) || jumlahOrang <= 0)
                 {
-        new NpgsqlParameter("@user_id", auth_form.CurrentUser.Id),
-        new NpgsqlParameter("@nomor_hp", tbNomorHP.Text),
-        new NpgsqlParameter("@reservation_time", reservationTime),
-        new NpgsqlParameter("@jumlah_orang", jumlahOrang),
-        new NpgsqlParameter("@table_number", kursi)
+                    MessageBox.Show("Jumlah orang harus berupa angka positif!", "Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DateTime reservationTime = dtpTanggal.Value.Date.Add(dtpWaktu.Value.TimeOfDay);
+
+                // Check if reservation time is in the future
+                if (reservationTime <= DateTime.Now)
+                {
+                    MessageBox.Show("Waktu reservasi harus di masa depan!", "Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Show table selection form
+                FormPilihKursi formPilihKursi = new FormPilihKursi(reservationTime, jumlahOrang);
+                formPilihKursi.MdiParent = this.MdiParent;
+                formPilihKursi.OnKursiDipilih += (sender2, kursi) =>
+                {
+                    try
+                    {
+                        if (string.IsNullOrEmpty(kursi))
+                        {
+                            MessageBox.Show("Pilih kursi terlebih dahulu!", "Error", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // Create reservation using enhanced model
+                        var reservation = new Reservation(
+                            auth_form.CurrentUser.Id,
+                            tbNomorHP.Text.Trim(),
+                            reservationTime,
+                            jumlahOrang,
+                            kursi
+                        );
+
+                        // Validate reservation data
+                        if (!reservation.ValidateReservation())
+                        {
+                            MessageBox.Show("Data reservasi tidak valid!", "Error", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // Create reservation using the enhanced controller
+                        bool success = ReservationController.Instance.CreateReservation(reservation);
+                        
+                        if (success)
+                        {
+                            decimal estimatedCost = reservation.CalculateCost();
+                            
+                            MessageBox.Show($"Reservasi berhasil dibuat!\n" +
+                                          $"Nomor Meja: {kursi}\n" +
+                                          $"Waktu: {reservationTime:dd/MM/yyyy HH:mm}\n" +
+                                          $"Jumlah Orang: {jumlahOrang}\n" +
+                                          $"Estimasi Biaya: Rp {estimatedCost:N0}\n" +
+                                          $"Status: {reservation.GetStatusDescription()}", 
+                                          "Reservasi Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
+                            this.Close();
+                        }
+                    }
+                    catch (ReservationException ex)
+                    {
+                        MessageBox.Show($"Gagal membuat reservasi: {ex.Message}", "Error", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 };
 
-                try
-                {
-                    DatabaseHelper.ExecuteNonQuery(query, parameters);
-                    reservationController.UpdateTableStatus(kursi, "Reserved");
-                    MessageBox.Show("Reservasi berhasil disimpan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            };
-
-            formPilihKursi.Show();
+                formPilihKursi.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
