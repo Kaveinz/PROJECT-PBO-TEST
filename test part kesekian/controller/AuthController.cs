@@ -18,7 +18,7 @@ namespace test_part_kesekian.controller
         {
             using var conn = DatabaseHelper.GetConnection();
             conn.Open();
-            string query = "SELECT id, username, role FROM users WHERE username = @u AND password_hash = crypt(@p, password_hash)";
+            string query = "SELECT id, username, role, nomor_hp FROM users WHERE username = @u AND password_hash = crypt(@p, password_hash)";
             using var cmd = new NpgsqlCommand(query, conn);
             cmd.Parameters.AddWithValue("u", username);
             cmd.Parameters.AddWithValue("p", password);
@@ -30,7 +30,8 @@ namespace test_part_kesekian.controller
                 {
                     Id = reader.GetInt32(0),
                     Username = reader.GetString(1),
-                    Role = reader.GetString(2)
+                    Role = reader.GetString(2),
+                    nomor_hp = reader.GetString(3)
                 };
             }
             return null;

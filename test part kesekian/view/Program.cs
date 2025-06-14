@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace test_part_kesekian
+namespace test_part_kesekian.view
 {
     static class Program
     {

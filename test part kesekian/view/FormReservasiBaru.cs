@@ -22,11 +22,7 @@ namespace test_part_kesekian
 
         private void btnSimpan_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbNomorHP.Text) || string.IsNullOrWhiteSpace(tbJumlahOrang.Text))
-            {
-                MessageBox.Show("Harap lengkapi semua kolom!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
 
             if (!int.TryParse(tbJumlahOrang.Text, out int jumlahOrang) || jumlahOrang <= 0)
             {
@@ -53,7 +49,7 @@ namespace test_part_kesekian
                 var parameters = new NpgsqlParameter[]
                 {
         new NpgsqlParameter("@user_id", auth_form.CurrentUser.Id),
-        new NpgsqlParameter("@nomor_hp", tbNomorHP.Text),
+        new NpgsqlParameter("@nomor_hp", auth_form.CurrentUser.nomor_hp),
         new NpgsqlParameter("@reservation_time", reservationTime),
         new NpgsqlParameter("@jumlah_orang", jumlahOrang),
         new NpgsqlParameter("@table_number", kursi)
