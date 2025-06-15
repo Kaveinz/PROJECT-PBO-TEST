@@ -99,7 +99,6 @@ namespace test_part_kesekian.controller
         }
     }
 
-    // Concrete implementation of ReservationController
     public class ReservationController : BaseReservationController
     {
         private static ReservationController _instance;
@@ -124,7 +123,6 @@ namespace test_part_kesekian.controller
 
         private ReservationController(IDatabaseOperations database) : base(database) { }
 
-        // Implementation of abstract CreateReservation method
         public override bool CreateReservation(Reservation reservation)
         {
             if (!ValidateReservationData(reservation))
@@ -179,10 +177,7 @@ namespace test_part_kesekian.controller
                 throw new ReservationException($"Failed to create reservation: {ex.Message}", ex);
             }
         }
-
-        // Implementation of abstract UpdateReservation method
         
-        // Implementation of abstract IsTableAvailable method
         public override bool IsTableAvailable(string tableNumber, DateTime reservationTime)
         {
             string query = @"
@@ -235,12 +230,6 @@ namespace test_part_kesekian.controller
             }
         }
 
-        
-
-        // Method to get upcoming reservations
-        
-
-        // Method to confirm reservation (admin only)
         public bool ConfirmReservation(int reservationId)
         {
             string query = "UPDATE reservations SET status = 'Dikonfirmasi' WHERE id = @id AND status = 'Menunggu'";

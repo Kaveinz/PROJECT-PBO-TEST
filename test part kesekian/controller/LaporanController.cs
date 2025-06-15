@@ -10,7 +10,6 @@ using test_part_kesekian.models;
 
 namespace test_part_kesekian.controller
 {
-    // Interface for report operations (Abstraction)
     public interface IReportService
     {
         string JudulLaporan { get; }
@@ -19,7 +18,6 @@ namespace test_part_kesekian.controller
         void ExportToFile(string filePath);
     }
 
-    // Data class for report summary (Encapsulation)
     public class ReportSummary
     {
         public int TotalReservations { get; set; }
@@ -39,18 +37,14 @@ namespace test_part_kesekian.controller
         public double CompletionRate => TotalReservations > 0 ? (double)CompletedReservations / TotalReservations * 100 : 0;
     }
 
-    // Abstract base class for report management (Abstraction & Inheritance)
     public abstract class LaporanReservasiController : IReportService
     {
-        // Encapsulation: Protected fields
         protected readonly IDatabaseOperations _database;
         protected DateTime _startDate;
         protected DateTime _endDate;
 
-        // Abstract property for report title
         public abstract string JudulLaporan { get; }
 
-        // Constructor
         protected LaporanReservasiController()
         {
             _database = DatabaseHelper.Instance;
@@ -62,10 +56,8 @@ namespace test_part_kesekian.controller
             _endDate = endDate;
         }
 
-        // Abstract method for derived classes to implement
         public abstract DataTable AmbilData();
 
-        // Virtual method for printing (Polymorphism)
         public virtual void CetakLaporan(PrintPageEventArgs e)
         {
             DataTable dt = AmbilData();
@@ -73,11 +65,9 @@ namespace test_part_kesekian.controller
             string header = JudulLaporan;
             string footer = $"Total Reservasi: {dt.Rows.Count}";
 
-            // Print header
             e.Graphics.DrawString(header, new Font("Arial", 16, FontStyle.Bold), Brushes.Black, new PointF(100, 50));
             e.Graphics.DrawString("".PadRight(50, '-'), new Font("Arial", 12), Brushes.Black, new PointF(100, 80));
 
-            // Print data rows
             foreach (DataRow row in dt.Rows)
             {
                 string line = FormatRowForPrint(row);
@@ -91,12 +81,10 @@ namespace test_part_kesekian.controller
                 }
             }
 
-            // Print footer
             e.Graphics.DrawString("".PadRight(50, '-'), new Font("Arial", 12), Brushes.Black, new PointF(100, yPos));
             e.Graphics.DrawString(footer, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, yPos + 20));
         }
 
-        // Virtual method for formatting row data (Polymorphism)
         protected virtual string FormatRowForPrint(DataRow row)
         {
             return $"ID: {row["id"]}, User: {row["username"]}, HP: {row["nomor_hp"]}, " +
@@ -104,14 +92,12 @@ namespace test_part_kesekian.controller
                    $"Orang: {row["jumlah_orang"]}, Status: {row["status"]}";
         }
 
-        // Method to export data to text format only (no CSV/HTML)
         public virtual void ExportToFile(string filePath)
         {
             DataTable dt = AmbilData();
             ExportToTextFile(dt, filePath);
         }
 
-        // Protected method for text export only, tanpa info meja
         protected virtual void ExportToTextFile(DataTable dt, string filePath)
         {
             using (StreamWriter sw = new StreamWriter(filePath))
@@ -135,7 +121,6 @@ namespace test_part_kesekian.controller
             }
         }
 
-        // Method to get report summary
         public virtual ReportSummary GetReportSummary()
         {
             DataTable dt = AmbilData();
@@ -167,7 +152,7 @@ namespace test_part_kesekian.controller
             }
 
             return summary;
-        }        // Static method for backward compatibility
+        }        
         public static void ExportToTextFileStatic(DataTable dt, string filePath)
         {
             var tempController = new LaporanUmumController();
@@ -190,7 +175,6 @@ namespace test_part_kesekian.controller
         }
     }
 
-    // Concrete implementation for general reports
     public class LaporanUmumController : LaporanReservasiController
     {
         public override string JudulLaporan => "Laporan Reservasi Umum";
@@ -208,7 +192,6 @@ namespace test_part_kesekian.controller
         }
     }
 
-    // Concrete implementation for weekly reports (Inheritance)
     public class LaporanMingguanController : LaporanReservasiController
     {
         private readonly int _mingguKe;
@@ -248,7 +231,6 @@ namespace test_part_kesekian.controller
             return _database.GetData(query, parameters);
         }
 
-        // Override format method for weekly specific information
         protected override string FormatRowForPrint(DataRow row)
         {
             DateTime reservationTime = Convert.ToDateTime(row["reservation_time"]);
@@ -258,7 +240,6 @@ namespace test_part_kesekian.controller
         }
     }
 
-    // Concrete implementation for monthly reports (Inheritance)
     public class LaporanBulananController : LaporanReservasiController
     {
         private readonly int _bulanKe;
@@ -309,7 +290,6 @@ namespace test_part_kesekian.controller
         }
     }
 
-    // // Concrete implementation for daily reports
     // public class LaporanHarianController : LaporanReservasiController
     // {
     //     private readonly DateTime _tanggal;
@@ -370,7 +350,6 @@ namespace test_part_kesekian.controller
         }
     }
 
-    // Custom exception for report operations
     public class ReportException : Exception
     {
         public ReportException(string message) : base(message) { }

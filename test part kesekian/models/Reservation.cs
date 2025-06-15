@@ -22,7 +22,7 @@ namespace test_part_kesekian.models
         public int Id 
         { 
             get => _id; 
-            set => _id = value >= 0 ? value : throw new ArgumentException("ID cannot be negative"); 
+            set => _id = value >= 0 ? value : throw new ArgumentException("ID Tidak Boleh Negatif!"); 
         }
 
         public DateTime CreatedAt 
@@ -80,7 +80,7 @@ namespace test_part_kesekian.models
         public int UserId 
         { 
             get => _userId; 
-            set => _userId = value > 0 ? value : throw new ArgumentException("User ID must be positive"); 
+            set => _userId = value > 0 ? value : throw new ArgumentException("User ID Harus Positif"); 
         }
 
         public string NomorHP 
@@ -95,7 +95,7 @@ namespace test_part_kesekian.models
             set 
             { 
                 if (value < DateTime.Now)
-                    throw new ArgumentException("Reservation time cannot be in the past");
+                    throw new ArgumentException("Waktu Reservasi Tidak Boleh Sebelum Sekarang");
                 _reservationTime = value; 
             } 
         }
@@ -103,7 +103,7 @@ namespace test_part_kesekian.models
         public int JumlahOrang 
         { 
             get => _jumlahOrang; 
-            set => _jumlahOrang = value > 0 ? value : throw new ArgumentException("Number of people must be positive"); 
+            set => _jumlahOrang = value > 0 ? value : throw new ArgumentException("Jumlah Orang Harus Positif"); 
         }
 
         public string TableNumber 

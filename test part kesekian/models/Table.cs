@@ -17,13 +17,11 @@ namespace test_part_kesekian.models
 
     public abstract class BaseTable : ITableOperations
     {
-        // Enkapsulasi: Field yang dilindungi
         protected string _tableNumber;
         protected int _capacity;
         protected TableStatus _status;
         protected TableType _tableType;
 
-        // Properti dengan validasi
         public string TableNumber 
         { 
             get => _tableNumber; 
@@ -33,7 +31,7 @@ namespace test_part_kesekian.models
         public int Capacity 
         { 
             get => _capacity; 
-            set => _capacity = value > 0 ? value : throw new ArgumentException("Capacity must be positive"); 
+            set => _capacity = value > 0 ? value : throw new ArgumentException("Kapasitas harus lebih besar dari 0"); 
         }
 
         public TableStatus Status 
@@ -73,7 +71,7 @@ namespace test_part_kesekian.models
             if (IsAvailable())
                 Status = TableStatus.Reserved;
             else
-                throw new InvalidOperationException($"Table {TableNumber} is not available for reservation");
+                throw new InvalidOperationException($"Meja {TableNumber} sudah terpakai. ");
         }
 
         public virtual void Release()
@@ -82,14 +80,12 @@ namespace test_part_kesekian.models
                 Status = TableStatus.Available;
         }
 
-        // Metode untuk mendapatkan deskripsi tabel
         public virtual string GetDescription()
         {
             return $"Table {TableNumber} - {TableType} (Capacity: {Capacity})";
         }
     }
 
-    // Kelas Tabel konkret yang mewarisi dari BaseTable
     public class Table : BaseTable
     {
         private string _location;
@@ -132,7 +128,6 @@ namespace test_part_kesekian.models
             HasView = hasView;
         }
 
-        // Implementasi metode abstrak dengan logika harga spesifik (Polimorfisme)
         public override decimal GetHourlyRate()
         {
             decimal baseRate = TableType switch
@@ -143,7 +138,6 @@ namespace test_part_kesekian.models
                 _ => 25000
             };
 
-            // Tambahkan premium untuk meja dengan pemandangan
             if (HasView)
                 baseRate += 10000;
 
@@ -172,26 +166,22 @@ namespace test_part_kesekian.models
             return description;
         }
 
-        // Untuk memeriksa meja apakah perlu dibersihkan
         public bool NeedsCleaning()
         {
             return DateTime.Now.Subtract(LastCleanedAt).TotalHours >= 4;
         }
 
-        // Tandai Meja
         public void MarkAsCleaned()
         {
             LastCleanedAt = DateTime.Now;
         }
 
-        // Total Biaya berdasar Durasi
         public decimal CalculateCost(TimeSpan duration)
         {
             double hours = Math.Ceiling(duration.TotalHours);
             return (decimal)hours * GetHourlyRate();
         }
 
-        // Objek Tabel
         public static Table CreateTable(string tableNumber, int capacity)
         {
             TableType type = capacity switch

@@ -30,10 +30,8 @@ namespace test_part_kesekian.models
             set => _nomorHp = value?.Trim(); 
         }
 
-        // Abstract method demonstrating Abstraction
         public abstract string GetDisplayInfo();
 
-        // Virtual method for Polymorphism
         public virtual bool ValidateData()
         {
             return !string.IsNullOrWhiteSpace(NamaLengkap) && 
@@ -42,10 +40,8 @@ namespace test_part_kesekian.models
         }
     }
 
-    // User class inheriting from Person (Inheritance)
     public class User : Person
     {
-        // Encapsulation: Private fields with controlled access
         private int _id;
         private string _username;
         private string _password;
@@ -53,11 +49,10 @@ namespace test_part_kesekian.models
         private DateTime _createdAt;
         private UserStatus _status;
 
-        // Properties with validation (Encapsulation)
         public int Id 
         { 
             get => _id; 
-            set => _id = value >= 0 ? value : throw new ArgumentException("ID cannot be negative"); 
+            set => _id = value >= 0 ? value : throw new ArgumentException("ID Tidak Boleh Negatif!"); 
         }
 
         public string Username 
@@ -90,7 +85,6 @@ namespace test_part_kesekian.models
             set => _status = value; 
         }
 
-        // Constructor with validation
         public User()
         {
             _createdAt = DateTime.Now;
@@ -107,13 +101,11 @@ namespace test_part_kesekian.models
             NomorHp = nomorHp;
         }
 
-        // Implementation of abstract method (Abstraction)
         public override string GetDisplayInfo()
         {
             return $"{NamaLengkap} ({Username}) - {Role}";
         }
 
-        // Override ValidateData for specific User validation (Polymorphism)
         public override bool ValidateData()
         {
             return base.ValidateData() && 
@@ -123,20 +115,17 @@ namespace test_part_kesekian.models
                    Password.Length >= 6;
         }
 
-        // Method to check if user is admin
         public bool IsAdmin()
         {
             return Role == UserRole.Admin;
         }
 
-        // Method to check if user can make reservations
         public bool CanMakeReservation()
         {
             return Status == UserStatus.Aktif && (Role == UserRole.Pengguna || Role == UserRole.Admin);
         }
     }
 
-    // Enums for better type safety and maintainability
     public enum UserRole
     {
         Pengguna,

@@ -108,13 +108,10 @@ namespace test_part_kesekian.models
         }
     }
 
-    // Concrete implementation of DatabaseHelper (Inheritance)
     public static class DatabaseHelper
     {
-        // Encapsulation: Private connection string
         private static readonly string _connectionString = "Host=localhost;Username=postgres;Password=Delion21.;Database=Mbok Wo Reserved";
         
-        // Singleton pattern for database instance (Design Pattern)
         private static PostgreSQLHelper _instance;
         private static readonly object _lock = new object();
 
@@ -134,7 +131,6 @@ namespace test_part_kesekian.models
             }
         }
 
-        // Static methods for backward compatibility
         public static NpgsqlConnection GetConnection()
         {
             return Instance.GetConnection();
@@ -155,7 +151,6 @@ namespace test_part_kesekian.models
             return Instance.ExecuteScalar(query, parameters);
         }
 
-        // Transaction support
         public static void ExecuteTransaction(Action<NpgsqlTransaction> transactionAction)
         {
             using (var conn = GetConnection())
@@ -198,9 +193,6 @@ namespace test_part_kesekian.models
             }
         }
 
-        /// <summary>
-        /// Fix sequence synchronization issues (for reservations table)
-        /// </summary>
         public static void FixReservationSequence()
         {
             try
@@ -208,12 +200,10 @@ namespace test_part_kesekian.models
                 using var connection = new NpgsqlConnection(_connectionString);
                 connection.Open();
                 
-                // Get current max ID
                 string maxIdQuery = "SELECT COALESCE(MAX(id), 0) FROM reservations";
                 using var maxIdCmd = new NpgsqlCommand(maxIdQuery, connection);
                 var maxId = Convert.ToInt32(maxIdCmd.ExecuteScalar());
                 
-                // Set sequence to max ID + 1
                 string fixSequenceQuery = $"SELECT setval('reservations_id_seq', {maxId + 1})";
                 using var fixCmd = new NpgsqlCommand(fixSequenceQuery, connection);
                 fixCmd.ExecuteNonQuery();
@@ -228,25 +218,20 @@ namespace test_part_kesekian.models
         }
     }
 
-    // Concrete PostgreSQL implementation
     public class PostgreSQLHelper : BaseDatabaseHelper
     {
         public PostgreSQLHelper(string connectionString) : base(connectionString) { }
 
-        // Implementation of abstract method
         public override NpgsqlConnection GetConnection()
         {
             return new NpgsqlConnection(_connectionString);
         }
 
-        // Override with PostgreSQL-specific optimizations
         public override DataTable GetData(string query, NpgsqlParameter[] parameters = null)
         {
-            // Add PostgreSQL-specific optimizations if needed
             return base.GetData(query, parameters);
         }
 
-        // PostgreSQL-specific methods
         public List<T> GetList<T>(string query, Func<NpgsqlDataReader, T> mapper, NpgsqlParameter[] parameters = null)
         {
             var list = new List<T>();
@@ -272,7 +257,6 @@ namespace test_part_kesekian.models
             return list;
         }
 
-        // Method to get single object
         public T GetSingle<T>(string query, Func<NpgsqlDataReader, T> mapper, NpgsqlParameter[] parameters = null) where T : class
         {
             using (var conn = GetConnection())
@@ -295,7 +279,6 @@ namespace test_part_kesekian.models
         }
     }
 
-    // Custom exception for database operations
     public class DatabaseException : Exception
     {
         public DatabaseException(string message) : base(message) { }
