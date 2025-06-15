@@ -19,24 +19,22 @@ namespace test_part_kesekian
         {
             InitializeComponent();
             LoadReservations();
-        }
-
-        private void LoadReservations()
+        }        private void LoadReservations()
         {
             string query = @"
-              SELECTr.id AS ""ID Reservasi"", 
+                SELECT r.id AS ""ID Reservasi"", 
                     u.username AS ""Nama Pengguna"", 
                     r.nomor_hp AS ""Nomor HP"", 
                     r.reservation_time AS ""Waktu Reservasi"", 
                     r.jumlah_orang AS ""Jumlah Orang"", 
                     r.table_number AS ""Nomor Meja"", 
                     r.status AS ""Status""
-                WHER r.status IN ('Menunggu', 'Dikonfirmasi')";
+                FROM reservations r
+                JOIN users u ON r.user_id = u.id
+                WHERE r.status IN ('Menunggu', 'Dikonfirmasi')";
             var dt = DatabaseHelper.GetData(query);
             dgvReservations.DataSource = dt;
-        }
-
-        private void btnSimpan_Click(object sender, EventArgs e)
+        }        private void btnSimpan_Click(object sender, EventArgs e)
         {
             if (dgvReservations.SelectedRows.Count == 0)
             {
@@ -50,9 +48,15 @@ namespace test_part_kesekian
                 return;
             }
 
-            int reservationId = Convert.ToInt32(dgvReservations.SelectedRows[0].Cells["id"].Value);
-            string newStatus = cbStatus.SelectedItem.ToString();
-            string tableNumber = dgvReservations.SelectedRows[0].Cells["table_number"].Value.ToString();
+            int reservationId = Convert.ToInt32(dgvReservations.SelectedRows[0].Cells["ID Reservasi"].Value);
+            string newStatus = cbStatus.SelectedItem.ToString() ?? "";
+            string tableNumber = dgvReservations.SelectedRows[0].Cells["Nomor Meja"].Value?.ToString() ?? "";
+
+            if (string.IsNullOrEmpty(newStatus) || string.IsNullOrEmpty(tableNumber))
+            {
+                MessageBox.Show("Data tidak valid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             string query = "UPDATE reservations SET status = @status WHERE id = @id";
             var parameters = new NpgsqlParameter[]

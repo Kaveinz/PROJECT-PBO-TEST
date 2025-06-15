@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace test_part_kesekian.models
 {
-    // Antarmuka untuk operasi tabel (Abstraksi)
     public interface ITableOperations
     {
         bool IsAvailable();
@@ -17,12 +16,11 @@ namespace test_part_kesekian.models
 
     public abstract class BaseTable : ITableOperations
     {
-        protected string _tableNumber;
+        protected string? _tableNumber;
         protected int _capacity;
         protected TableStatus _status;
-        protected TableType _tableType;
 
-        public string TableNumber 
+        public string? TableNumber 
         { 
             get => _tableNumber; 
             set => _tableNumber = value?.Trim().ToUpper(); 
@@ -40,21 +38,12 @@ namespace test_part_kesekian.models
             set => _status = value; 
         }
 
-        public TableType TableType 
-        { 
-            get => _tableType; 
-            set => _tableType = value; 
-        }
-
-        protected BaseTable(string tableNumber, int capacity, TableType tableType)
+        protected BaseTable(string tableNumber, int capacity)
         {
             TableNumber = tableNumber;
             Capacity = capacity;
-            TableType = tableType;
             Status = TableStatus.Available;
         }
-
-        public abstract decimal GetHourlyRate();
 
         public virtual bool IsAvailable()
         {
@@ -72,9 +61,7 @@ namespace test_part_kesekian.models
                 Status = TableStatus.Reserved;
             else
                 throw new InvalidOperationException($"Meja {TableNumber} sudah terpakai. ");
-        }
-
-        public virtual void Release()
+        }        public virtual void Release()
         {
             if (Status == TableStatus.Reserved || Status == TableStatus.Occupied)
                 Status = TableStatus.Available;
@@ -82,27 +69,12 @@ namespace test_part_kesekian.models
 
         public virtual string GetDescription()
         {
-            return $"Table {TableNumber} - {TableType} (Capacity: {Capacity})";
-        }
+            return $"Meja {TableNumber} Kapasitas: {Capacity})";        }
     }
 
     public class Table : BaseTable
     {
-        private string _location;
-        private bool _hasView;
         private DateTime _lastCleanedAt;
-
-        public string Location 
-        { 
-            get => _location; 
-            set => _location = value?.Trim(); 
-        }
-
-        public bool HasView 
-        { 
-            get => _hasView; 
-            set => _hasView = value; 
-        }
 
         public DateTime LastCleanedAt 
         { 
@@ -110,63 +82,16 @@ namespace test_part_kesekian.models
             set => _lastCleanedAt = value; 
         }
 
-        public Table() : base("", 1, TableType.Regular) 
+        public Table() : base("", 1) 
         {
             _lastCleanedAt = DateTime.Now;
         }
 
-        public Table(string tableNumber, int capacity, TableType tableType = TableType.Regular) 
-            : base(tableNumber, capacity, tableType)
+        public Table(string tableNumber, int capacity) 
+            : base(tableNumber, capacity)
         {
             _lastCleanedAt = DateTime.Now;
-        }
-
-        public Table(string tableNumber, int capacity, TableType tableType, string location, bool hasView) 
-            : this(tableNumber, capacity, tableType)
-        {
-            Location = location;
-            HasView = hasView;
-        }
-
-        public override decimal GetHourlyRate()
-        {
-            decimal baseRate = TableType switch
-            {
-                TableType.Regular => 25000,
-                TableType.VIP => 50000,
-                TableType.Private => 75000,
-                _ => 25000
-            };
-
-            if (HasView)
-                baseRate += 10000;
-
-            return baseRate;
-        }
-
-        public override bool CanAccommodate(int numberOfPeople)
-        {
-            // Pemeriksaan tambahan untuk meja VIP
-            if (TableType == TableType.VIP && numberOfPeople < 2)
-                return false;
-
-            return base.CanAccommodate(numberOfPeople);
-        }
-
-        public override string GetDescription()
-        {
-            string description = base.GetDescription();
-            
-            if (!string.IsNullOrEmpty(Location))
-                description += $" - {Location}";
-                
-            if (HasView)
-                description += " (With View)";
-
-            return description;
-        }
-
-        public bool NeedsCleaning()
+        }        public bool NeedsCleaning()
         {
             return DateTime.Now.Subtract(LastCleanedAt).TotalHours >= 4;
         }
@@ -174,25 +99,6 @@ namespace test_part_kesekian.models
         public void MarkAsCleaned()
         {
             LastCleanedAt = DateTime.Now;
-        }
-
-        public decimal CalculateCost(TimeSpan duration)
-        {
-            double hours = Math.Ceiling(duration.TotalHours);
-            return (decimal)hours * GetHourlyRate();
-        }
-
-        public static Table CreateTable(string tableNumber, int capacity)
-        {
-            TableType type = capacity switch
-            {
-                <= 2 => TableType.Regular,
-                <= 4 => TableType.Regular,
-                <= 6 => TableType.VIP,
-                _ => TableType.Private
-            };
-
-            return new Table(tableNumber, capacity, type);
         }
     }
 
@@ -203,12 +109,5 @@ namespace test_part_kesekian.models
         Occupied,
         OutOfOrder,
         Cleaning
-    }
-
-    public enum TableType
-    {
-        Regular,
-        VIP,
-        Private
     }
 }
