@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,12 +33,18 @@ namespace test_part_kesekian.view
         }
         private void LoadData()
         {
-            string query = @"
-            SELECT r.id, u.username, r.nomor_hp, r.reservation_time, 
-                   r.jumlah_orang, r.table_number, r.status
-            FROM reservations r
-            JOIN users u ON r.user_id = u.id
-            WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')";
+              string query = @"
+              SELECT r.id AS ""ID Reservasi"", 
+                     u.username AS ""Nama Pengguna"", 
+                     r.nomor_hp AS ""Nomor HP"", 
+                     r.reservation_time AS ""Waktu Reservasi"", 
+                     r.jumlah_orang AS ""Jumlah Orang"", 
+                     r.table_number AS ""Nomor Meja"", 
+                     r.status AS ""Status""
+              FROM reservations r
+              JOIN users u ON r.user_id = u.id
+              WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')";
+
 
             DataTable dt = DatabaseHelper.GetData(query);
             dvgLaporan.DataSource = dt;
@@ -55,16 +62,86 @@ namespace test_part_kesekian.view
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (dtLaporan == null || dtLaporan.Rows.Count == 0)
+            {
+                MessageBox.Show("Untuk Menectak Laporan, Silahkan Filter Terlebih Dahulu (Bulanan/Mingguan)", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             using (SaveFileDialog saveDialog = new SaveFileDialog())
             {
                 saveDialog.Filter = "Text Files (*.txt)|*.txt";
-                saveDialog.FileName = "Laporan_Reservasi.txt";
+                saveDialog.FileName = "laporan_reservasi_mbok_wo.txt";
 
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
-                    var controller = new LaporanUmumController();
-                    controller.ExportToFile(saveDialog.FileName, ExportFormat.Text);
-                    MessageBox.Show("Laporan telah diekspor!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        var columnNames = dtLaporan.Columns.Cast<DataColumn>()
+                                                      .Select(column => column.ColumnName)
+                                                      .ToList();
+
+                        // Calculate column widths
+                        List<int> columnWidths = new List<int>();
+                        for (int i = 0; i < columnNames.Count; i++)
+                        {
+                            columnWidths.Add(columnNames[i].Length);
+                        }
+
+                        foreach (DataRow row in dtLaporan.Rows)
+                        {
+                            for (int i = 0; i < columnNames.Count; i++)
+                            {
+                                string cellValue = row[i]?.ToString() ?? string.Empty;
+                                if (cellValue.Length > columnWidths[i])
+                                {
+                                    columnWidths[i] = cellValue.Length;
+                                }
+                            }
+                        }
+
+                        // Format Header
+                        string formattedHeader = "";
+                        for(int i=0; i< columnNames.Count; i++)
+                        {
+                            formattedHeader += columnNames[i].PadRight(columnWidths[i]);
+                            if (i < columnNames.Count - 1)
+                                formattedHeader += " | ";
+                        }
+                        sb.AppendLine(formattedHeader);
+
+                        // Format Separator
+                        string formattedSeparator = "";
+                        for(int i=0; i< columnNames.Count; i++)
+                        {
+                            formattedSeparator += new string('-', columnWidths[i]);
+                            if (i < columnNames.Count - 1)
+                                formattedSeparator += "-+-"; 
+                        }
+                        sb.AppendLine(formattedSeparator);
+
+                        // Format Data Rows
+                        foreach (DataRow row in dtLaporan.Rows)
+                        {
+                            string formattedRow = "";
+                            for (int i = 0; i < columnNames.Count; i++)
+                            {
+                                string cellValue = row[i]?.ToString() ?? string.Empty;
+                                formattedRow += cellValue.PadRight(columnWidths[i]);
+                                if (i < columnNames.Count - 1)
+                                    formattedRow += " | ";
+                            }
+                            sb.AppendLine(formattedRow);
+                        }
+
+                        File.WriteAllText(saveDialog.FileName, sb.ToString());
+                        MessageBox.Show("Laporan Berhasil Diekspor!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Gagal mengekspor laporan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -75,7 +152,7 @@ namespace test_part_kesekian.view
 
             if (string.IsNullOrEmpty(jenis))
             {
-                MessageBox.Show("Pilih jenis laporan terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Atur Jenis Laporan Terlebih Dahulu! (Mingguan/Bulanan)", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -84,7 +161,7 @@ namespace test_part_kesekian.view
                 case "Mingguan":
                     if (comboBox3.SelectedItem == null)
                     {
-                        MessageBox.Show("Pilih minggu ke-berapa!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Silahkan Pilih Minggu Terlebih Dahuly", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     int mingguKe = Convert.ToInt32(comboBox3.SelectedItem);
@@ -94,7 +171,7 @@ namespace test_part_kesekian.view
                 case "Bulanan":
                     if (comboBox2.SelectedItem == null)
                     {
-                        MessageBox.Show("Pilih bulan ke-berapa!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Silahkan Pilih Bulan Terlebih Dahuly", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     int bulanKe = Convert.ToInt32(comboBox2.SelectedItem);

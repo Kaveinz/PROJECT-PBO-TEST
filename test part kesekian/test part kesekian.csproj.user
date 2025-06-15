@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="view\auth_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\CetakLaporan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\FormBatalReservasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\FormEditReservasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\FormPilihKursi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\FormReservasiBaru.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\form_register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\layout-admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\layout-pelanggan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\lihat reservasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
