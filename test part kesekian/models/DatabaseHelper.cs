@@ -112,7 +112,7 @@ namespace test_part_kesekian.models
     public static class DatabaseHelper
     {
         // Encapsulation: Private connection string
-        private static readonly string _connectionString = "Host=localhost;Username=postgres;Password=Delion21.;Database=Mbok Wo Reserved";
+        private static readonly string _connectionString = "Host=localhost;Username=farhan;Password=6yLwsk85;Database=MBOK_WO_RESERVE";
         
         // Singleton pattern for database instance (Design Pattern)
         private static PostgreSQLHelper _instance;

@@ -3,9 +3,6 @@
     partial class FormReservasiBaru
     {
         private System.ComponentModel.IContainer components = null;
-
-        private System.Windows.Forms.Label lblNomorHP;
-        private System.Windows.Forms.TextBox tbNomorHP;
         private System.Windows.Forms.Label lblTanggal;
         private System.Windows.Forms.DateTimePicker dtpTanggal;
         private System.Windows.Forms.Label lblWaktu;
@@ -25,8 +22,6 @@
 
         private void InitializeComponent()
         {
-            lblNomorHP = new Label();
-            tbNomorHP = new TextBox();
             lblTanggal = new Label();
             dtpTanggal = new DateTimePicker();
             lblWaktu = new Label();
@@ -34,25 +29,9 @@
             lblJumlahOrang = new Label();
             tbJumlahOrang = new TextBox();
             btnSimpan = new Button();
+            tbNomorHP = new TextBox();
+            lblNomorHP = new Label();
             SuspendLayout();
-            // 
-            // lblNomorHP
-            // 
-            lblNomorHP.AutoSize = true;
-            lblNomorHP.Location = new Point(27, 31);
-            lblNomorHP.Margin = new Padding(4, 0, 4, 0);
-            lblNomorHP.Name = "lblNomorHP";
-            lblNomorHP.Size = new Size(82, 20);
-            lblNomorHP.TabIndex = 2;
-            lblNomorHP.Text = "Nomor HP:";
-            // 
-            // tbNomorHP
-            // 
-            tbNomorHP.Location = new Point(160, 31);
-            tbNomorHP.Margin = new Padding(4, 5, 4, 5);
-            tbNomorHP.Name = "tbNomorHP";
-            tbNomorHP.Size = new Size(265, 27);
-            tbNomorHP.TabIndex = 3;
             // 
             // lblTanggal
             // 
@@ -125,6 +104,24 @@
             btnSimpan.UseVisualStyleBackColor = false;
             btnSimpan.Click += btnSimpan_Click;
             // 
+            // tbNomorHP
+            // 
+            tbNomorHP.Location = new Point(160, 31);
+            tbNomorHP.Margin = new Padding(4, 5, 4, 5);
+            tbNomorHP.Name = "tbNomorHP";
+            tbNomorHP.Size = new Size(265, 27);
+            tbNomorHP.TabIndex = 3;
+            // 
+            // lblNomorHP
+            // 
+            lblNomorHP.AutoSize = true;
+            lblNomorHP.Location = new Point(27, 31);
+            lblNomorHP.Margin = new Padding(4, 0, 4, 0);
+            lblNomorHP.Name = "lblNomorHP";
+            lblNomorHP.Size = new Size(82, 20);
+            lblNomorHP.TabIndex = 2;
+            lblNomorHP.Text = "Nomor HP:";
+            // 
             // FormReservasiBaru
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -146,5 +143,7 @@
             ResumeLayout(false);
             PerformLayout();
         }
+        private TextBox tbNomorHP;
+        private Label lblNomorHP;
     }
 }

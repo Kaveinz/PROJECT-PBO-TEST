@@ -38,7 +38,6 @@
             button1 = new Button();
             button3 = new Button();
             panel3 = new Panel();
-            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -58,7 +57,6 @@
             flowLayoutPanel1.Controls.Add(button1);
             flowLayoutPanel1.Controls.Add(button3);
             flowLayoutPanel1.Controls.Add(panel3);
-            flowLayoutPanel1.Controls.Add(button4);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
@@ -156,22 +154,6 @@
             panel3.Size = new Size(232, 260);
             panel3.TabIndex = 3;
             // 
-            // button4
-            // 
-            button4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.Brown;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(3, 538);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Padding = new Padding(23, 0, 0, 0);
-            button4.Size = new Size(222, 43);
-            button4.TabIndex = 4;
-            button4.Text = "          Profil";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = true;
-            // 
             // layout_pelanggan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -201,6 +183,5 @@
         private Button btnReservasiBaru;
         private Button button3;
         private Panel panel3;
-        private Button button4;
     }
 }

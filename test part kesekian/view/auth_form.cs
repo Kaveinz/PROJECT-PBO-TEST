@@ -39,27 +39,23 @@ namespace test_part_kesekian
                     return;
                 }
 
-                // Show loading cursor
-                this.Cursor = Cursors.WaitCursor;
                 
-                Console.WriteLine($"Attempting login for user: {username}");
+              
 
                 var user = AuthController.Instance.Login(username, password);
                 
-                // Reset cursor
-                this.Cursor = Cursors.Default;
+               
+           
                 
                 if (user != null)
                 {
                     CurrentUser = user;
                     
-                    Console.WriteLine($"Login successful for: {user.Username}, Role: {user.Role}");
-                    
-                    // Show welcome message
+                  
                     MessageBox.Show($"Selamat datang, {user.NamaLengkap}!\nLogin sebagai {user.Role}", 
                         "Login Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
-                    // Navigate to appropriate form based on role
+                   
                     this.Hide();
                     
                     if (user.Role == UserRole.Pengguna)
@@ -77,12 +73,12 @@ namespace test_part_kesekian
                 }
                 else
                 {
-                    // Login failed
+                
                     Console.WriteLine("Login failed - user is null");
                     MessageBox.Show("Username atau password salah!\nSilakan coba lagi.", 
                         "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     
-                    // Clear password field
+                    
                     txtPassword.Clear();
                     txtPassword.Focus();
                 }
@@ -112,47 +108,10 @@ namespace test_part_kesekian
 
         private void auth_form_Load(object sender, EventArgs e)
         {
-            // Test database connection on form load
-            TestDatabaseConnection();
+            
         }
 
-        private void TestDatabaseConnection()
-        {
-            try
-            {
-                Console.WriteLine("Testing database connection...");
-                bool isConnected = DatabaseHelper.TestConnection();
-                  if (isConnected)
-                {
-                    Console.WriteLine("✅ Database connection successful!");
-                    
-                    // Test if we can query users table
-                    var testQuery = "SELECT COUNT(*) FROM users";
-                    var result = DatabaseHelper.ExecuteScalar(testQuery);
-                    Console.WriteLine($"✅ Found {result} users in database");
-                    
-                    // Fix sequence synchronization issue
-                    Console.WriteLine("🔧 Checking and fixing sequence synchronization...");
-                    DatabaseHelper.FixReservationSequence();
-                }
-                else
-                {
-                    Console.WriteLine("❌ Database connection failed!");
-                    MessageBox.Show("Warning: Cannot connect to database.\nPlease check your PostgreSQL connection.", 
-                        "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"❌ Database test error: {ex.Message}");
-                MessageBox.Show($"Database Error: {ex.Message}\n\nPlease check:\n" +
-                              "1. PostgreSQL is running\n" +
-                              "2. Database 'MBOK_WO_RESERVE' exists\n" +
-                              "3. Connection string is correct", 
-                              "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+       
         private void label1_Click(object sender, EventArgs e)
         {
 

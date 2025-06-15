@@ -49,7 +49,7 @@ namespace test_part_kesekian.models
 
         // Abstract methods for derived classes to implement
         public abstract bool ValidateReservation();
-        public abstract decimal CalculateCost();
+    
 
         // Interface implementations with virtual methods (Polymorphism)
         public virtual bool CanBeCancelled()
@@ -150,12 +150,7 @@ namespace test_part_kesekian.models
                    ReservationTime > DateTime.Now;
         }
 
-        public override decimal CalculateCost()
-        {
-            // Simple cost calculation based on number of people
-            decimal baseCost = 50000; // Base cost per person
-            return JumlahOrang * baseCost;
-        }
+       
 
         // Override polymorphic methods with specific logic
         public override bool CanBeCancelled()

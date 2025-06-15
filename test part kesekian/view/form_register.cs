@@ -19,15 +19,7 @@ namespace test_part_kesekian.view
             InitializeComponent();
         }
 
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }        private void Login_button_Click(object sender, EventArgs e)
+        private void Login_button_Click(object sender, EventArgs e)
         {
             try
             {
@@ -37,7 +29,7 @@ namespace test_part_kesekian.view
                 string email = txtEmail.Text.Trim();
                 string nomorHP = txtNoHp.Text.Trim();
 
-                // Basic validation
+               
                 if (string.IsNullOrEmpty(username) ||
                     string.IsNullOrEmpty(password) ||
                     string.IsNullOrEmpty(namaLengkap) ||
@@ -49,13 +41,13 @@ namespace test_part_kesekian.view
                     return;
                 }
 
-                // Create new user using enhanced User model
+                
                 var newUser = new User(username, password, namaLengkap, email, nomorHP)
                 {
                     Role = UserRole.Pengguna
                 };
 
-                // Validate user data using the built-in validation
+                
                 if (!newUser.ValidateData())
                 {
                     MessageBox.Show("Data yang dimasukkan tidak valid!\n" +
@@ -67,7 +59,7 @@ namespace test_part_kesekian.view
                     return;
                 }
 
-                // Try to register
+                
                 bool success = AuthController.Instance.Register(newUser);
                 if (success)
                 {

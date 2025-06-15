@@ -33,10 +33,9 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
+            btnCetakLaporan = new Button();
             panel3 = new Panel();
             button1 = new Button();
-            button4 = new Button();
-            btnCetakLaporan = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -49,7 +48,6 @@
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(panel3);
-            flowLayoutPanel1.Controls.Add(button4);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
@@ -87,6 +85,23 @@
             panel2.Size = new Size(225, 43);
             panel2.TabIndex = 1;
             // 
+            // btnCetakLaporan
+            // 
+            btnCetakLaporan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCetakLaporan.ForeColor = Color.Brown;
+            btnCetakLaporan.Image = (Image)resources.GetObject("btnCetakLaporan.Image");
+            btnCetakLaporan.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCetakLaporan.Location = new Point(0, -4);
+            btnCetakLaporan.Margin = new Padding(3, 4, 3, 4);
+            btnCetakLaporan.Name = "btnCetakLaporan";
+            btnCetakLaporan.Padding = new Padding(23, 0, 0, 0);
+            btnCetakLaporan.Size = new Size(222, 43);
+            btnCetakLaporan.TabIndex = 2;
+            btnCetakLaporan.Text = "          Cetak Laporan";
+            btnCetakLaporan.TextAlign = ContentAlignment.MiddleLeft;
+            btnCetakLaporan.UseVisualStyleBackColor = true;
+            btnCetakLaporan.Click += btnCetakLaporan_Click;
+            // 
             // panel3
             // 
             panel3.Controls.Add(button1);
@@ -112,39 +127,6 @@
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
-            // button4
-            // 
-            button4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.Brown;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(3, 436);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Padding = new Padding(23, 0, 0, 0);
-            button4.Size = new Size(222, 43);
-            button4.TabIndex = 4;
-            button4.Text = "          Profil";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // btnCetakLaporan
-            // 
-            btnCetakLaporan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCetakLaporan.ForeColor = Color.Brown;
-            btnCetakLaporan.Image = (Image)resources.GetObject("btnCetakLaporan.Image");
-            btnCetakLaporan.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCetakLaporan.Location = new Point(0, -4);
-            btnCetakLaporan.Margin = new Padding(3, 4, 3, 4);
-            btnCetakLaporan.Name = "btnCetakLaporan";
-            btnCetakLaporan.Padding = new Padding(23, 0, 0, 0);
-            btnCetakLaporan.Size = new Size(222, 43);
-            btnCetakLaporan.TabIndex = 2;
-            btnCetakLaporan.Text = "          Cetak Laporan";
-            btnCetakLaporan.TextAlign = ContentAlignment.MiddleLeft;
-            btnCetakLaporan.UseVisualStyleBackColor = true;
-            btnCetakLaporan.Click += btnCetakLaporan_Click;
             // 
             // layout_admin
             // 
@@ -172,7 +154,6 @@
         private Panel panel2;
         private Button button1;
         private Panel panel3;
-        private Button button4;
         private Button btnCetakLaporan;
     }
 }

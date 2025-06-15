@@ -93,7 +93,7 @@
             txtPassword.Size = new Size(305, 27);
             txtPassword.TabIndex = 7;
             txtPassword.UseSystemPasswordChar = true;
-            txtPassword.TextChanged += txtPassword_TextChanged;
+          
             // 
             // txtUsername
             // 
@@ -102,7 +102,7 @@
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(305, 27);
             txtUsername.TabIndex = 6;
-            txtUsername.TextChanged += txtUsername_TextChanged;
+           
             // 
             // labelNama_lengkap
             // 

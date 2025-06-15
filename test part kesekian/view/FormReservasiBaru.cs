@@ -83,13 +83,12 @@ namespace test_part_kesekian
                         
                         if (success)
                         {
-                            decimal estimatedCost = reservation.CalculateCost();
+                            
                             
                             MessageBox.Show($"Reservasi berhasil dibuat!\n" +
                                           $"Nomor Meja: {kursi}\n" +
                                           $"Waktu: {reservationTime:dd/MM/yyyy HH:mm}\n" +
                                           $"Jumlah Orang: {jumlahOrang}\n" +
-                                          $"Estimasi Biaya: Rp {estimatedCost:N0}\n" +
                                           $"Status: {reservation.GetStatusDescription()}", 
                                           "Reservasi Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             
