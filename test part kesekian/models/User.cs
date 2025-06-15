@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace test_part_kesekian.models
 {
-    // Base class demonstrating Inheritance and Abstraction
     public abstract class Person
     {
-        // Encapsulation: Private fields with public properties
         private string _namaLengkap;
         private string _email;
         private string _nomorHp;

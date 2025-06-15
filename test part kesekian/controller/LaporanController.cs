@@ -309,38 +309,37 @@ namespace test_part_kesekian.controller
         }
     }
 
-    // Concrete implementation for daily reports
-    public class LaporanHarianController : LaporanReservasiController
-    {
-        private readonly DateTime _tanggal;
+    // // Concrete implementation for daily reports
+    // public class LaporanHarianController : LaporanReservasiController
+    // {
+    //     private readonly DateTime _tanggal;
 
-        public override string JudulLaporan => $"Laporan Reservasi Harian - {_tanggal:dd MMMM yyyy}";
+    //     public override string JudulLaporan => $"Laporan Reservasi Harian - {_tanggal:dd MMMM yyyy}";
 
-        public LaporanHarianController(DateTime tanggal) : base()
-        {
-            _tanggal = tanggal.Date;
-        }
+    //     public LaporanHarianController(DateTime tanggal) : base()
+    //     {
+    //         _tanggal = tanggal.Date;
+    //     }
 
-        public override DataTable AmbilData()
-        {
-            string query = @"
-                SELECT r.id, u.username, r.nomor_hp, r.reservation_time, 
-                       r.jumlah_orang, r.table_number, r.status
-                FROM reservations r
-                JOIN users u ON r.user_id = u.id
-                WHERE DATE(r.reservation_time) = @tanggal
-                ORDER BY r.reservation_time";
+    //     public override DataTable AmbilData()
+    //     {
+    //         string query = @"
+    //             SELECT r.id, u.username, r.nomor_hp, r.reservation_time, 
+    //                    r.jumlah_orang, r.table_number, r.status
+    //             FROM reservations r
+    //             JOIN users u ON r.user_id = u.id
+    //             WHERE DATE(r.reservation_time) = @tanggal
+    //             ORDER BY r.reservation_time";
 
-            var parameters = new NpgsqlParameter[]
-            {
-                new("@tanggal", _tanggal)
-            };
+    //         var parameters = new NpgsqlParameter[]
+    //         {
+    //             new("@tanggal", _tanggal)
+    //         };
 
-            return _database.GetData(query, parameters);
-        }
-    }
+    //         return _database.GetData(query, parameters);
+    //     }
+    // }
 
-    // Concrete implementation for status-based reports
     public class LaporanStatusController : LaporanReservasiController
     {
         private readonly ReservationStatus _status;

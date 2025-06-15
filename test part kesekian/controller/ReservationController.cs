@@ -7,7 +7,6 @@ using test_part_kesekian.models;
 
 namespace test_part_kesekian.controller
 {
-    // Interface for reservation operations (Abstraction)
     public interface IReservationService
     {
         bool CreateReservation(Reservation reservation);
@@ -17,7 +16,6 @@ namespace test_part_kesekian.controller
         bool IsTableAvailable(string tableNumber, DateTime reservationTime);
     }
 
-    // Abstract base class for reservation management
     public abstract class BaseReservationController : IReservationService
     {
         protected readonly IDatabaseOperations _database;
@@ -27,11 +25,9 @@ namespace test_part_kesekian.controller
             _database = database ?? throw new ArgumentNullException(nameof(database));
         }
 
-        // Abstract methods for derived classes
         public abstract bool CreateReservation(Reservation reservation);
         public abstract bool IsTableAvailable(string tableNumber, DateTime reservationTime);
 
-        // Virtual methods that can be overridden (Polymorphism)
         
         public virtual List<Reservation> GetUserReservations(int userId)
         {
@@ -68,7 +64,6 @@ namespace test_part_kesekian.controller
             return DatabaseHelper.Instance.GetSingle(query, MapReservationFromReader, parameters);
         }
 
-        // Helper method to map database reader to Reservation object
         protected virtual Reservation MapReservationFromReader(NpgsqlDataReader reader)
         {
             var reservation = new Reservation
@@ -81,7 +76,6 @@ namespace test_part_kesekian.controller
                 TableNumber = reader.GetString("table_number")
             };
 
-            // Map status string to enum
             string statusStr = reader.GetString("status");
             reservation.Status = statusStr.ToLower() switch
             {

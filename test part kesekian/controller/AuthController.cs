@@ -95,7 +95,7 @@ namespace test_part_kesekian.controller
         {
            
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-                throw new ArgumentException("Username and password cannot be empty");
+                throw new ArgumentException("Username atau Password Tidak Boleh Kosong!");
 
             try
             {
@@ -173,13 +173,13 @@ namespace test_part_kesekian.controller
                 throw new ArgumentNullException(nameof(newUser));
 
             if (!newUser.ValidateData())
-                throw new ArgumentException("Invalid user data provided");
+                throw new ArgumentException("Invalid User Data");
 
             if (!IsValidEmail(newUser.Email))
-                throw new ArgumentException("Invalid email format");
+                throw new ArgumentException("Format Email Tidak Valid");
 
             if (!IsValidPhoneNumber(newUser.NomorHp))
-                throw new ArgumentException("Invalid phone number format");
+                throw new ArgumentException("Nomor HP Tidak Valid");
 
             try
             {
@@ -198,7 +198,7 @@ namespace test_part_kesekian.controller
                         long count = (long)checkCmd.ExecuteScalar();
 
                         if (count > 0)
-                            throw new InvalidOperationException("Username or email already exists");
+                            throw new InvalidOperationException("Username atau Email Sudah Digunakan!");
                     }
 
                     // nambah user baru
@@ -224,7 +224,7 @@ namespace test_part_kesekian.controller
             }
             catch (Exception ex)
             {
-                throw new AuthenticationException($"Registration failed: {ex.Message}", ex);
+                throw new AuthenticationException($"Registrasi Gagal: {ex.Message}", ex);
             }
         }
 
