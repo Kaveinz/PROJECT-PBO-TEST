@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using test_part_kesekian.controller;
-using test_part_kesekian.controller;
 using test_part_kesekian.models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 

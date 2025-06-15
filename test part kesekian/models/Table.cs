@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace test_part_kesekian.models
 {
-    // Interface for table operations (Abstraction)
+    // Antarmuka untuk operasi tabel (Abstraksi)
     public interface ITableOperations
     {
         bool IsAvailable();
@@ -15,16 +15,15 @@ namespace test_part_kesekian.models
         void Release();
     }
 
-    // Abstract base class demonstrating Abstraction and Inheritance
     public abstract class BaseTable : ITableOperations
     {
-        // Encapsulation: Protected fields
+        // Enkapsulasi: Field yang dilindungi
         protected string _tableNumber;
         protected int _capacity;
         protected TableStatus _status;
         protected TableType _tableType;
 
-        // Properties with validation
+        // Properti dengan validasi
         public string TableNumber 
         { 
             get => _tableNumber; 
@@ -49,7 +48,6 @@ namespace test_part_kesekian.models
             set => _tableType = value; 
         }
 
-        // Constructor
         protected BaseTable(string tableNumber, int capacity, TableType tableType)
         {
             TableNumber = tableNumber;
@@ -58,10 +56,8 @@ namespace test_part_kesekian.models
             Status = TableStatus.Available;
         }
 
-        // Abstract method for derived classes
         public abstract decimal GetHourlyRate();
 
-        // Interface implementation with virtual methods (Polymorphism)
         public virtual bool IsAvailable()
         {
             return Status == TableStatus.Available;
@@ -86,17 +82,16 @@ namespace test_part_kesekian.models
                 Status = TableStatus.Available;
         }
 
-        // Method to get table description
+        // Metode untuk mendapatkan deskripsi tabel
         public virtual string GetDescription()
         {
             return $"Table {TableNumber} - {TableType} (Capacity: {Capacity})";
         }
     }
 
-    // Concrete Table class inheriting from BaseTable
+    // Kelas Tabel konkret yang mewarisi dari BaseTable
     public class Table : BaseTable
     {
-        // Additional properties specific to regular tables
         private string _location;
         private bool _hasView;
         private DateTime _lastCleanedAt;
@@ -119,7 +114,6 @@ namespace test_part_kesekian.models
             set => _lastCleanedAt = value; 
         }
 
-        // Constructors
         public Table() : base("", 1, TableType.Regular) 
         {
             _lastCleanedAt = DateTime.Now;
@@ -138,7 +132,7 @@ namespace test_part_kesekian.models
             HasView = hasView;
         }
 
-        // Implementation of abstract method with specific pricing logic (Polymorphism)
+        // Implementasi metode abstrak dengan logika harga spesifik (Polimorfisme)
         public override decimal GetHourlyRate()
         {
             decimal baseRate = TableType switch
@@ -149,17 +143,16 @@ namespace test_part_kesekian.models
                 _ => 25000
             };
 
-            // Add premium for tables with view
+            // Tambahkan premium untuk meja dengan pemandangan
             if (HasView)
                 baseRate += 10000;
 
             return baseRate;
         }
 
-        // Override methods with specific logic (Polymorphism)
         public override bool CanAccommodate(int numberOfPeople)
         {
-            // Additional check for VIP tables
+            // Pemeriksaan tambahan untuk meja VIP
             if (TableType == TableType.VIP && numberOfPeople < 2)
                 return false;
 
@@ -179,26 +172,26 @@ namespace test_part_kesekian.models
             return description;
         }
 
-        // Method to check if table needs cleaning
+        // Untuk memeriksa meja apakah perlu dibersihkan
         public bool NeedsCleaning()
         {
             return DateTime.Now.Subtract(LastCleanedAt).TotalHours >= 4;
         }
 
-        // Method to mark table as cleaned
+        // Tandai Meja
         public void MarkAsCleaned()
         {
             LastCleanedAt = DateTime.Now;
         }
 
-        // Method to calculate total cost for duration
+        // Total Biaya berdasar Durasi
         public decimal CalculateCost(TimeSpan duration)
         {
             double hours = Math.Ceiling(duration.TotalHours);
             return (decimal)hours * GetHourlyRate();
         }
 
-        // Static method to create table based on capacity
+        // Objek Tabel
         public static Table CreateTable(string tableNumber, int capacity)
         {
             TableType type = capacity switch
@@ -213,7 +206,6 @@ namespace test_part_kesekian.models
         }
     }
 
-    // Enums for better type safety
     public enum TableStatus
     {
         Available,

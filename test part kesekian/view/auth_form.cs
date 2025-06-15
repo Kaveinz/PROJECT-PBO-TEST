@@ -25,16 +25,15 @@ namespace test_part_kesekian
         {
             try
             {
-                // Debug info
-                Console.WriteLine("Login button clicked");
                 
+                // Console.WriteLine("Klik button tess");
+
                 string username = txtUsername.Text.Trim();
                 string password = txtPassword.Text;
 
-                // Input validation
                 if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
                 {
-                    MessageBox.Show("Username dan password tidak boleh kosong!", "Error", 
+                    MessageBox.Show("Username atau Password Tidak Boleh Kosong!", "Error", 
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -52,7 +51,7 @@ namespace test_part_kesekian
                     CurrentUser = user;
                     
                   
-                    MessageBox.Show($"Selamat datang, {user.NamaLengkap}!\nLogin sebagai {user.Role}", 
+                    MessageBox.Show($"Selamat Datang, {user.NamaLengkap}!\nKamu telah berhasil Login sebagai {user.Role}", 
                         "Login Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                    
@@ -74,8 +73,8 @@ namespace test_part_kesekian
                 else
                 {
                 
-                    Console.WriteLine("Login failed - user is null");
-                    MessageBox.Show("Username atau password salah!\nSilakan coba lagi.", 
+                    Console.WriteLine("Login Gagal");
+                    MessageBox.Show("Username atau Password Salah!\nSilakan coba lagi.", 
                         "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     
                     
@@ -87,7 +86,7 @@ namespace test_part_kesekian
             {
                 this.Cursor = Cursors.Default;
                 Console.WriteLine($"Authentication error: {ex.Message}");
-                MessageBox.Show($"Login gagal: {ex.Message}", "Error", 
+                MessageBox.Show($"Login Gagal: {ex.Message}", "Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
                 txtPassword.Clear();

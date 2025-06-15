@@ -33,7 +33,7 @@ namespace test_part_kesekian
                 btnBatalReservasi.Visible = false;
                 btnCetakLaporan.Visible = true;
             }
-            else // pengguna
+            else // Pengguna
             {
                 btnReservasiBaru.Visible = true;
                 btnEditReservasi.Visible = false;
@@ -69,8 +69,14 @@ namespace test_part_kesekian
         private void btnCetakLaporan_Click(object sender, EventArgs e)
         {
             string query = @"
-                SELECT r.id, u.username, r.nomor_hp, r.reservation_time, r.jumlah_orang, r.table_number, r.status
-                FROM reservations r
+              SELECTr.id AS ""ID Reservasi"", 
+                    u.username AS ""Nama Pengguna"", 
+                    r.nomor_hp AS ""Nomor HP"", 
+                    r.reservation_time AS ""Waktu Reservasi"", 
+                    r.jumlah_orang AS ""Jumlah Orang"", 
+                    r.table_number AS ""Nomor Meja"", 
+                    r.status AS ""Status""               
+                    FROM reservations r
                 JOIN users u ON r.user_id = u.id
                 WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')";
 
@@ -120,7 +126,13 @@ namespace test_part_kesekian
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             string query = @"
-                SELECT r.id, u.username, r.nomor_hp, r.reservation_time, r.jumlah_orang, r.table_number, r.status
+               SELECTr.id AS ""ID Reservasi"", 
+                    u.username AS ""Nama Pengguna"", 
+                    r.nomor_hp AS ""Nomor HP"", 
+                    r.reservation_time AS ""Waktu Reservasi"", 
+                    r.jumlah_orang AS ""Jumlah Orang"", 
+                    r.table_number AS ""Nomor Meja"", 
+                    r.status AS ""Status""
                 FROM reservations r
                 JOIN users u ON r.user_id = u.id
                 WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')";

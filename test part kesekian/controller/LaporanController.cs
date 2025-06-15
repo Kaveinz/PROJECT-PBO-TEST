@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -17,15 +16,7 @@ namespace test_part_kesekian.controller
         string JudulLaporan { get; }
         DataTable AmbilData();
         void CetakLaporan(PrintPageEventArgs e);
-        void ExportToFile(string filePath, ExportFormat format);
-    }
-
-    // Enum for export formats
-    public enum ExportFormat
-    {
-        Text,
-        CSV,
-        HTML
+        void ExportToFile(string filePath);
     }
 
     // Data class for report summary (Encapsulation)
@@ -110,31 +101,17 @@ namespace test_part_kesekian.controller
         {
             return $"ID: {row["id"]}, User: {row["username"]}, HP: {row["nomor_hp"]}, " +
                    $"Waktu: {Convert.ToDateTime(row["reservation_time"]):yyyy-MM-dd HH:mm}, " +
-                   $"Orang: {row["jumlah_orang"]}, Meja: {row["table_number"]}, Status: {row["status"]}";
+                   $"Orang: {row["jumlah_orang"]}, Status: {row["status"]}";
         }
 
-        // Method to export data to different formats (Strategy Pattern)
-        public virtual void ExportToFile(string filePath, ExportFormat format)
+        // Method to export data to text format only (no CSV/HTML)
+        public virtual void ExportToFile(string filePath)
         {
             DataTable dt = AmbilData();
-            
-            switch (format)
-            {
-                case ExportFormat.Text:
-                    ExportToTextFile(dt, filePath);
-                    break;
-                case ExportFormat.CSV:
-                    ExportToCSVFile(dt, filePath);
-                    break;
-                case ExportFormat.HTML:
-                    ExportToHTMLFile(dt, filePath);
-                    break;
-                default:
-                    throw new ArgumentException("Unsupported export format");
-            }
+            ExportToTextFile(dt, filePath);
         }
 
-        // Protected methods for different export formats
+        // Protected method for text export only, tanpa info meja
         protected virtual void ExportToTextFile(DataTable dt, string filePath)
         {
             using (StreamWriter sw = new StreamWriter(filePath))
@@ -151,55 +128,10 @@ namespace test_part_kesekian.controller
                     sw.WriteLine($"Nomor HP: {row["nomor_hp"]}");
                     sw.WriteLine($"Waktu: {Convert.ToDateTime(row["reservation_time"]):yyyy-MM-dd HH:mm}");
                     sw.WriteLine($"Jumlah Orang: {row["jumlah_orang"]}");
-                    sw.WriteLine($"Meja: {row["table_number"]}");
                     sw.WriteLine($"Status: {row["status"]}");
                     sw.WriteLine("".PadRight(30, '-'));
                 }
-                
                 sw.WriteLine($"Total Reservasi: {dt.Rows.Count}");
-            }
-        }
-
-        protected virtual void ExportToCSVFile(DataTable dt, string filePath)
-        {
-            using (StreamWriter sw = new StreamWriter(filePath))
-            {
-                // Write header
-                sw.WriteLine("ID,Username,Nomor HP,Waktu Reservasi,Jumlah Orang,Nomor Meja,Status");
-                
-                // Write data
-                foreach (DataRow row in dt.Rows)
-                {
-                    sw.WriteLine($"{row["id"]},{row["username"]},{row["nomor_hp"]}," +
-                               $"{Convert.ToDateTime(row["reservation_time"]):yyyy-MM-dd HH:mm}," +
-                               $"{row["jumlah_orang"]},{row["table_number"]},{row["status"]}");
-                }
-            }
-        }
-
-        protected virtual void ExportToHTMLFile(DataTable dt, string filePath)
-        {
-            using (StreamWriter sw = new StreamWriter(filePath))
-            {
-                sw.WriteLine("<!DOCTYPE html>");
-                sw.WriteLine("<html><head><title>" + JudulLaporan + "</title>");
-                sw.WriteLine("<style>table{border-collapse:collapse;width:100%;}th,td{border:1px solid #ddd;padding:8px;text-align:left;}th{background-color:#f2f2f2;}</style>");
-                sw.WriteLine("</head><body>");
-                sw.WriteLine($"<h1>{JudulLaporan}</h1>");
-                sw.WriteLine($"<p>Tanggal Laporan: {DateTime.Now:yyyy-MM-dd HH:mm}</p>");
-                sw.WriteLine("<table>");
-                sw.WriteLine("<tr><th>ID</th><th>Username</th><th>Nomor HP</th><th>Waktu Reservasi</th><th>Jumlah Orang</th><th>Nomor Meja</th><th>Status</th></tr>");
-                
-                foreach (DataRow row in dt.Rows)
-                {
-                    sw.WriteLine($"<tr><td>{row["id"]}</td><td>{row["username"]}</td><td>{row["nomor_hp"]}</td>" +
-                               $"<td>{Convert.ToDateTime(row["reservation_time"]):yyyy-MM-dd HH:mm}</td>" +
-                               $"<td>{row["jumlah_orang"]}</td><td>{row["table_number"]}</td><td>{row["status"]}</td></tr>");
-                }
-                
-                sw.WriteLine("</table>");
-                sw.WriteLine($"<p><strong>Total Reservasi: {dt.Rows.Count}</strong></p>");
-                sw.WriteLine("</body></html>");
             }
         }
 
@@ -240,12 +172,16 @@ namespace test_part_kesekian.controller
         {
             var tempController = new LaporanUmumController();
             tempController.ExportToTextFile(dt, filePath);
-        }
-
-        public static DataTable GetLaporanReservasi()
+        }        public static DataTable GetLaporanReservasi()
         {
             const string query = @"
-                SELECT r.id, u.username, r.nomor_hp, r.reservation_time, r.jumlah_orang, r.table_number, r.status
+                SELECT r.id AS ""ID Reservasi"", 
+                       u.username AS ""Nama Pengguna"", 
+                       r.nomor_hp AS ""Nomor HP"", 
+                       r.reservation_time AS ""Waktu Reservasi"", 
+                       r.jumlah_orang AS ""Jumlah Orang"", 
+                       r.table_number AS ""Nomor Meja"", 
+                       r.status AS ""Status""
                 FROM reservations r
                 JOIN users u ON r.user_id = u.id
                 WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')";

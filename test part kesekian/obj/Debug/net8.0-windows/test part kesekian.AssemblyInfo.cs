@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("test part kesekian")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4cb234f38c13a9e47d18ee8b98fd64d156f2405")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8092525385cfb658c1689b0a7b38ae876845755")]
 [assembly: System.Reflection.AssemblyProductAttribute("test part kesekian")]
 [assembly: System.Reflection.AssemblyTitleAttribute("test part kesekian")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

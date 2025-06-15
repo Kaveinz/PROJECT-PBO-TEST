@@ -22,27 +22,27 @@ namespace test_part_kesekian
         {
             try
             {
-                // Input validation
+                // Validasi Input
                 if (string.IsNullOrWhiteSpace(tbNomorHP.Text) || string.IsNullOrWhiteSpace(tbJumlahOrang.Text))
                 {
-                    MessageBox.Show("Harap lengkapi semua kolom!", "Error", 
+                    MessageBox.Show("Maaf, Silahkan Isi Semua Data Reservasi.", "Error", 
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 if (!int.TryParse(tbJumlahOrang.Text, out int jumlahOrang) || jumlahOrang <= 0)
                 {
-                    MessageBox.Show("Jumlah orang harus berupa angka positif!", "Error", 
+                    MessageBox.Show("Maaf, Jumlah Orang Tidak Boleh Kurang Dari 0.", "Error", 
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 DateTime reservationTime = dtpTanggal.Value.Date.Add(dtpWaktu.Value.TimeOfDay);
 
-                // Check if reservation time is in the future
+                // Waktu reservasi harus di hari yang beda
                 if (reservationTime <= DateTime.Now)
                 {
-                    MessageBox.Show("Waktu reservasi harus di masa depan!", "Error", 
+                    MessageBox.Show("Maaf, Reservasi Tidak Bisa Dilakukan Saat Ini. Silahkan Pilih Waktu Reservasi yang Sesuai. ", "Error", 
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -56,7 +56,7 @@ namespace test_part_kesekian
                     {
                         if (string.IsNullOrEmpty(kursi))
                         {
-                            MessageBox.Show("Pilih kursi terlebih dahulu!", "Error", 
+                            MessageBox.Show("Silahkan Pilih Kursi Terlebih Dahulu!", "Error", 
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
@@ -70,10 +70,10 @@ namespace test_part_kesekian
                             kursi
                         );
 
-                        // Validate reservation data
+
                         if (!reservation.ValidateReservation())
                         {
-                            MessageBox.Show("Data reservasi tidak valid!", "Error", 
+                            MessageBox.Show("Maaf, Reservasi Tidak Valid.", "Error", 
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
@@ -85,7 +85,7 @@ namespace test_part_kesekian
                         {
                             
                             
-                            MessageBox.Show($"Reservasi berhasil dibuat!\n" +
+                            MessageBox.Show($"Reservasi Berhasil!\n" +
                                           $"Nomor Meja: {kursi}\n" +
                                           $"Waktu: {reservationTime:dd/MM/yyyy HH:mm}\n" +
                                           $"Jumlah Orang: {jumlahOrang}\n" +

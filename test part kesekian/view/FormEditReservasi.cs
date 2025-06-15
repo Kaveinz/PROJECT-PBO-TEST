@@ -24,10 +24,14 @@ namespace test_part_kesekian
         private void LoadReservations()
         {
             string query = @"
-                SELECT r.id, u.username, r.nomor_hp, r.reservation_time, r.jumlah_orang, r.table_number, r.status
-                FROM reservations r
-                JOIN users u ON r.user_id = u.id
-                WHERE r.status IN ('Menunggu', 'Dikonfirmasi')";
+              SELECTr.id AS ""ID Reservasi"", 
+                    u.username AS ""Nama Pengguna"", 
+                    r.nomor_hp AS ""Nomor HP"", 
+                    r.reservation_time AS ""Waktu Reservasi"", 
+                    r.jumlah_orang AS ""Jumlah Orang"", 
+                    r.table_number AS ""Nomor Meja"", 
+                    r.status AS ""Status""
+                WHER r.status IN ('Menunggu', 'Dikonfirmasi')";
             var dt = DatabaseHelper.GetData(query);
             dgvReservations.DataSource = dt;
         }
@@ -36,13 +40,13 @@ namespace test_part_kesekian
         {
             if (dgvReservations.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Pilih reservasi yang akan diedit!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silahkan Pilih Reservasi yang Ingin Diubah Statusnya!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (cbStatus.SelectedItem == null)
             {
-                MessageBox.Show("Pilih status baru!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Pilih Status Reservasi yang Baru!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -64,7 +68,7 @@ namespace test_part_kesekian
                 {
                     ReservationController.UpdateTableStatus(tableNumber, "Available");
                 }
-                MessageBox.Show("Status reservasi berhasil diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Status Reservasi Berhasil Diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadReservations();
             }
             catch (Exception ex)

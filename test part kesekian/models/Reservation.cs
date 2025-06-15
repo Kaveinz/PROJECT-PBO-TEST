@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace test_part_kesekian.models
 {
-    // Interface demonstrating Abstraction
     public interface IReservable
     {
         bool CanBeCancelled();
@@ -14,10 +13,8 @@ namespace test_part_kesekian.models
         string GetStatusDescription();
     }
 
-    // Abstract base class for reservations
     public abstract class BaseReservation : IReservable
     {
-        // Encapsulation: Protected fields accessible by derived classes
         protected int _id;
         protected DateTime _createdAt;
         protected ReservationStatus _status;
@@ -40,18 +37,14 @@ namespace test_part_kesekian.models
             set => _status = value; 
         }
 
-        // Constructor
         protected BaseReservation()
         {
             _createdAt = DateTime.Now;
             _status = ReservationStatus.Menunggu;
         }
 
-        // Abstract methods for derived classes to implement
         public abstract bool ValidateReservation();
     
-
-        // Interface implementations with virtual methods (Polymorphism)
         public virtual bool CanBeCancelled()
         {
             return Status == ReservationStatus.Menunggu || Status == ReservationStatus.Dikonfirmasi;
@@ -70,15 +63,13 @@ namespace test_part_kesekian.models
                 ReservationStatus.Dikonfirmasi => "Reservasi Dikonfirmasi",
                 ReservationStatus.Selesai => "Reservasi Selesai",
                 ReservationStatus.Dibatalkan => "Reservasi Dibatalkan",
-                _ => "Status Tidak Dikenal"
+                _ => "Status Tidak Dikenal/invalid"
             };
         }
     }
 
-    // Concrete Reservation class inheriting from BaseReservation
     public class Reservation : BaseReservation
     {
-        // Encapsulation: Private fields with controlled access
         private int _userId;
         private string _nomorHP;
         private DateTime _reservationTime;
@@ -86,7 +77,6 @@ namespace test_part_kesekian.models
         private string _tableNumber;
         private string _catatan;
 
-        // Properties with validation
         public int UserId 
         { 
             get => _userId; 
@@ -128,7 +118,6 @@ namespace test_part_kesekian.models
             set => _catatan = value?.Trim(); 
         }
 
-        // Constructors
         public Reservation() : base() { }
 
         public Reservation(int userId, string nomorHP, DateTime reservationTime, int jumlahOrang, string tableNumber) : base()
@@ -140,7 +129,6 @@ namespace test_part_kesekian.models
             TableNumber = tableNumber;
         }
 
-        // Implementation of abstract methods
         public override bool ValidateReservation()
         {
             return UserId > 0 && 
@@ -152,33 +140,28 @@ namespace test_part_kesekian.models
 
        
 
-        // Override polymorphic methods with specific logic
         public override bool CanBeCancelled()
         {
-            // Can only cancel if not yet finished and at least 2 hours before reservation time
+            // Hanya bisa dibatalkan jika status belum selesai dan setidaknya 2 jam sebelum waktu reservasi
             return base.CanBeCancelled() && ReservationTime.Subtract(DateTime.Now).TotalHours >= 2;
         }
 
-        // Method to get reservation duration in hours
         public double GetDurationHours()
         {
             return ReservationTime.Subtract(CreatedAt).TotalHours;
         }
 
-        // Method to check if reservation is for today
         public bool IsToday()
         {
             return ReservationTime.Date == DateTime.Today;
         }
 
-        // Method to get formatted reservation info
         public string GetFormattedInfo()
         {
             return $"Reservasi #{Id} - {TableNumber} untuk {JumlahOrang} orang pada {ReservationTime:dd/MM/yyyy HH:mm}";
         }
     }
 
-    // Enum for reservation status
     public enum ReservationStatus
     {
         Menunggu,

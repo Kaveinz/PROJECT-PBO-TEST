@@ -161,7 +161,7 @@ namespace test_part_kesekian.view
                 case "Mingguan":
                     if (comboBox3.SelectedItem == null)
                     {
-                        MessageBox.Show("Silahkan Pilih Minggu Terlebih Dahuly", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Silahkan Pilih Minggu Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     int mingguKe = Convert.ToInt32(comboBox3.SelectedItem);
@@ -171,7 +171,7 @@ namespace test_part_kesekian.view
                 case "Bulanan":
                     if (comboBox2.SelectedItem == null)
                     {
-                        MessageBox.Show("Silahkan Pilih Bulan Terlebih Dahuly", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Silahkan Pilih Bulan Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     int bulanKe = Convert.ToInt32(comboBox2.SelectedItem);

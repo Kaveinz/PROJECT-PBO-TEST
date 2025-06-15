@@ -36,7 +36,7 @@ namespace test_part_kesekian.view
                     string.IsNullOrEmpty(email) ||
                     string.IsNullOrEmpty(nomorHP))
                 {
-                    MessageBox.Show("Semua field wajib diisi!", "Validasi", 
+                    MessageBox.Show("Semua Kolom Harus Diisi", "Registrasi Gagal", 
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -53,7 +53,7 @@ namespace test_part_kesekian.view
                     MessageBox.Show("Data yang dimasukkan tidak valid!\n" +
                                   "- Username minimal 3 karakter\n" +
                                   "- Password minimal 6 karakter\n" +
-                                  "- Email harus valid\n" +
+                                  "- Email harus sesuai format\n" +
                                   "- Nomor HP minimal 10 digit", 
                                   "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -64,7 +64,7 @@ namespace test_part_kesekian.view
                 if (success)
                 {
                     MessageBox.Show($"Registrasi berhasil!\nSelamat datang, {newUser.NamaLengkap}!", 
-                        "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        "Registrasi Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                     this.Hide();
                     var authForm = new auth_form();
@@ -74,12 +74,12 @@ namespace test_part_kesekian.view
             }
             catch (AuthenticationException ex)
             {
-                MessageBox.Show($"Registrasi gagal: {ex.Message}", "Error", 
+                MessageBox.Show($"Registrasi Gagal: {ex.Message}", "Gagal", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (ArgumentException ex)
             {
-                MessageBox.Show($"Data tidak valid: {ex.Message}", "Validasi Error", 
+                MessageBox.Show($"Data Invalid: {ex.Message}", "Invalid Data", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
