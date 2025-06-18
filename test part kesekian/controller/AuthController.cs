@@ -16,14 +16,14 @@ namespace test_part_kesekian.controller
     public abstract class BaseAuthController : IAuthService
     {
         protected readonly IDatabaseOperations _database;
-        protected User _currentUser;
+        protected User penggunaTerbaru;
 
         protected BaseAuthController(IDatabaseOperations database)
         {
             _database = database ?? throw new ArgumentNullException(nameof(database));
         }
 
-        public User penggunaTerbaru
+        public User PenggunaTerbaru
         {
             get => penggunaTerbaru;
             protected set => penggunaTerbaru = value;
@@ -32,9 +32,6 @@ namespace test_part_kesekian.controller
      
         public abstract User Login(string username, string password);
         public abstract bool Register(User newUser);
-
-   
-
    
         protected virtual bool IsValidEmail(string email)
         {

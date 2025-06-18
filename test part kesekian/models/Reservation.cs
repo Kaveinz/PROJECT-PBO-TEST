@@ -129,7 +129,7 @@ namespace test_part_kesekian.models
             TableNumber = tableNumber;
         }
 
-        public override bool ValidasiReservasi()
+        public override bool ValidateReservation()
         {
             return UserId > 0 && 
                    !string.IsNullOrWhiteSpace(NomorHP) &&
