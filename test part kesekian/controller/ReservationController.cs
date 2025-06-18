@@ -1,5 +1,4 @@
-﻿
-using Npgsql;
+﻿using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,7 +27,6 @@ namespace test_part_kesekian.controller
         public abstract bool CreateReservation(Reservation reservation);
         public abstract bool IsTableAvailable(string tableNumber, DateTime reservationTime);
 
-        
         public virtual List<Reservation> GetUserReservations(int userId)
         {
             string query = @"
@@ -66,7 +64,7 @@ namespace test_part_kesekian.controller
 
         protected virtual Reservation MapReservationFromReader(NpgsqlDataReader reader)
         {
-            var reservation = new Reservation
+            var reservasi = new Reservation
             {
                 Id = reader.GetInt32("id"),
                 UserId = reader.GetInt32("user_id"),
@@ -77,7 +75,7 @@ namespace test_part_kesekian.controller
             };
 
             string statusStr = reader.GetString("status");
-            reservation.Status = statusStr.ToLower() switch
+            reservasi.Status = statusStr.ToLower() switch
             {
                 "menunggu" => ReservationStatus.Menunggu,
                 "dikonfirmasi" => ReservationStatus.Dikonfirmasi,
@@ -86,10 +84,9 @@ namespace test_part_kesekian.controller
                 _ => ReservationStatus.Menunggu
             };
 
-            return reservation;
+            return reservasi;
         }
 
-       
         protected virtual bool ValidateReservationData(Reservation reservation)
         {
             if (reservation == null)
@@ -104,7 +101,6 @@ namespace test_part_kesekian.controller
         private static ReservationController _instance;
         private static readonly object _lock = new object();
 
-        // Singleton pattern
         public static ReservationController Instance
         {
             get
@@ -141,7 +137,7 @@ namespace test_part_kesekian.controller
                 {
                     var conn = transaction.Connection;
 
-                    // Insert reservation
+                    // Masukin reservasi ke database
                     string insertQuery = @"
                         INSERT INTO reservations (user_id, nomor_hp, reservation_time, jumlah_orang, table_number, status)
                         VALUES (@user_id, @nomor_hp, @reservation_time, @jumlah_orang, @table_number, @status)";
@@ -268,7 +264,6 @@ namespace test_part_kesekian.controller
         }
     }
 
-   
     public class ReservationException : Exception
     {
         public ReservationException(string message) : base(message) { }

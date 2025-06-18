@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Npgsql;
+﻿using Npgsql;
 using test_part_kesekian.controller;
 using test_part_kesekian.models;
 
@@ -48,11 +39,11 @@ namespace test_part_kesekian
                 return;
             }
 
-            int reservationId = Convert.ToInt32(dgvReservations.SelectedRows[0].Cells["ID Reservasi"].Value);
-            string newStatus = cbStatus.SelectedItem.ToString() ?? "";
-            string tableNumber = dgvReservations.SelectedRows[0].Cells["Nomor Meja"].Value?.ToString() ?? "";
+            int id_reservasi = Convert.ToInt32(dgvReservations.SelectedRows[0].Cells["ID Reservasi"].Value);
+            string status_baru = cbStatus.SelectedItem.ToString() ?? "";
+            string nomor_meja = dgvReservations.SelectedRows[0].Cells["Nomor Meja"].Value?.ToString() ?? "";
 
-            if (string.IsNullOrEmpty(newStatus) || string.IsNullOrEmpty(tableNumber))
+            if (string.IsNullOrEmpty(status_baru) || string.IsNullOrEmpty(nomor_meja))
             {
                 MessageBox.Show("Data tidak valid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -61,16 +52,16 @@ namespace test_part_kesekian
             string query = "UPDATE reservations SET status = @status WHERE id = @id";
             var parameters = new NpgsqlParameter[]
             {
-                new NpgsqlParameter("@status", newStatus),
-                new NpgsqlParameter("@id", reservationId)
+                new NpgsqlParameter("@status", status_baru),
+                new NpgsqlParameter("@id", id_reservasi)
             };
 
             try
             {
                 DatabaseHelper.ExecuteNonQuery(query, parameters);
-                if (newStatus == "Selesai" || newStatus == "Dibatalkan" || newStatus == "Tidak Datang")
+                if (status_baru == "Selesai" || status_baru == "Dibatalkan" || status_baru == "Tidak Datang")
                 {
-                    ReservationController.UpdateTableStatus(tableNumber, "Available");
+                    ReservationController.UpdateTableStatus(nomor_meja, "Available");
                 }
                 MessageBox.Show("Status Reservasi Berhasil Diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadReservations();

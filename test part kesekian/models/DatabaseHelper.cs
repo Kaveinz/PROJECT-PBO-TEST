@@ -8,7 +8,6 @@ using Npgsql;
 
 namespace test_part_kesekian.models
 {
-    // Interface for database operations (Abstraction)
     public interface IDatabaseOperations
     {
         DataTable GetData(string query, NpgsqlParameter[] parameters = null);
@@ -16,7 +15,6 @@ namespace test_part_kesekian.models
         object ExecuteScalar(string query, NpgsqlParameter[] parameters = null);
     }
 
-    // Abstract base class for database operations
     public abstract class BaseDatabaseHelper : IDatabaseOperations
     {
         protected readonly string _connectionString;
@@ -26,10 +24,8 @@ namespace test_part_kesekian.models
             _connectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
         }
 
-        // Abstract method for creating connection
         public abstract NpgsqlConnection GetConnection();
 
-        // Virtual methods that can be overridden (Polymorphism)
         public virtual DataTable GetData(string query, NpgsqlParameter[] parameters = null)
         {
             if (string.IsNullOrWhiteSpace(query))

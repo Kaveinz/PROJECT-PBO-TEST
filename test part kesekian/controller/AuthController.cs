@@ -1,27 +1,19 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using test_part_kesekian.models;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace test_part_kesekian.controller
 {
-    // Interface for authentication operations (Abstraction)
-    public interface IAuthenticationService
+    // Interface buat login sama register
+    public interface IAuthService
     {
         User Login(string username, string password);
-        bool Register(User newUser);
-       
+        bool Register(User penggunaBaru);
+
     }
 
-    // Abstract base class for authentication (Abstraction & Inheritance)
-    public abstract class BaseAuthController : IAuthenticationService
+    public abstract class BaseAuthController : IAuthService
     {
         protected readonly IDatabaseOperations _database;
         protected User _currentUser;
@@ -31,10 +23,10 @@ namespace test_part_kesekian.controller
             _database = database ?? throw new ArgumentNullException(nameof(database));
         }
 
-        public User CurrentUser
+        public User penggunaTerbaru
         {
-            get => _currentUser;
-            protected set => _currentUser = value;
+            get => penggunaTerbaru;
+            protected set => penggunaTerbaru = value;
         }
 
      
@@ -69,23 +61,23 @@ namespace test_part_kesekian.controller
   
     public class AuthController : BaseAuthController
     {
-        private static AuthController _instance;
-        private static readonly object _lock = new object();
+        private static AuthController instance;
+        private static readonly object lockInstance= new object();
 
    
         public static AuthController Instance
         {
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    lock (_lock)
+                    lock (lockInstance)
                     {
-                        if (_instance == null)
-                            _instance = new AuthController(DatabaseHelper.Instance);
+                        if (instance == null)
+                            instance = new AuthController(DatabaseHelper.Instance);
                     }
                 }
-                return _instance;
+                return instance;
             }
         }
 
@@ -99,8 +91,6 @@ namespace test_part_kesekian.controller
 
             try
             {
-               
-
                 string query = @"
                     SELECT id, username, role, nama_lengkap, email, nomor_hp, created_at, status
                     FROM users
@@ -118,7 +108,7 @@ namespace test_part_kesekian.controller
                 {
                   
 
-                    var user = new User
+                    var pengguna = new User
                     {
                         Id = reader.GetInt32("id"),
                         Username = reader.GetString("username"),
@@ -130,11 +120,11 @@ namespace test_part_kesekian.controller
 
                     
                     string roleStr = reader.GetString("role");
-                    user.Role = roleStr.ToLower() == "admin" ? UserRole.Admin : UserRole.Pengguna;
+                    pengguna.Role = roleStr.ToLower() == "admin" ? UserRole.Admin : UserRole.Pengguna;
 
                  
                     string statusStr = reader.GetString("status");
-                    user.Status = statusStr.ToLower() switch
+                    pengguna.Status = statusStr.ToLower() switch
                     {
                         "aktif" => UserStatus.Aktif,
                         "nonaktif" => UserStatus.Nonaktif,
@@ -142,12 +132,12 @@ namespace test_part_kesekian.controller
                         _ => UserStatus.Nonaktif
                     };
 
-                    return user;
+                    return pengguna;
                 }, parameters);
 
                 if (result != null)
                 {
-                    CurrentUser = result;
+                    penggunaTerbaru = result;
                     LogLoginAttempt(username, true);
                 }
                 else
@@ -166,19 +156,18 @@ namespace test_part_kesekian.controller
             }
         }
 
-        public override bool Register(User newUser)
+        public override bool Register(User penggunaBaru)
         {
-            // Validate user data
-            if (newUser == null)
-                throw new ArgumentNullException(nameof(newUser));
+            if (penggunaBaru == null)
+                throw new ArgumentNullException(nameof(penggunaBaru));
 
-            if (!newUser.ValidateData())
+            if (!penggunaBaru.ValidateData())
                 throw new ArgumentException("Invalid User Data");
 
-            if (!IsValidEmail(newUser.Email))
+            if (!IsValidEmail(penggunaBaru.Email))
                 throw new ArgumentException("Format Email Tidak Valid");
 
-            if (!IsValidPhoneNumber(newUser.NomorHp))
+            if (!IsValidPhoneNumber(penggunaBaru.NomorHp))
                 throw new ArgumentException("Nomor HP Tidak Valid");
 
             try
@@ -193,27 +182,27 @@ namespace test_part_kesekian.controller
                     string checkQuery = "SELECT COUNT(*) FROM users WHERE username = @u OR email = @e";
                     using (var checkCmd = new NpgsqlCommand(checkQuery, conn, transaction))
                     {
-                        checkCmd.Parameters.AddWithValue("@u", newUser.Username);
-                        checkCmd.Parameters.AddWithValue("@e", newUser.Email);
+                        checkCmd.Parameters.AddWithValue("@u", penggunaBaru.Username);
+                        checkCmd.Parameters.AddWithValue("@e", penggunaBaru.Email);
                         long count = (long)checkCmd.ExecuteScalar();
 
                         if (count > 0)
                             throw new InvalidOperationException("Username atau Email Sudah Digunakan!");
                     }
 
-                    // nambah user baru
+                    // Nambah user baru
                     string insertQuery = @"
                         INSERT INTO users(username, password_hash, role, nama_lengkap, email, nomor_hp, created_at, status)
                         VALUES(@u, crypt(@p, gen_salt('bf')), @r, @n, @e, @h, NOW(), 'Aktif')";
 
                     using (var insertCmd = new NpgsqlCommand(insertQuery, conn, transaction))
                     {
-                        insertCmd.Parameters.AddWithValue("@u", newUser.Username);
-                        insertCmd.Parameters.AddWithValue("@p", newUser.Password);
-                        insertCmd.Parameters.AddWithValue("@r", newUser.Role.ToString().ToLower());
-                        insertCmd.Parameters.AddWithValue("@n", newUser.NamaLengkap);
-                        insertCmd.Parameters.AddWithValue("@e", newUser.Email);
-                        insertCmd.Parameters.AddWithValue("@h", newUser.NomorHp);
+                        insertCmd.Parameters.AddWithValue("@u", penggunaBaru.Username);
+                        insertCmd.Parameters.AddWithValue("@p", penggunaBaru.Password);
+                        insertCmd.Parameters.AddWithValue("@r", penggunaBaru.Role.ToString().ToLower());
+                        insertCmd.Parameters.AddWithValue("@n", penggunaBaru.NamaLengkap);
+                        insertCmd.Parameters.AddWithValue("@e", penggunaBaru.Email);
+                        insertCmd.Parameters.AddWithValue("@h", penggunaBaru.NomorHp);
 
                         int rowsAffected = insertCmd.ExecuteNonQuery();
                         success = rowsAffected > 0;
@@ -231,12 +220,12 @@ namespace test_part_kesekian.controller
        
         public bool HasPermission(string permission)
         {
-            if (CurrentUser == null)
+            if (penggunaTerbaru == null)
                 return false;
 
-            return CurrentUser.Role switch
+            return penggunaTerbaru.Role switch
             {
-                UserRole.Admin => true, // Admin has all permissions
+                UserRole.Admin => true, // Akses semuanya untuk admin
                 UserRole.Pengguna => permission.ToLower() switch
                 {
                     "make_reservation" => true,
@@ -284,7 +273,7 @@ namespace test_part_kesekian.controller
 
         public static User GetCurrentUser()
         {
-            return Instance.CurrentUser;
+            return Instance.penggunaTerbaru;
         }
 
         

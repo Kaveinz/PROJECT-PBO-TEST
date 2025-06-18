@@ -8,26 +8,26 @@ namespace test_part_kesekian.models
 {
     public abstract class Person
     {
-        private string _namaLengkap;
-        private string _email;
-        private string _nomorHp;
+        private string namaLengkap;
+        private string email;
+        private string nomorHp;
 
         public string NamaLengkap 
         { 
-            get => _namaLengkap; 
-            set => _namaLengkap = value?.Trim(); 
+            get => namaLengkap; 
+            set => namaLengkap= value?.Trim(); 
         }
         
         public string Email 
         { 
-            get => _email; 
-            set => _email = value?.Trim().ToLower(); 
+            get => email; 
+            set => email = value?.Trim().ToLower(); 
         }
         
         public string NomorHp 
         { 
-            get => _nomorHp; 
-            set => _nomorHp = value?.Trim(); 
+            get => nomorHp; 
+            set => nomorHp = value?.Trim(); 
         }
 
         public abstract string GetDisplayInfo();
@@ -42,54 +42,54 @@ namespace test_part_kesekian.models
 
     public class User : Person
     {
-        private int _id;
-        private string _username;
-        private string _password;
-        private UserRole _role;
-        private DateTime _createdAt;
-        private UserStatus _status;
+        private int id;
+        private string username;
+        private string password;
+        private UserRole role;
+        private DateTime createdAt;
+        private UserStatus status;
 
         public int Id 
         { 
-            get => _id; 
-            set => _id = value >= 0 ? value : throw new ArgumentException("ID Tidak Boleh Negatif!"); 
+            get => id; 
+            set => id = value >= 0 ? value : throw new ArgumentException("ID Tidak Boleh Negatif!"); 
         }
 
         public string Username 
         { 
-            get => _username; 
-            set => _username = value?.Trim().ToLower(); 
+            get => username; 
+            set => username = value?.Trim().ToLower(); 
         }
 
         public string Password 
         { 
-            get => _password; 
-            set => _password = value; 
+            get => password; 
+            set => password = value; 
         }
 
         public UserRole Role 
         { 
-            get => _role; 
-            set => _role = value; 
+            get => role; 
+            set => role = value; 
         }
 
         public DateTime CreatedAt 
         { 
-            get => _createdAt; 
-            set => _createdAt = value; 
+            get => createdAt; 
+            set => createdAt = value; 
         }
 
         public UserStatus Status 
         { 
-            get => _status; 
-            set => _status = value; 
+            get => status; 
+            set => status = value; 
         }
 
         public User()
         {
-            _createdAt = DateTime.Now;
-            _status = UserStatus.Aktif;
-            _role = UserRole.Pengguna;
+            createdAt = DateTime.Now;
+            status = UserStatus.Aktif;
+            role = UserRole.Pengguna;
         }
 
         public User(string username, string password, string namaLengkap, string email, string nomorHp) : this()

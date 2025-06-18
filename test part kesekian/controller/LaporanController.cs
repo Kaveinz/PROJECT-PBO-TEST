@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
+﻿using System.Data;
 using System.Drawing.Printing;
-using System.IO;
-using System.Linq;
 using Npgsql;
 using test_part_kesekian.models;
 
@@ -18,30 +13,29 @@ namespace test_part_kesekian.controller
         void ExportToFile(string filePath);
     }
 
-    public class ReportSummary
+    public class LaporanReservasi
     {
-        public int TotalReservations { get; set; }
-        public int PendingReservations { get; set; }
-        public int ConfirmedReservations { get; set; }
-        public int CompletedReservations { get; set; }
-        public int CancelledReservations { get; set; }
-        public decimal TotalRevenue { get; set; }
-        public DateTime ReportDate { get; set; }
+        public int totalReservasi { get; set; }
+        public int reservasiPending { get; set; }
+        public int reservasiDikonfirmasi { get; set; }
+        public int reservasiSelesai { get; set; }
+        public int reservasiDibatalkan { get; set; }
+        public DateTime tanggalLaporan { get; set; }
 
-        public ReportSummary()
+        public LaporanReservasi()
         {
-            ReportDate = DateTime.Now;
+            tanggalLaporan = DateTime.Now;
         }
 
-        public double CancellationRate => TotalReservations > 0 ? (double)CancelledReservations / TotalReservations * 100 : 0;
-        public double CompletionRate => TotalReservations > 0 ? (double)CompletedReservations / TotalReservations * 100 : 0;
+        public double rataRataPembatalan => totalReservasi > 0 ? (double)rataRataPembatalan / totalReservasi * 100 : 0;
+        public double rataRataSelesai => totalReservasi > 0 ? (double)rataRataSelesai / totalReservasi * 100 : 0;
     }
 
     public abstract class LaporanReservasiController : IReportService
     {
         protected readonly IDatabaseOperations _database;
-        protected DateTime _startDate;
-        protected DateTime _endDate;
+        protected DateTime startDate;
+        protected DateTime endDate;
 
         public abstract string JudulLaporan { get; }
 
@@ -50,10 +44,10 @@ namespace test_part_kesekian.controller
             _database = DatabaseHelper.Instance;
         }
 
-        protected LaporanReservasiController(DateTime startDate, DateTime endDate) : this()
+        protected LaporanReservasiController(DateTime _startDate, DateTime _endDate) : this()
         {
-            _startDate = startDate;
-            _endDate = endDate;
+            startDate = _startDate;
+            endDate = _endDate;
         }
 
         public abstract DataTable AmbilData();
@@ -121,13 +115,13 @@ namespace test_part_kesekian.controller
             }
         }
 
-        public virtual ReportSummary GetReportSummary()
+        public virtual LaporanReservasi GetReportSummary()
         {
             DataTable dt = AmbilData();
             
-            var summary = new ReportSummary
+            var summary = new LaporanReservasi
             {
-                TotalReservations = dt.Rows.Count
+                totalReservasi = dt.Rows.Count
             };
 
             foreach (DataRow row in dt.Rows)
@@ -136,17 +130,16 @@ namespace test_part_kesekian.controller
                 switch (status)
                 {
                     case "menunggu":
-                        summary.PendingReservations++;
+                        summary.reservasiPending++;
                         break;
                     case "dikonfirmasi":
-                        summary.ConfirmedReservations++;
+                        summary.reservasiDikonfirmasi++;
                         break;
                     case "selesai":
-                        summary.CompletedReservations++;
-                        summary.TotalRevenue += Convert.ToInt32(row["jumlah_orang"]) * 50000;
+                        summary.reservasiSelesai++;
                         break;
                     case "dibatalkan":
-                        summary.CancelledReservations++;
+                        summary.reservasiDibatalkan++;
                         break;
                 }
             }
@@ -194,21 +187,21 @@ namespace test_part_kesekian.controller
 
     public class LaporanMingguanController : LaporanReservasiController
     {
-        private readonly int _mingguKe;
+        private readonly int minggu;
 
-        public override string JudulLaporan => $"Laporan Reservasi Mingguan - Minggu ke-{_mingguKe}";
+        public override string JudulLaporan => $"Laporan Reservasi Mingguan - Minggu ke-{minggu}";
 
         public LaporanMingguanController(int mingguKe) : base()
         {
-            _mingguKe = mingguKe;
+            minggu = mingguKe;
             CalculateWeekDates();
         }
 
         private void CalculateWeekDates()
         {
             DateTime startOfYear = new DateTime(DateTime.Now.Year, 1, 1);
-            _startDate = startOfYear.AddDays((_mingguKe - 1) * 7);
-            _endDate = _startDate.AddDays(6);
+            startDate = startOfYear.AddDays((minggu - 1) * 7);
+            endDate = startDate.AddDays(6);
         }
 
         public override DataTable AmbilData()
@@ -224,8 +217,8 @@ namespace test_part_kesekian.controller
 
             var parameters = new NpgsqlParameter[]
             {
-                new("@startDate", _startDate.Date),
-                new("@endDate", _endDate.Date)
+                new("@startDate", startDate.Date),
+                new("@endDate", endDate.Date)
             };
 
             return _database.GetData(query, parameters);
@@ -242,24 +235,24 @@ namespace test_part_kesekian.controller
 
     public class LaporanBulananController : LaporanReservasiController
     {
-        private readonly int _bulanKe;
-        private readonly int _tahun;
+        private readonly int bulan;
+        private readonly int tahun;
 
-        public override string JudulLaporan => $"Laporan Reservasi Bulanan - {GetMonthName(_bulanKe)} {_tahun}";
+        public override string JudulLaporan => $"Laporan Reservasi Bulanan - {GetNamaBulan(bulan)} {tahun}";
 
         public LaporanBulananController(int bulanKe) : this(bulanKe, DateTime.Now.Year) { }
 
-        public LaporanBulananController(int bulanKe, int tahun) : base()
+        public LaporanBulananController(int bulanKe, int tahunKe) : base()
         {
-            _bulanKe = bulanKe;
-            _tahun = tahun;
-            CalculateMonthDates();
+            bulan  = bulanKe;
+            tahun = tahunKe;
+            KalkulasiBulan();
         }
 
-        private void CalculateMonthDates()
+        private void KalkulasiBulan()
         {
-            _startDate = new DateTime(_tahun, _bulanKe, 1);
-            _endDate = _startDate.AddMonths(1).AddDays(-1);
+            startDate = new DateTime(tahun, bulan, 1);
+            endDate = startDate.AddMonths(1).AddDays(-1);
         }
 
         public override DataTable AmbilData()
@@ -275,60 +268,30 @@ namespace test_part_kesekian.controller
 
             var parameters = new NpgsqlParameter[]
             {
-                new("@startDate", _startDate.Date),
-                new("@endDate", _endDate.Date)
+                new("@startDate", startDate.Date),
+                new("@endDate", endDate.Date)
             };
 
             return _database.GetData(query, parameters);
         }
 
-        private string GetMonthName(int month)
+        private string GetNamaBulan(int bulan)
         {
-            string[] monthNames = { "", "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+            string[] namaBulan = { "", "Januari", "Februari", "Maret", "April", "Mei", "Juni",
                                    "Juli", "Agustus", "September", "Oktober", "November", "Desember" };
-            return monthNames[month];
+            return namaBulan[bulan];
         }
     }
 
-    // public class LaporanHarianController : LaporanReservasiController
-    // {
-    //     private readonly DateTime _tanggal;
-
-    //     public override string JudulLaporan => $"Laporan Reservasi Harian - {_tanggal:dd MMMM yyyy}";
-
-    //     public LaporanHarianController(DateTime tanggal) : base()
-    //     {
-    //         _tanggal = tanggal.Date;
-    //     }
-
-    //     public override DataTable AmbilData()
-    //     {
-    //         string query = @"
-    //             SELECT r.id, u.username, r.nomor_hp, r.reservation_time, 
-    //                    r.jumlah_orang, r.table_number, r.status
-    //             FROM reservations r
-    //             JOIN users u ON r.user_id = u.id
-    //             WHERE DATE(r.reservation_time) = @tanggal
-    //             ORDER BY r.reservation_time";
-
-    //         var parameters = new NpgsqlParameter[]
-    //         {
-    //             new("@tanggal", _tanggal)
-    //         };
-
-    //         return _database.GetData(query, parameters);
-    //     }
-    // }
-
     public class LaporanStatusController : LaporanReservasiController
     {
-        private readonly ReservationStatus _status;
+        private readonly ReservationStatus status;
 
-        public override string JudulLaporan => $"Laporan Reservasi - Status {_status}";
+        public override string JudulLaporan => $"Laporan Reservasi - Status {status}";
 
-        public LaporanStatusController(ReservationStatus status) : base()
+        public LaporanStatusController(ReservationStatus Status) : base()
         {
-            _status = status;
+            status = Status;
         }
 
         public override DataTable AmbilData()
@@ -343,7 +306,7 @@ namespace test_part_kesekian.controller
 
             var parameters = new NpgsqlParameter[]
             {
-                new("@status", _status.ToString())
+                new("@status", status.ToString())
             };
 
             return _database.GetData(query, parameters);

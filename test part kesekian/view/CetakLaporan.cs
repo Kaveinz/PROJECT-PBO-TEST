@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System.Data;
 using System.Drawing.Printing;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using test_part_kesekian.models;
 using test_part_kesekian.controller;
 
@@ -82,8 +74,8 @@ namespace test_part_kesekian.view
                                                       .Select(column => column.ColumnName)
                                                       .ToList();
 
-                        // Calculate column widths
                         List<int> columnWidths = new List<int>();
+
                         for (int i = 0; i < columnNames.Count; i++)
                         {
                             columnWidths.Add(columnNames[i].Length);
