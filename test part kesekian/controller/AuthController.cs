@@ -16,11 +16,7 @@ namespace test_part_kesekian.controller
     public abstract class BaseAuthController : IAuthService
     {
         protected readonly IDatabaseOperations _database;
-<<<<<<< HEAD
         protected User penggunaTerbaru;
-=======
-      
->>>>>>> 2d6c3b0e6395cae2fcce44bf1710c7aa4cd86e62
 
         protected BaseAuthController(IDatabaseOperations database)
         {

@@ -122,13 +122,16 @@ namespace test_part_kesekian.controller
         public override bool CreateReservation(Reservation reservation)
         {
             if (!ValidateReservationData(reservation))
-                throw new ArgumentException("Invalid reservation data");
+                throw new ArgumentException("Tanggal Reservasi Tidak Validz!");
 
             if (!IsTableAvailable(reservation.TableNumber, reservation.ReservationTime))
-                throw new InvalidOperationException("Table is not available at the selected time");
+                throw new InvalidOperationException("Meja Tidak Tersedia.");
 
             if (!IsTableCapacitySufficient(reservation.TableNumber, reservation.JumlahOrang))
-                throw new InvalidOperationException("Table capacity is insufficient for the number of people");
+                throw new InvalidOperationException("Kapasitas Meja Tidak Cukup!");
+
+            if (!IsPhoneNumberValid(reservation.NomorHP))
+                throw new ArgumentException("Format Nomor HP Tidak Valid.");
 
             try
             {
@@ -240,6 +243,17 @@ namespace test_part_kesekian.controller
             {
                 throw new ReservationException($"Failed to confirm reservation: {ex.Message}", ex);
             }
+        }
+
+        private bool IsPhoneNumberValid(string phoneNumber)
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+                return false;
+                
+            // Simple validation - phone number should be numeric and have reasonable length
+            return phoneNumber.Length >= 10 && 
+                   phoneNumber.Length <= 15 && 
+                   phoneNumber.All(char.IsDigit);
         }
 
         public static bool IsTableAvailableStatic(string tableNumber, DateTime reservationTime)
