@@ -141,7 +141,7 @@
             button3.Padding = new Padding(23, 0, 0, 0);
             button3.Size = new Size(222, 43);
             button3.TabIndex = 2;
-            button3.Text = "          pembatalan";
+            button3.Text = "          Batal Reservasi";
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;

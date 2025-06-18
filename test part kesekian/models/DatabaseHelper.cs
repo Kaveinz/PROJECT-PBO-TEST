@@ -106,7 +106,7 @@ namespace test_part_kesekian.models
 
     public static class DatabaseHelper
     {
-        private static readonly string _connectionString = "Host=localhost;Username=farhan;Password=6yLwsk85;Database=MBOK_WO_RESERVE";
+        private static readonly string _connectionString = "Host=localhost;Username=postgres;Password=Delion21.;Database=Mbok Wo Reserved";
         
         private static PostgreSQLHelper _instance;
         private static readonly object _lock = new object();

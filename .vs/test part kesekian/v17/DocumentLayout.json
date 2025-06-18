@@ -1,0 +1,607 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\controller\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\controller\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\formreservasibaru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\formreservasibaru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\lihat reservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\lihat reservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\lihat reservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\lihat reservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\formpilihkursi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\formpilihkursi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\form_register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\form_register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\form_register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\form_register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\auth_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\auth_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\formbatalreservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\formbatalreservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\auth_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\auth_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\auth_form.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\auth_form.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\cetaklaporan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\cetaklaporan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\models\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\models\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\controller\\laporancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\controller\\laporancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\formreservasibaru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\formreservasibaru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-pelanggan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\layout-pelanggan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\layout-pelanggan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\layout-pelanggan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\layout-admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\layout-admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\layout-admin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\layout-admin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\layout-admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\cetaklaporan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\cetaklaporan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\formeditreservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\formeditreservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\formeditreservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\formeditreservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\form_register.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\form_register.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\cetaklaporan.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\cetaklaporan.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\view\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\kuliah\\semester2\\pbo\\final-project-new\\project-PBO\\View\\reservasi_baru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\kuliah\\semester2\\pbo\\final-project-new\\project-PBO\\View\\reservasi_baru.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\kuliah\\semester2\\pbo\\final-project-new\\project-PBO\\View\\reservasi_baru.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\test part kesekian.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\test part kesekian.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 202,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 20,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "lihat reservasi.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\lihat reservasi.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\lihat reservasi.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\lihat reservasi.cs",
+              "RelativeToolTip": "test part kesekian\\view\\lihat reservasi.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:43:01.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "lihat reservasi.cs [Design]",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\lihat reservasi.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\lihat reservasi.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\lihat reservasi.cs [Design]",
+              "RelativeToolTip": "test part kesekian\\view\\lihat reservasi.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:42:58.784Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "auth_form.Designer.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\auth_form.Designer.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\auth_form.Designer.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\auth_form.Designer.cs",
+              "RelativeToolTip": "test part kesekian\\view\\auth_form.Designer.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAYwAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T13:36:58.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Table.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\models\\Table.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\models\\Table.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\models\\Table.cs",
+              "RelativeToolTip": "test part kesekian\\models\\Table.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAQwHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T14:36:42.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "FormEditReservasi.cs [Design]",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormEditReservasi.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\FormEditReservasi.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormEditReservasi.cs [Design]",
+              "RelativeToolTip": "test part kesekian\\view\\FormEditReservasi.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T07:33:35.625Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "form_register.Designer.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\form_register.Designer.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\form_register.Designer.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\form_register.Designer.cs",
+              "RelativeToolTip": "test part kesekian\\view\\form_register.Designer.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAWwBYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T07:26:55.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "auth_form.cs [Design]",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\auth_form.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\auth_form.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\auth_form.cs [Design]",
+              "RelativeToolTip": "test part kesekian\\view\\auth_form.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T07:20:50.714Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "layout-pelanggan.cs [Design]",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-pelanggan.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\layout-pelanggan.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-pelanggan.cs [Design]",
+              "RelativeToolTip": "test part kesekian\\view\\layout-pelanggan.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T06:55:21.346Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FormReservasiBaru.cs [Design]",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormReservasiBaru.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\FormReservasiBaru.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormReservasiBaru.cs [Design]",
+              "RelativeToolTip": "test part kesekian\\view\\FormReservasiBaru.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T19:22:33.352Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "layout-admin.cs [Design]",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-admin.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\layout-admin.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-admin.cs [Design]",
+              "RelativeToolTip": "test part kesekian\\view\\layout-admin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T07:45:20.806Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CetakLaporan.cs [Design]",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\CetakLaporan.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\CetakLaporan.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\CetakLaporan.cs [Design]",
+              "RelativeToolTip": "test part kesekian\\view\\CetakLaporan.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T07:44:12.709Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "form_register.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\form_register.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\form_register.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\form_register.cs",
+              "RelativeToolTip": "test part kesekian\\view\\form_register.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAYwAkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:09:39.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "form_register.cs [Design]",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\form_register.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\form_register.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\form_register.cs [Design]",
+              "RelativeToolTip": "test part kesekian\\view\\form_register.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:05:28.088Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\models\\User.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\models\\User.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\models\\User.cs",
+              "RelativeToolTip": "test part kesekian\\models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:03:39.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "layout-admin.Designer.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-admin.Designer.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\layout-admin.Designer.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-admin.Designer.cs",
+              "RelativeToolTip": "test part kesekian\\view\\layout-admin.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T15:12:18.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "CetakLaporan.Designer.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\CetakLaporan.Designer.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\CetakLaporan.Designer.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\CetakLaporan.Designer.cs",
+              "RelativeToolTip": "test part kesekian\\view\\CetakLaporan.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T14:54:51.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CetakLaporan.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\CetakLaporan.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\CetakLaporan.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\CetakLaporan.cs",
+              "RelativeToolTip": "test part kesekian\\view\\CetakLaporan.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAUwLAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T14:49:44.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "layout-admin.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-admin.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\layout-admin.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-admin.cs",
+              "RelativeToolTip": "test part kesekian\\view\\layout-admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T14:17:54.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LaporanController.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\LaporanController.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\controller\\LaporanController.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\LaporanController.cs",
+              "RelativeToolTip": "test part kesekian\\controller\\LaporanController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwKYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T14:14:14.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReservationController.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\ReservationController.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\controller\\ReservationController.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\ReservationController.cs",
+              "RelativeToolTip": "test part kesekian\\controller\\ReservationController.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAlwBIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T12:40:38.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\models\\Reservation.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\models\\Reservation.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\models\\Reservation.cs",
+              "RelativeToolTip": "test part kesekian\\models\\Reservation.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAwwIoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T15:48:57.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FormEditReservasi.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormEditReservasi.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\FormEditReservasi.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormEditReservasi.cs",
+              "RelativeToolTip": "test part kesekian\\view\\FormEditReservasi.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAgwEcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T15:16:32.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormPilihKursi.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormPilihKursi.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\FormPilihKursi.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormPilihKursi.cs",
+              "RelativeToolTip": "test part kesekian\\view\\FormPilihKursi.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAA9wCsAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T15:07:26.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\AuthController.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\controller\\AuthController.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\AuthController.cs",
+              "RelativeToolTip": "test part kesekian\\controller\\AuthController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T15:58:32.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "auth_form.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\auth_form.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\auth_form.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\auth_form.cs",
+              "RelativeToolTip": "test part kesekian\\view\\auth_form.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAmwGoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T02:59:39.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FormBatalReservasi.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormBatalReservasi.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\FormBatalReservasi.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormBatalReservasi.cs",
+              "RelativeToolTip": "test part kesekian\\view\\FormBatalReservasi.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAD4vxgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T02:53:54.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormReservasiBaru.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormReservasiBaru.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\FormReservasiBaru.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormReservasiBaru.cs",
+              "RelativeToolTip": "test part kesekian\\view\\FormReservasiBaru.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T02:43:37.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\MainForm.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\MainForm.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\MainForm.cs",
+              "RelativeToolTip": "test part kesekian\\view\\MainForm.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAwGsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T02:30:50.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "layout-pelanggan.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-pelanggan.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\layout-pelanggan.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\layout-pelanggan.cs",
+              "RelativeToolTip": "test part kesekian\\view\\layout-pelanggan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBZwBMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T02:26:35.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\MainForm.Designer.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\MainForm.Designer.cs",
+              "RelativeToolTip": "test part kesekian\\view\\MainForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T02:22:17.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "reservasi_baru.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\final-project-new\\project-PBO\\View\\reservasi_baru.cs",
+              "RelativeDocumentMoniker": "..\\final-project-new\\project-PBO\\View\\reservasi_baru.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\final-project-new\\project-PBO\\View\\reservasi_baru.cs",
+              "RelativeToolTip": "..\\final-project-new\\project-PBO\\View\\reservasi_baru.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T02:18:25.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "reservasi_baru.Designer.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\final-project-new\\project-PBO\\View\\reservasi_baru.Designer.cs",
+              "RelativeDocumentMoniker": "..\\final-project-new\\project-PBO\\View\\reservasi_baru.Designer.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\final-project-new\\project-PBO\\View\\reservasi_baru.Designer.cs",
+              "RelativeToolTip": "..\\final-project-new\\project-PBO\\View\\reservasi_baru.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T02:18:22.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "reservasi_baru.resx",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\final-project-new\\project-PBO\\View\\reservasi_baru.resx",
+              "RelativeDocumentMoniker": "..\\final-project-new\\project-PBO\\View\\reservasi_baru.resx",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\final-project-new\\project-PBO\\View\\reservasi_baru.resx",
+              "RelativeToolTip": "..\\final-project-new\\project-PBO\\View\\reservasi_baru.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-06-10T02:18:21.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\models\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\models\\DatabaseHelper.cs",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\models\\DatabaseHelper.cs",
+              "RelativeToolTip": "test part kesekian\\models\\DatabaseHelper.cs",
+              "ViewState": "AgIAAJMAAAAAAAAAAOBiwGwAAACLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T16:17:07.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "test part kesekian.csproj",
+              "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\test part kesekian.csproj",
+              "RelativeDocumentMoniker": "test part kesekian\\test part kesekian.csproj",
+              "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\test part kesekian.csproj",
+              "RelativeToolTip": "test part kesekian\\test part kesekian.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-02T16:15:56.287Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
