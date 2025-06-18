@@ -26,7 +26,7 @@ namespace test_part_kesekian
             try
             {
                 
-                // Console.WriteLine("Klik button tess");
+               
 
                 string username = txtUsername.Text.Trim();
                 string password = txtPassword.Text;

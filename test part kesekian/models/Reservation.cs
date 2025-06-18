@@ -129,7 +129,7 @@ namespace test_part_kesekian.models
             TableNumber = tableNumber;
         }
 
-        public override bool ValidasiReservasi()
+        public override bool ValidateReservation()
         {
             return UserId > 0 && 
                    !string.IsNullOrWhiteSpace(NomorHP) &&
@@ -137,29 +137,7 @@ namespace test_part_kesekian.models
                    JumlahOrang > 0 &&
                    ReservationTime > DateTime.Now;
         }
-
-       
-
-        public override bool CanBeCancelled()
-        {
-            // Hanya bisa dibatalkan jika status belum selesai dan setidaknya 2 jam sebelum waktu reservasi
-            return base.CanBeCancelled() && ReservationTime.Subtract(DateTime.Now).TotalHours >= 2;
-        }
-
-        public double GetDurationHours()
-        {
-            return ReservationTime.Subtract(CreatedAt).TotalHours;
-        }
-
-        public bool IsToday()
-        {
-            return ReservationTime.Date == DateTime.Today;
-        }
-
-        public string GetFormattedInfo()
-        {
-            return $"Reservasi #{Id} - {TableNumber} untuk {JumlahOrang} orang pada {ReservationTime:dd/MM/yyyy HH:mm}";
-        }
+    
     }
 
     public enum ReservationStatus
