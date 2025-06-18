@@ -16,7 +16,11 @@ namespace test_part_kesekian.controller
     public abstract class BaseAuthController : IAuthService
     {
         protected readonly IDatabaseOperations _database;
+<<<<<<< HEAD
         protected User penggunaTerbaru;
+=======
+      
+>>>>>>> 2d6c3b0e6395cae2fcce44bf1710c7aa4cd86e62
 
         protected BaseAuthController(IDatabaseOperations database)
         {
@@ -132,16 +136,7 @@ namespace test_part_kesekian.controller
                     return pengguna;
                 }, parameters);
 
-                if (result != null)
-                {
-                    penggunaTerbaru = result;
-                    LogLoginAttempt(username, true);
-                }
-                else
-                {
-                    LogLoginAttempt(username, false);
-
-                }
+              
 
                 return result;
             }
@@ -212,68 +207,7 @@ namespace test_part_kesekian.controller
             {
                 throw new AuthenticationException($"Registrasi Gagal: {ex.Message}", ex);
             }
-        }
-
-       
-        public bool HasPermission(string permission)
-        {
-            if (penggunaTerbaru == null)
-                return false;
-
-            return penggunaTerbaru.Role switch
-            {
-                UserRole.Admin => true, // Akses semuanya untuk admin
-                UserRole.Pengguna => permission.ToLower() switch
-                {
-                    "make_reservation" => true,
-                    "view_own_reservations" => true,
-                    "cancel_own_reservation" => true,
-                    _ => false
-                },
-                _ => false
-            };
-        }
-
-       
-        private void LogLoginAttempt(string username, bool success)
-        {
-            try
-            {
-                string query = @"
-                    INSERT INTO login_logs(username, success, attempt_time, ip_address)
-                    VALUES(@username, @success, NOW(), @ip)";
-
-                var parameters = new NpgsqlParameter[]
-                {
-                    new("@username", username),
-                    new("@success", success),
-                    new("@ip", "127.0.0.1") // In real app, get actual IP
-                };
-
-                _database.ExecuteNonQuery(query, parameters);
-            }
-            catch
-            {
-                
-            }
-        }
-        
-        public static User LoginStatic(string username, string password)
-        {
-            return Instance.Login(username, password);
-        }
-
-        public static bool RegisterStatic(User newUser)
-        {
-            return Instance.Register(newUser);
-        }
-
-        public static User GetCurrentUser()
-        {
-            return Instance.penggunaTerbaru;
-        }
-
-        
+        }        
     }
 
    

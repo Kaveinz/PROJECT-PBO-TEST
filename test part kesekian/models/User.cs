@@ -30,7 +30,7 @@ namespace test_part_kesekian.models
             set => nomorHp = value?.Trim(); 
         }
 
-        public abstract string GetDisplayInfo();
+        
 
         public virtual bool ValidateData()
         {
@@ -101,29 +101,6 @@ namespace test_part_kesekian.models
             NomorHp = nomorHp;
         }
 
-        public override string GetDisplayInfo()
-        {
-            return $"{NamaLengkap} ({Username}) - {Role}";
-        }
-
-        public override bool ValidateData()
-        {
-            return base.ValidateData() && 
-                   !string.IsNullOrWhiteSpace(Username) && 
-                   !string.IsNullOrWhiteSpace(Password) &&
-                   Username.Length >= 3 &&
-                   Password.Length >= 6;
-        }
-
-        public bool IsAdmin()
-        {
-            return Role == UserRole.Admin;
-        }
-
-        public bool CanMakeReservation()
-        {
-            return Status == UserStatus.Aktif && (Role == UserRole.Pengguna || Role == UserRole.Admin);
-        }
     }
 
     public enum UserRole

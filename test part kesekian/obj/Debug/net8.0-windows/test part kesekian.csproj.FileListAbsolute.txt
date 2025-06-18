@@ -30,3 +30,35 @@ D:\Kuliah Semester 2\mbok_wo_reserve\PROJECT-PBO-TEST\test part kesekian\obj\Deb
 D:\Kuliah Semester 2\mbok_wo_reserve\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.pdb
 D:\Kuliah Semester 2\mbok_wo_reserve\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.genruntimeconfig.cache
 D:\Kuliah Semester 2\mbok_wo_reserve\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\ref\test part kesekian.dll
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.exe
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.deps.json
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.runtimeconfig.json
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.dll
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.pdb
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\bin\Debug\net8.0-windows\Npgsql.dll
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.csproj.AssemblyReference.cache
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.auth_form.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.CetakLaporan.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.FormBatalReservasi.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.FormEditReservasi.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.FormPilihKursi.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.FormReservasiBaru.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.form_register.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.layout_admin.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\project_PBO.View.layout_pelanggan.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.lihat_reservasi.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.MainForm.resources
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.csproj.GenerateResource.cache
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.GeneratedMSBuildEditorConfig.editorconfig
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.AssemblyInfoInputs.cache
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.AssemblyInfo.cs
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.csproj.CoreCompileInputs.cache
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.sourcelink.json
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test par.B3E72A6C.Up2Date
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.dll
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\refint\test part kesekian.dll
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.pdb
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.genruntimeconfig.cache
+E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\ref\test part kesekian.dll

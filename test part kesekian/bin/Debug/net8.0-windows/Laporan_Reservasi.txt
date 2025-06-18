@@ -1,0 +1,27 @@
+Laporan Reservasi
+=================
+ID: 6
+Username: user1
+Nomor HP: 08523928928
+Waktu: 2025-06-11 22:17
+Jumlah Orang: 2
+Meja: A4
+Status: Dibatalkan
+-----------------
+ID: 3
+Username: user1
+Nomor HP: 320983092830918201
+Waktu: 2025-06-11 09:21
+Jumlah Orang: 2
+Meja: A2
+Status: Dibatalkan
+-----------------
+ID: 1
+Username: pengguna1
+Nomor HP: 09403904
+Waktu: 2025-06-11 13:24
+Jumlah Orang: 2
+Meja: A1
+Status: Dibatalkan
+-----------------
+Total Reservasi: 3
