@@ -5,7 +5,7 @@ using test_part_kesekian.models;
 
 namespace test_part_kesekian.controller
 {
-    // Interface buat login sama register
+    
     public interface IAuthService
     {
         User Login(string username, string password);
@@ -86,8 +86,6 @@ namespace test_part_kesekian.controller
         public override User Login(string username, string password)
         {
            
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-                throw new ArgumentException("Username atau Password Tidak Boleh Kosong!");
 
             try
             {

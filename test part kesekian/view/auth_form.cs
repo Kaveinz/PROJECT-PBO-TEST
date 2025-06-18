@@ -48,9 +48,7 @@ namespace test_part_kesekian
                 
                 if (user != null)
                 {
-                    CurrentUser = user;
                     
-                  
                     MessageBox.Show($"Selamat Datang, {user.NamaLengkap}!\nKamu telah berhasil Login sebagai {user.Role}", 
                         "Login Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
@@ -107,10 +105,10 @@ namespace test_part_kesekian
 
         private void auth_form_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-       
+
         private void label1_Click(object sender, EventArgs e)
         {
 
