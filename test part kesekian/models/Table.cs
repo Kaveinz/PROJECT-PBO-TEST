@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace test_part_kesekian.models
+﻿namespace test_part_kesekian.models
 {
     public interface ITableOperations
     {
