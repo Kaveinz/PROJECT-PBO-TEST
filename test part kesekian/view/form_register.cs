@@ -30,16 +30,7 @@ namespace test_part_kesekian.view
                 string nomorHP = txtNoHp.Text.Trim();
 
                
-                if (string.IsNullOrEmpty(username) ||
-                    string.IsNullOrEmpty(password) ||
-                    string.IsNullOrEmpty(namaLengkap) ||
-                    string.IsNullOrEmpty(email) ||
-                    string.IsNullOrEmpty(nomorHP))
-                {
-                    MessageBox.Show("Semua Kolom Harus Diisi", "Registrasi Gagal", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+               
 
                 
                 var newUser = new User(username, password, namaLengkap, email, nomorHP)
@@ -51,8 +42,7 @@ namespace test_part_kesekian.view
                 if (!newUser.ValidateData())
                 {
                     MessageBox.Show("Data yang dimasukkan tidak valid!\n" +
-                                  "- Username minimal 3 karakter\n" +
-                                  "- Password minimal 6 karakter\n" +
+                                  "data tidak boleh kosong\n" +
                                   "- Email harus sesuai format\n" +
                                   "- Nomor HP minimal 10 digit", 
                                   "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);

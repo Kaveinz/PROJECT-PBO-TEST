@@ -95,6 +95,14 @@
             NomorHp = nomorHp;
         }
 
+        public override bool ValidateData()
+        {
+            return base.ValidateData() && 
+                   !string.IsNullOrWhiteSpace(Username) && 
+                   !string.IsNullOrWhiteSpace(Password);
+        }
+
+
     }
 
     public enum UserRole
