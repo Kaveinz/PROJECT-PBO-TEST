@@ -9,10 +9,13 @@ namespace test_part_kesekian.controller
     public interface IReservationService
     {
         bool CreateReservation(Reservation reservation);
-        List<Reservation> GetUserReservations(int userId);
-        List<Reservation> GetAllReservations();
-        Reservation GetReservationById(int id);
-        bool IsTableAvailable(string tableNumber, DateTime reservationTime);
+        bool CekMejaKosong(string tableNumber, DateTime reservationTime);
+        bool CekKapasitasMeja(string tableNumber, int jumlahOrang);
+        bool CekNomorHP(string phoneNumber);
+        bool JamOperasional(DateTime reservationTime);
+        void UpdateStatusMeja(string tableNumber, string status);
+
+
     }
 
     public abstract class BaseReservationController : IReservationService
@@ -25,74 +28,21 @@ namespace test_part_kesekian.controller
         }
 
         public abstract bool CreateReservation(Reservation reservation);
-        public abstract bool IsTableAvailable(string tableNumber, DateTime reservationTime);
+        public abstract bool CekMejaKosong(string tableNumber, DateTime reservationTime);
+        public abstract bool CekKapasitasMeja(string tableNumber, int jumlahOrang);
+        public abstract bool CekNomorHP(string phoneNumber);
+        public abstract bool JamOperasional(DateTime reservationTime);
+        public abstract void UpdateStatusMeja(string tableNumber, string status);
 
-        public virtual List<Reservation> GetUserReservations(int userId)
-        {
-            string query = @"
-                SELECT id, user_id, nomor_hp, reservation_time, jumlah_orang, table_number, status
-                FROM reservations 
-                WHERE user_id = @userId 
-                ORDER BY reservation_time DESC";
 
-            var parameters = new NpgsqlParameter[] { new("@userId", userId) };
 
-            return DatabaseHelper.Instance.GetList(query, MapReservationFromReader, parameters);
-        }
-
-        public virtual List<Reservation> GetAllReservations()
-        {
-            string query = @"
-                SELECT id, user_id, nomor_hp, reservation_time, jumlah_orang, table_number, status
-                FROM reservations 
-                ORDER BY reservation_time DESC";
-
-            return DatabaseHelper.Instance.GetList(query, MapReservationFromReader);
-        }
-
-        public virtual Reservation GetReservationById(int id)
-        {
-            string query = @"
-                SELECT id, user_id, nomor_hp, reservation_time, jumlah_orang, table_number, status
-                FROM reservations 
-                WHERE id = @id";
-
-            var parameters = new NpgsqlParameter[] { new("@id", id) };
-
-            return DatabaseHelper.Instance.GetSingle(query, MapReservationFromReader, parameters);
-        }
-
-        protected virtual Reservation MapReservationFromReader(NpgsqlDataReader reader)
-        {
-            var reservasi = new Reservation
-            {
-                Id = reader.GetInt32("id"),
-                UserId = reader.GetInt32("user_id"),
-                NomorHP = reader.GetString("nomor_hp"),
-                ReservationTime = reader.GetDateTime("reservation_time"),
-                JumlahOrang = reader.GetInt32("jumlah_orang"),
-                TableNumber = reader.GetString("table_number")
-            };
-
-            string statusStr = reader.GetString("status");
-            reservasi.Status = statusStr.ToLower() switch
-            {
-                "menunggu" => ReservationStatus.Menunggu,
-                "dikonfirmasi" => ReservationStatus.Dikonfirmasi,
-                "selesai" => ReservationStatus.Selesai,
-                "dibatalkan" => ReservationStatus.Dibatalkan,
-                _ => ReservationStatus.Menunggu
-            };
-
-            return reservasi;
-        }
 
         protected virtual bool ValidateReservationData(Reservation reservation)
         {
             if (reservation == null)
                 return false;
 
-            return reservation.ValidateReservation();
+            return reservation.ValidateReservasi();
         }
     }
 
@@ -124,14 +74,9 @@ namespace test_part_kesekian.controller
             if (!ValidateReservationData(reservation))
                 throw new ArgumentException("Tanggal Reservasi Tidak Validz!");
 
-            if (!IsTableAvailable(reservation.TableNumber, reservation.ReservationTime))
-                throw new InvalidOperationException("Meja Tidak Tersedia.");
+            
 
-            if (!IsTableCapacitySufficient(reservation.TableNumber, reservation.JumlahOrang))
-                throw new InvalidOperationException("Kapasitas Meja Tidak Cukup!");
-
-            if (!IsPhoneNumberValid(reservation.NomorHP))
-                throw new ArgumentException("Format Nomor HP Tidak Valid.");
+           
 
             try
             {
@@ -157,14 +102,9 @@ namespace test_part_kesekian.controller
                         cmd.ExecuteNonQuery();
                     }
 
-                    // Update table status
-                    string updateTableQuery = "UPDATE tables SET status = @status WHERE table_number = @tableNumber";
-                    using (var cmd = new NpgsqlCommand(updateTableQuery, conn, transaction))
-                    {
-                        cmd.Parameters.AddWithValue("@status", "Reserved");
-                        cmd.Parameters.AddWithValue("@tableNumber", reservation.TableNumber);
-                        cmd.ExecuteNonQuery();
-                    }
+                    
+                    UpdateStatusMeja(reservation.TableNumber, "Reserved");
+                    
 
                     success = true;
                 });
@@ -177,39 +117,42 @@ namespace test_part_kesekian.controller
             }
         }
         
-        public override bool IsTableAvailable(string tableNumber, DateTime reservationTime)
-        {
-            string query = @"
-                SELECT COUNT(*) 
-                FROM tables t
-                WHERE t.table_number = @tableNumber
-                AND t.status = 'Available'
-                AND NOT EXISTS (
-                    SELECT 1 FROM reservations r
-                    WHERE r.table_number = t.table_number
-                    AND r.status IN ('Menunggu', 'Dikonfirmasi')
-                    AND r.reservation_time BETWEEN @startTime AND @endTime
-                )";
-
-            var parameters = new NpgsqlParameter[]
+        
+            public override bool CekMejaKosong(string tableNumber, DateTime reservationTime)
             {
-                new("@tableNumber", tableNumber),
-                new("@startTime", reservationTime.AddHours(-2)),
-                new("@endTime", reservationTime.AddHours(2))
-            };
+                string query = @"
+                    SELECT COUNT(*) 
+                    FROM tables t
+                    WHERE t.table_number = @tableNumber
+                    AND NOT EXISTS (
+                        SELECT 1 FROM reservations r
+                        WHERE r.table_number = t.table_number
+                        AND r.status IN ('Menunggu', 'Dikonfirmasi')
+                        AND @startTime < r.reservation_time + interval '2 hour'
+                        AND @endTime > r.reservation_time
+                    )";
 
-            try
-            {
-                long count = (long)_database.ExecuteScalar(query, parameters);
-                return count > 0;
+                var parameters = new NpgsqlParameter[]
+                {
+                    new("@tableNumber", tableNumber),
+                    new("@startTime", reservationTime.AddHours(-1)),
+                    new("@endTime", reservationTime.AddHours(1)) 
+                };
+
+                try
+                {
+                    long count = (long)_database.ExecuteScalar(query, parameters);
+                    return count > 0;
+                }
+                catch (Exception ex)
+                {
+                    throw new ReservationException($"Gagal mengecek ketersediaan meja: {ex.Message}", ex);
+                }
             }
-            catch (Exception ex)
-            {
-                throw new ReservationException($"Failed to check table availability: {ex.Message}", ex);
-            }
-        }
 
-        public bool IsTableCapacitySufficient(string tableNumber, int jumlahOrang)
+        
+
+        public override bool CekKapasitasMeja(string tableNumber, int jumlahOrang)
         {
             string query = "SELECT capacity FROM tables WHERE table_number = @tableNumber";
             var parameters = new NpgsqlParameter[] { new("@tableNumber", tableNumber) };
@@ -229,44 +172,32 @@ namespace test_part_kesekian.controller
             }
         }
 
-        public bool ConfirmReservation(int reservationId)
-        {
-            string query = "UPDATE reservations SET status = 'Dikonfirmasi' WHERE id = @id AND status = 'Menunggu'";
-            var parameters = new NpgsqlParameter[] { new("@id", reservationId) };
+        
 
-            try
-            {
-                int rowsAffected = _database.ExecuteNonQuery(query, parameters);
-                return rowsAffected > 0;
-            }
-            catch (Exception ex)
-            {
-                throw new ReservationException($"Failed to confirm reservation: {ex.Message}", ex);
-            }
-        }
-
-        private bool IsPhoneNumberValid(string phoneNumber)
+        public override bool CekNomorHP(string phoneNumber)
         {
             if (string.IsNullOrWhiteSpace(phoneNumber))
                 return false;
                 
-            // Simple validation - phone number should be numeric and have reasonable length
+            
             return phoneNumber.Length >= 10 && 
                    phoneNumber.Length <= 15 && 
                    phoneNumber.All(char.IsDigit);
         }
 
-        public static bool IsTableAvailableStatic(string tableNumber, DateTime reservationTime)
+
+        public override bool JamOperasional(DateTime reservationTime)
         {
-            return Instance.IsTableAvailable(tableNumber, reservationTime);
+            TimeSpan open = new TimeSpan(9, 0, 0);  // 09:00
+            TimeSpan close = new TimeSpan(21, 0, 0); // 21:00
+
+            TimeSpan waktu = reservationTime.TimeOfDay;
+            return waktu >= open && waktu <= close;
         }
 
-        public static bool IsTableCapacitySufficientStatic(string tableNumber, int jumlahOrang)
-        {
-            return Instance.IsTableCapacitySufficient(tableNumber, jumlahOrang);
-        }
+        
 
-        public static void UpdateTableStatus(string tableNumber, string status)
+        public override void UpdateStatusMeja(string tableNumber, string status)
         {
             string query = "UPDATE tables SET status = @status WHERE table_number = @tableNumber";
             var parameters = new NpgsqlParameter[]
@@ -275,6 +206,35 @@ namespace test_part_kesekian.controller
                 new("@tableNumber", tableNumber)
             };
             DatabaseHelper.ExecuteNonQuery(query, parameters);
+        }
+
+
+
+        public static bool CreateReservationStatic(Reservation reservation)
+        {
+            return Instance.CreateReservation(reservation);
+        }
+        public static bool CekMejaKosongStatic(string tableNumber, DateTime reservationTime)
+        {
+            return Instance.CekMejaKosong(tableNumber, reservationTime);
+        }
+
+        public static bool CekKapasitasMejaStatic(string tableNumber, int jumlahOrang)
+        {
+            return Instance.CekKapasitasMeja(tableNumber, jumlahOrang);
+        }
+
+        public static bool CekNomorHPStatic(string phoneNumber)
+        {
+            return Instance.CekNomorHP(phoneNumber);
+        }
+        public static bool JamOperasionalStatic(DateTime reservationTime)
+        {
+            return Instance.JamOperasional(reservationTime);
+        }
+        public static void UpdateStatusMejaStatic(string tableNumber, string status)
+        {
+            Instance.UpdateStatusMeja(tableNumber, status);
         }
     }
 

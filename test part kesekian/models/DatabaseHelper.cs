@@ -106,7 +106,7 @@ namespace test_part_kesekian.models
 
     public static class DatabaseHelper
     {
-        private static readonly string _connectionString = "Host=localhost;Username=postgres;Password=Delion21.;Database=Mbok Wo Reserved";
+        private static readonly string _connectionString = "Host=localhost;Username=farhan;Password=6yLwsk85;Database=MBOK_WO_RESERVE";
         
         private static PostgreSQLHelper _instance;
         private static readonly object _lock = new object();
@@ -189,29 +189,7 @@ namespace test_part_kesekian.models
             }
         }
 
-        public static void FixReservationSequence()
-        {
-            try
-            {
-                using var connection = new NpgsqlConnection(_connectionString);
-                connection.Open();
-                
-                string maxIdQuery = "SELECT COALESCE(MAX(id), 0) FROM reservations";
-                using var maxIdCmd = new NpgsqlCommand(maxIdQuery, connection);
-                var maxId = Convert.ToInt32(maxIdCmd.ExecuteScalar());
-                
-                string fixSequenceQuery = $"SELECT setval('reservations_id_seq', {maxId + 1})";
-                using var fixCmd = new NpgsqlCommand(fixSequenceQuery, connection);
-                fixCmd.ExecuteNonQuery();
-                
-                Console.WriteLine($"✅ Fixed reservation sequence: set to {maxId + 1}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"❌ Failed to fix sequence: {ex.Message}");
-                throw;
-            }
-        }
+       
     }
 
     public class PostgreSQLHelper : BaseDatabaseHelper

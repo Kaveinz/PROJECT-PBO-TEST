@@ -62,3 +62,35 @@ E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows
 E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.pdb
 E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.genruntimeconfig.cache
 E:\kuliah\semester2\pbo\PBO-EGY-TEST\test part kesekian\obj\Debug\net8.0-windows\ref\test part kesekian.dll
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.exe
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.deps.json
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.runtimeconfig.json
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.dll
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\bin\Debug\net8.0-windows\test part kesekian.pdb
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\bin\Debug\net8.0-windows\Npgsql.dll
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.csproj.AssemblyReference.cache
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.auth_form.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.CetakLaporan.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.FormBatalReservasi.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.FormEditReservasi.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.FormPilihKursi.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.FormReservasiBaru.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.form_register.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.layout_admin.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\project_PBO.View.layout_pelanggan.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.lihat_reservasi.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.MainForm.resources
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.csproj.GenerateResource.cache
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.AssemblyInfoInputs.cache
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.AssemblyInfo.cs
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.csproj.CoreCompileInputs.cache
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.sourcelink.json
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test par.B3E72A6C.Up2Date
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.dll
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\refint\test part kesekian.dll
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.pdb
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.genruntimeconfig.cache
+C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\ref\test part kesekian.dll

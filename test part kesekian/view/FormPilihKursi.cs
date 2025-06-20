@@ -41,8 +41,8 @@ namespace test_part_kesekian
             CheckKursiAvailability(meja7, "A7");
         }        private void CheckKursiAvailability(Button meja, string kodeKursi)
         {
-            bool isAvailable = ReservationController.Instance.IsTableAvailable(kodeKursi, reservationTime);
-            bool isCapacitySufficient = ReservationController.Instance.IsTableCapacitySufficient(kodeKursi, jumlahOrang);
+            bool isAvailable = ReservationController.CekMejaKosongStatic(kodeKursi, reservationTime);
+            bool isCapacitySufficient = ReservationController.CekKapasitasMejaStatic(kodeKursi, jumlahOrang);
 
             if (!isAvailable || !isCapacitySufficient)
             {

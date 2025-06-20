@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\test part kesekian.csproj": {}
+    "C:\\Users\\USER\\PROJECT-PBO-TEST\\test part kesekian\\test part kesekian.csproj": {}
   },
   "projects": {
-    "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\test part kesekian.csproj": {
+    "C:\\Users\\USER\\PROJECT-PBO-TEST\\test part kesekian\\test part kesekian.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\test part kesekian.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\PROJECT-PBO-TEST\\test part kesekian\\test part kesekian.csproj",
         "projectName": "test part kesekian",
-        "projectPath": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\test part kesekian.csproj",
-        "packagesPath": "C:\\Users\\Delion\\.nuget\\packages\\",
-        "outputPath": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\obj\\",
+        "projectPath": "C:\\Users\\USER\\PROJECT-PBO-TEST\\test part kesekian\\test part kesekian.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\PROJECT-PBO-TEST\\test part kesekian\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Delion\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

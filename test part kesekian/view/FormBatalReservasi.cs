@@ -49,8 +49,8 @@ namespace test_part_kesekian
                 return;
             }
 
-            int reservationId = Convert.ToInt32(dgvReservations.SelectedRows[0].Cells["id"].Value);
-            string tableNumber = dgvReservations.SelectedRows[0].Cells["table_number"].Value.ToString();
+            int reservationId = Convert.ToInt32(dgvReservations.SelectedRows[0].Cells["ID Reservasi"].Value);
+            string tableNumber = dgvReservations.SelectedRows[0].Cells["Nomor Meja"].Value.ToString();
 
             string query = "UPDATE reservations SET status = 'Dibatalkan' WHERE id = @id";
             var parameters = new NpgsqlParameter[]
@@ -61,7 +61,7 @@ namespace test_part_kesekian
             try
             {
                 DatabaseHelper.ExecuteNonQuery(query, parameters);
-                ReservationController.UpdateTableStatus(tableNumber, "Available");
+                ReservationController.UpdateStatusMejaStatic(tableNumber, "Available");
                 MessageBox.Show("Reservasi berhasil dibatalkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadReservations();
             }

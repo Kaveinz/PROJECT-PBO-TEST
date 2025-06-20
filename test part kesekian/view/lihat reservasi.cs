@@ -31,13 +31,9 @@ namespace test_part_kesekian.view
         }        private void LoadReservations()
         {
             string query = @"
-                SELECT r.id AS ""ID Reservasi"", 
-                       u.username AS ""Nama Pengguna"", 
-                       r.nomor_hp AS ""Nomor HP"", 
+                SELECT u.username AS ""Nama Pengguna"", 
                        r.reservation_time AS ""Waktu Reservasi"", 
-                       r.jumlah_orang AS ""Jumlah Orang"", 
-                       r.table_number AS ""Nomor Meja"", 
-                       r.status AS ""Status""
+                       r.table_number AS ""Nomor Meja""
                 FROM reservations r
                 JOIN users u ON r.user_id = u.id
                 WHERE r.status IN ('Menunggu', 'Dikonfirmasi')";

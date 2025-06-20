@@ -8,9 +8,9 @@ namespace test_part_kesekian.models
 {
     public interface IReservable
     {
-        bool CanBeCancelled();
-        bool CanBeModified();
-        string GetStatusDescription();
+       
+        string GetDeskripsiStatus();
+        bool ValidateReservasi();
     }
 
     public abstract class BaseReservation : IReservable
@@ -43,24 +43,15 @@ namespace test_part_kesekian.models
             _status = ReservationStatus.Menunggu;
         }
 
-        public abstract bool ValidateReservation();
+        public abstract bool ValidateReservasi();
     
-        public virtual bool CanBeCancelled()
-        {
-            return Status == ReservationStatus.Menunggu || Status == ReservationStatus.Dikonfirmasi;
-        }
+       
 
-        public virtual bool CanBeModified()
-        {
-            return Status == ReservationStatus.Menunggu;
-        }
-
-        public virtual string GetStatusDescription()
+        public virtual string GetDeskripsiStatus()
         {
             return Status switch
             {
-                ReservationStatus.Menunggu => "Menunggu Konfirmasi",
-                ReservationStatus.Dikonfirmasi => "Reservasi Dikonfirmasi",
+                ReservationStatus.Menunggu => "Menunggu reservasi terlaksana",
                 ReservationStatus.Selesai => "Reservasi Selesai",
                 ReservationStatus.Dibatalkan => "Reservasi Dibatalkan",
                 _ => "Status Tidak Dikenal/invalid"
@@ -75,7 +66,7 @@ namespace test_part_kesekian.models
         private DateTime _reservationTime;
         private int _jumlahOrang;
         private string _tableNumber;
-        private string _catatan;
+
 
         public int UserId 
         { 
@@ -95,7 +86,7 @@ namespace test_part_kesekian.models
             set 
             { 
                 if (value < DateTime.Now)
-                    throw new ArgumentException("Waktu Reservasi Tidak Boleh Sebelum Sekarang");
+                    throw new ArgumentException("Waktu Reservasi Tidak Boleh Di masa Lalu");
                 _reservationTime = value; 
             } 
         }
@@ -112,11 +103,6 @@ namespace test_part_kesekian.models
             set => _tableNumber = value?.Trim(); 
         }
 
-        public string Catatan 
-        { 
-            get => _catatan; 
-            set => _catatan = value?.Trim(); 
-        }
 
         public Reservation() : base() { }
 
@@ -129,7 +115,7 @@ namespace test_part_kesekian.models
             TableNumber = tableNumber;
         }
 
-        public override bool ValidateReservation()
+        public override bool ValidateReservasi()
         {
             return UserId > 0 && 
                    !string.IsNullOrWhiteSpace(NomorHP) &&
@@ -137,14 +123,15 @@ namespace test_part_kesekian.models
                    JumlahOrang > 0 &&
                    ReservationTime > DateTime.Now;
         }
-    
+
+      
     }
 
     public enum ReservationStatus
     {
         Menunggu,
-        Dikonfirmasi,
         Selesai,
-        Dibatalkan
+        Dibatalkan,
+        Tidak_Datang
     }
 }

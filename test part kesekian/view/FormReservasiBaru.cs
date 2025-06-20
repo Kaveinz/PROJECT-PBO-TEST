@@ -37,6 +37,13 @@ namespace test_part_kesekian
                     return;
                 }
 
+                if (!ReservationController.CekNomorHPStatic(tbNomorHP.Text))
+                {
+                    MessageBox.Show("Maaf, Nomor HP Tidak Valid. Silahkan Masukkan Nomor HP yang Benar.", "Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 DateTime reservationTime = dtpTanggal.Value.Date.Add(dtpWaktu.Value.TimeOfDay);
 
                 // Waktu reservasi harus di hari yang beda
@@ -47,7 +54,7 @@ namespace test_part_kesekian
                     return;
                 }
 
-                // Show table selection form
+                
                 FormPilihKursi formPilihKursi = new FormPilihKursi(reservationTime, jumlahOrang);
                 formPilihKursi.MdiParent = this.MdiParent;
                 formPilihKursi.OnKursiDipilih += (sender2, kursi) =>
@@ -71,15 +78,21 @@ namespace test_part_kesekian
                         );
 
 
-                        if (!reservation.ValidateReservation())
+                        if (!reservation.ValidateReservasi())
                         {
                             MessageBox.Show("Maaf, Reservasi Tidak Valid.", "Error", 
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 
-                        // Create reservation using the enhanced controller
-                        bool success = ReservationController.Instance.CreateReservation(reservation);
+                        if (!ReservationController.JamOperasionalStatic(reservationTime))
+                        {
+                            MessageBox.Show("Maaf, Reservasi Hanya Bisa Dilakukan Pada Jam Operasional Restoran.", "Error", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        bool success = ReservationController.CreateReservationStatic(reservation);
                         
                         if (success)
                         {
@@ -89,7 +102,7 @@ namespace test_part_kesekian
                                           $"Nomor Meja: {kursi}\n" +
                                           $"Waktu: {reservationTime:dd/MM/yyyy HH:mm}\n" +
                                           $"Jumlah Orang: {jumlahOrang}\n" +
-                                          $"Status: {reservation.GetStatusDescription()}", 
+                                          $"Status: {reservation.GetDeskripsiStatus()}", 
                                           "Reservasi Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             
                             this.Close();
