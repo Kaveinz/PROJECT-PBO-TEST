@@ -4,24 +4,28 @@
   "Documents": [
     {
 <<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\view\\cetaklaporan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\cetaklaporan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\view\\formbatalreservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\formbatalreservasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\models\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\models\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\view\\cetaklaporan.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\cetaklaporan.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\controller\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\controller\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\view\\cetaklaporan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\cetaklaporan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\view\\cetaklaporan.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\view\\cetaklaporan.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\cetaklaporan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -32,16 +36,12 @@
       "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\controller\\laporancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\controller\\laporancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\controller\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\controller\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|d:\\kuliah semester 2\\mbok_wo_reserve\\project-pbo-test\\test part kesekian\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 =======
       "AbsoluteMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|e:\\kuliah\\semester2\\pbo\\pbo-egy-test\\test part kesekian\\controller\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8459A56D-7267-4DC2-92BA-CA354DA5E51B}|test part kesekian\\test part kesekian.csproj|solutionrelative:test part kesekian\\controller\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -189,95 +189,10 @@
         {
           "DockedWidth": 200,
 <<<<<<< HEAD
-          "SelectedChildIndex": 9,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CetakLaporan.cs",
-              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.cs",
-              "RelativeDocumentMoniker": "test part kesekian\\view\\CetakLaporan.cs",
-              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.cs",
-              "RelativeToolTip": "test part kesekian\\view\\CetakLaporan.cs",
-              "ViewState": "AgIAAK0AAAAAAAAAAAAnwL0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T15:09:46.412Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormBatalReservasi.cs",
-              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\FormBatalReservasi.cs",
-              "RelativeDocumentMoniker": "test part kesekian\\view\\FormBatalReservasi.cs",
-              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\FormBatalReservasi.cs",
-              "RelativeToolTip": "test part kesekian\\view\\FormBatalReservasi.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T16:10:33.541Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CetakLaporan.Designer.cs",
-              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.Designer.cs",
-              "RelativeDocumentMoniker": "test part kesekian\\view\\CetakLaporan.Designer.cs",
-              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.Designer.cs",
-              "RelativeToolTip": "test part kesekian\\view\\CetakLaporan.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T15:05:25.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CetakLaporan.cs [Design]",
-              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.cs",
-              "RelativeDocumentMoniker": "test part kesekian\\view\\CetakLaporan.cs",
-              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.cs [Design]*",
-              "RelativeToolTip": "test part kesekian\\view\\CetakLaporan.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T15:03:54.903Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DatabaseHelper.cs",
-              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\DatabaseHelper.cs",
-              "RelativeDocumentMoniker": "test part kesekian\\models\\DatabaseHelper.cs",
-              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\DatabaseHelper.cs",
-              "RelativeToolTip": "test part kesekian\\models\\DatabaseHelper.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAYwHMAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T10:55:47.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Reservation.cs",
-              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\Reservation.cs",
-              "RelativeDocumentMoniker": "test part kesekian\\models\\Reservation.cs",
-              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\Reservation.cs",
-              "RelativeToolTip": "test part kesekian\\models\\Reservation.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAQwIMAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T10:51:10.643Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ReservationController.cs",
-              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\ReservationController.cs",
-              "RelativeDocumentMoniker": "test part kesekian\\controller\\ReservationController.cs",
-              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\ReservationController.cs",
-              "RelativeToolTip": "test part kesekian\\controller\\ReservationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+          "SelectedChildIndex": 0,
 =======
           "SelectedChildIndex": 20,
+>>>>>>> 49bd3e035907284277cd2708aa45c3a267309daa
           "Children": [
             {
               "$type": "Bookmark",
@@ -285,6 +200,15 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 0,
+              "Title": "CetakLaporan.cs",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\CetakLaporan.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.cs",
+              "RelativeToolTip": "test part kesekian\\view\\CetakLaporan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL0AAAAAAAAAAAAAAA==",
+=======
               "DocumentIndex": 3,
               "Title": "lihat reservasi.cs",
               "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\lihat reservasi.cs",
@@ -292,6 +216,7 @@
               "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\lihat reservasi.cs",
               "RelativeToolTip": "test part kesekian\\view\\lihat reservasi.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwCcAAAAtAAAAAAAAAA==",
+>>>>>>> 49bd3e035907284277cd2708aa45c3a267309daa
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-18T16:43:01.599Z",
               "EditorCaption": ""
@@ -304,7 +229,6 @@
               "RelativeDocumentMoniker": "test part kesekian\\view\\lihat reservasi.cs",
               "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\lihat reservasi.cs [Design]",
               "RelativeToolTip": "test part kesekian\\view\\lihat reservasi.cs [Design]",
->>>>>>> 49bd3e035907284277cd2708aa45c3a267309daa
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-18T16:42:58.784Z",
               "EditorCaption": " [Design]"
@@ -525,13 +449,24 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 2,
+              "Title": "Table.cs",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\Table.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\models\\Table.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\Table.cs",
+              "RelativeToolTip": "test part kesekian\\models\\Table.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:38:28.646Z",
+=======
               "DocumentIndex": 0,
               "Title": "ReservationController.cs",
               "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\ReservationController.cs",
               "RelativeDocumentMoniker": "test part kesekian\\controller\\ReservationController.cs",
               "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\ReservationController.cs",
               "RelativeToolTip": "test part kesekian\\controller\\ReservationController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAlwB0AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAlwBIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-12T12:40:38.567Z",
               "EditorCaption": ""
@@ -564,29 +499,6 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 9,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\User.cs",
-              "RelativeDocumentMoniker": "test part kesekian\\models\\User.cs",
-              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\User.cs",
-              "RelativeToolTip": "test part kesekian\\models\\User.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAADgv4gAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T10:21:50.567Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LaporanController.cs",
-              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\LaporanController.cs",
-              "RelativeDocumentMoniker": "test part kesekian\\controller\\LaporanController.cs",
-              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\LaporanController.cs",
-              "RelativeToolTip": "test part kesekian\\controller\\LaporanController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAIwDgAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T10:05:31.622Z"
-=======
               "DocumentIndex": 6,
               "Title": "FormPilihKursi.cs",
               "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormPilihKursi.cs",
@@ -596,22 +508,77 @@
               "ViewState": "AgIAACAAAAAAAAAAAAA9wCsAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-11T15:07:26.834Z",
-              "EditorCaption": ""
 >>>>>>> 49bd3e035907284277cd2708aa45c3a267309daa
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+<<<<<<< HEAD
+              "DocumentIndex": 5,
+              "Title": "CetakLaporan.Designer.cs",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.Designer.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\CetakLaporan.Designer.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.Designer.cs",
+              "RelativeToolTip": "test part kesekian\\view\\CetakLaporan.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:05:25.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CetakLaporan.cs [Design]",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\view\\CetakLaporan.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\view\\CetakLaporan.cs [Design]*",
+              "RelativeToolTip": "test part kesekian\\view\\CetakLaporan.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:03:54.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\models\\DatabaseHelper.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\DatabaseHelper.cs",
+              "RelativeToolTip": "test part kesekian\\models\\DatabaseHelper.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAYwHMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T10:55:47.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\Reservation.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\models\\Reservation.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\Reservation.cs",
+              "RelativeToolTip": "test part kesekian\\models\\Reservation.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAQwIMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T10:51:10.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReservationController.cs",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\ReservationController.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\controller\\ReservationController.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\ReservationController.cs",
+              "RelativeToolTip": "test part kesekian\\controller\\ReservationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T10:50:09.201Z",
+=======
+              "DocumentIndex": 2,
               "Title": "AuthController.cs",
               "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\AuthController.cs",
               "RelativeDocumentMoniker": "test part kesekian\\controller\\AuthController.cs",
               "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\controller\\AuthController.cs",
               "RelativeToolTip": "test part kesekian\\controller\\AuthController.cs",
-<<<<<<< HEAD
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAA1AAAAAAAAAA==",
-=======
               "ViewState": "AgIAACEAAAAAAAAAAAAYwDEAAAAAAAAAAAAAAA==",
->>>>>>> 49bd3e035907284277cd2708aa45c3a267309daa
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T15:58:32.14Z",
               "EditorCaption": ""
@@ -627,10 +594,22 @@
               "ViewState": "AgIAAFMAAAAAAAAAAAAmwGoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T02:59:39.628Z",
+>>>>>>> 49bd3e035907284277cd2708aa45c3a267309daa
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\User.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\models\\User.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\models\\User.cs",
+              "RelativeToolTip": "test part kesekian\\models\\User.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAuwEYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T10:21:50.567Z",
+=======
               "DocumentIndex": 10,
               "Title": "FormBatalReservasi.cs",
               "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormBatalReservasi.cs",
@@ -640,10 +619,20 @@
               "ViewState": "AgIAAAEAAAAAAAAAAAD4vxgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T02:53:54.35Z",
+>>>>>>> 49bd3e035907284277cd2708aa45c3a267309daa
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 9,
+              "Title": "LaporanController.cs",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\LaporanController.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\controller\\LaporanController.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\LaporanController.cs",
+              "RelativeToolTip": "test part kesekian\\controller\\LaporanController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAIwDgAAAAnAAAAAAAAAA==",
+=======
               "DocumentIndex": 1,
               "Title": "FormReservasiBaru.cs",
               "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormReservasiBaru.cs",
@@ -651,12 +640,22 @@
               "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\FormReservasiBaru.cs",
               "RelativeToolTip": "test part kesekian\\view\\FormReservasiBaru.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAYwB8AAAAAAAAAAAAAAA==",
+>>>>>>> 49bd3e035907284277cd2708aa45c3a267309daa
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T02:43:37.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 8,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\AuthController.cs",
+              "RelativeDocumentMoniker": "test part kesekian\\controller\\AuthController.cs",
+              "ToolTip": "D:\\Kuliah Semester 2\\mbok_wo_reserve\\PROJECT-PBO-TEST\\test part kesekian\\controller\\AuthController.cs",
+              "RelativeToolTip": "test part kesekian\\controller\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
+=======
               "DocumentIndex": 29,
               "Title": "MainForm.cs",
               "DocumentMoniker": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\MainForm.cs",
@@ -664,6 +663,7 @@
               "ToolTip": "E:\\kuliah\\semester2\\pbo\\PBO-EGY-TEST\\test part kesekian\\view\\MainForm.cs",
               "RelativeToolTip": "test part kesekian\\view\\MainForm.cs",
               "ViewState": "AgIAAFcAAAAAAAAAAAAAwGsAAAARAAAAAAAAAA==",
+>>>>>>> 49bd3e035907284277cd2708aa45c3a267309daa
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T02:30:50.357Z",
               "EditorCaption": ""

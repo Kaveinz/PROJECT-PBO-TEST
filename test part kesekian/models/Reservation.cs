@@ -18,11 +18,18 @@ namespace test_part_kesekian.models
         protected int _id;
         protected DateTime _createdAt;
         protected ReservationStatus _status;
+        
+        // public int ID
+        // {
+        //     get { return _id; }
+            // set { _id = value >= 0 ? value : throw new ArgumentException("ID Tidak Boleh Negatif!"); }
+            // set { _id = value; }
+        // }
 
-        public int Id 
-        { 
-            get => _id; 
-            set => _id = value >= 0 ? value : throw new ArgumentException("ID Tidak Boleh Negatif!"); 
+        public int Id
+        {
+            get => _id;
+            set => _id = value >= 0 ? value : throw new ArgumentException("ID Tidak Boleh Negatif!");
         }
 
         public DateTime CreatedAt 

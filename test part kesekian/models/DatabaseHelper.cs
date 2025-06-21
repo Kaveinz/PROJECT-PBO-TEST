@@ -92,7 +92,7 @@ namespace test_part_kesekian.models
                     {
                         if (parameters != null)
                             cmd.Parameters.AddRange(parameters);
-                        
+                                                                    
                         return cmd.ExecuteScalar();
                     }
                 }
