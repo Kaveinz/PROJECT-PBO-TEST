@@ -32,8 +32,5 @@
     <Compile Update="view\lihat reservasi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="view\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

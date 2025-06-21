@@ -34,8 +34,7 @@ namespace test_part_kesekian.view
                      r.table_number AS ""Nomor Meja"", 
                      r.status AS ""Status""
               FROM reservations r
-              JOIN users u ON r.user_id = u.id
-              WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')";
+              JOIN users u ON r.user_id = u.id";
 
 
             DataTable dt = DatabaseHelper.GetData(query);
@@ -44,7 +43,7 @@ namespace test_part_kesekian.view
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            controller.CetakLaporan(e); 
+            controller.CetakLaporan(e);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,89 +53,32 @@ namespace test_part_kesekian.view
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            if (dtLaporan == null || dtLaporan.Rows.Count == 0)
+            if (controller == null)
             {
-                MessageBox.Show("Untuk Menectak Laporan, Silahkan Filter Terlebih Dahulu (Bulanan/Mingguan)", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Laporan belum dipilih atau belum diproses.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                saveDialog.Filter = "Text Files (*.txt)|*.txt";
-                saveDialog.FileName = "laporan_reservasi_mbok_wo.txt";
+                sfd.Filter = "Text Files (*.txt)|*.txt";
+                sfd.FileName = "laporan_reservasi.txt";
 
-                if (saveDialog.ShowDialog() == DialogResult.OK)
+                if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        StringBuilder sb = new StringBuilder();
-                        var columnNames = dtLaporan.Columns.Cast<DataColumn>()
-                                                      .Select(column => column.ColumnName)
-                                                      .ToList();
-
-                        List<int> columnWidths = new List<int>();
-
-                        for (int i = 0; i < columnNames.Count; i++)
-                        {
-                            columnWidths.Add(columnNames[i].Length);
-                        }
-
-                        foreach (DataRow row in dtLaporan.Rows)
-                        {
-                            for (int i = 0; i < columnNames.Count; i++)
-                            {
-                                string cellValue = row[i]?.ToString() ?? string.Empty;
-                                if (cellValue.Length > columnWidths[i])
-                                {
-                                    columnWidths[i] = cellValue.Length;
-                                }
-                            }
-                        }
-
-                        // Format Header
-                        string formattedHeader = "";
-                        for(int i=0; i< columnNames.Count; i++)
-                        {
-                            formattedHeader += columnNames[i].PadRight(columnWidths[i]);
-                            if (i < columnNames.Count - 1)
-                                formattedHeader += " | ";
-                        }
-                        sb.AppendLine(formattedHeader);
-
-                        // Format Separator
-                        string formattedSeparator = "";
-                        for(int i=0; i< columnNames.Count; i++)
-                        {
-                            formattedSeparator += new string('-', columnWidths[i]);
-                            if (i < columnNames.Count - 1)
-                                formattedSeparator += "-+-"; 
-                        }
-                        sb.AppendLine(formattedSeparator);
-
-                        // Format Data Rows
-                        foreach (DataRow row in dtLaporan.Rows)
-                        {
-                            string formattedRow = "";
-                            for (int i = 0; i < columnNames.Count; i++)
-                            {
-                                string cellValue = row[i]?.ToString() ?? string.Empty;
-                                formattedRow += cellValue.PadRight(columnWidths[i]);
-                                if (i < columnNames.Count - 1)
-                                    formattedRow += " | ";
-                            }
-                            sb.AppendLine(formattedRow);
-                        }
-
-                        File.WriteAllText(saveDialog.FileName, sb.ToString());
-                        MessageBox.Show("Laporan Berhasil Diekspor!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        controller.ExportFormat(sfd.FileName);
+                        MessageBox.Show("Laporan berhasil diekspor!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Gagal mengekspor laporan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Gagal ekspor: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
+
 
         private void btnPrint_Click(object sender, EventArgs e)
         {

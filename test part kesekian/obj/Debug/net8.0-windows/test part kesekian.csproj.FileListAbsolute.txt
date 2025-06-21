@@ -81,7 +81,6 @@ C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_
 C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.layout_admin.resources
 C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\project_PBO.View.layout_pelanggan.resources
 C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.view.lihat_reservasi.resources
-C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test_part_kesekian.MainForm.resources
 C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.csproj.GenerateResource.cache
 C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\USER\PROJECT-PBO-TEST\test part kesekian\obj\Debug\net8.0-windows\test part kesekian.AssemblyInfoInputs.cache

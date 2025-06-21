@@ -5,19 +5,19 @@ using test_part_kesekian.models;
 
 namespace test_part_kesekian.controller
 {
-    public interface IReportService
+    public interface Laporan
     {
         string JudulLaporan { get; }
         DataTable AmbilData();
         void CetakLaporan(PrintPageEventArgs e);
-        void ExportToFile(string filePath);
+
+
     }
 
     public class LaporanReservasi
     {
         public int totalReservasi { get; set; }
         public int reservasiPending { get; set; }
-        public int reservasiDikonfirmasi { get; set; }
         public int reservasiSelesai { get; set; }
         public int reservasiDibatalkan { get; set; }
         public DateTime tanggalLaporan { get; set; }
@@ -31,7 +31,7 @@ namespace test_part_kesekian.controller
         public double rataRataSelesai => totalReservasi > 0 ? (double)rataRataSelesai / totalReservasi * 100 : 0;
     }
 
-    public abstract class LaporanReservasiController : IReportService
+    public abstract class LaporanReservasiController : Laporan
     {
         protected readonly IDatabaseOperations _database;
         protected DateTime startDate;
@@ -64,7 +64,7 @@ namespace test_part_kesekian.controller
 
             foreach (DataRow row in dt.Rows)
             {
-                string line = FormatRowForPrint(row);
+                string line = FormatData(row);
                 e.Graphics.DrawString(line, new Font("Arial", 10), Brushes.Black, new PointF(100, yPos));
                 yPos += 20;
                 
@@ -79,46 +79,81 @@ namespace test_part_kesekian.controller
             e.Graphics.DrawString(footer, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, yPos + 20));
         }
 
-        protected virtual string FormatRowForPrint(DataRow row)
+        protected virtual string FormatData(DataRow row)
         {
             return $"ID: {row["id"]}, User: {row["username"]}, HP: {row["nomor_hp"]}, " +
                    $"Waktu: {Convert.ToDateTime(row["reservation_time"]):yyyy-MM-dd HH:mm}, " +
                    $"Orang: {row["jumlah_orang"]}, Status: {row["status"]}";
         }
 
-        public virtual void ExportToFile(string filePath)
+        public virtual void ExportFormat(string filePath)
         {
             DataTable dt = AmbilData();
-            ExportToTextFile(dt, filePath);
-        }
 
-        protected virtual void ExportToTextFile(DataTable dt, string filePath)
-        {
+            var columnNames = dt.Columns.Cast<DataColumn>()
+                                  .Select(col => col.ColumnName)
+                                  .ToList();
+
+            List<int> columnWidths = new List<int>();
+            for (int i = 0; i < columnNames.Count; i++)
+                columnWidths.Add(columnNames[i].Length);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                for (int i = 0; i < columnNames.Count; i++)
+                {
+                    string val = row[i]?.ToString() ?? "";
+                    if (val.Length > columnWidths[i])
+                        columnWidths[i] = val.Length;
+                }
+            }
+
             using (StreamWriter sw = new StreamWriter(filePath))
             {
-                sw.WriteLine(JudulLaporan);
-                sw.WriteLine("".PadRight(JudulLaporan.Length, '='));
-                sw.WriteLine($"Tanggal Laporan: {DateTime.Now:yyyy-MM-dd HH:mm}");
+                
+                for (int i = 0; i < columnNames.Count; i++)
+                {
+                    sw.Write(columnNames[i].PadRight(columnWidths[i]));
+                    if (i < columnNames.Count - 1) sw.Write(" | ");
+                }
                 sw.WriteLine();
+
+                
+                for (int i = 0; i < columnNames.Count; i++)
+                {
+                    sw.Write(new string('-', columnWidths[i]));
+                    if (i < columnNames.Count - 1) sw.Write("-+-");
+                }
+                sw.WriteLine();
+
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    sw.WriteLine($"ID: {row["id"]}");
-                    sw.WriteLine($"Username: {row["username"]}");
-                    sw.WriteLine($"Nomor HP: {row["nomor_hp"]}");
-                    sw.WriteLine($"Waktu: {Convert.ToDateTime(row["reservation_time"]):yyyy-MM-dd HH:mm}");
-                    sw.WriteLine($"Jumlah Orang: {row["jumlah_orang"]}");
-                    sw.WriteLine($"Status: {row["status"]}");
-                    sw.WriteLine("".PadRight(30, '-'));
+                    for (int i = 0; i < columnNames.Count; i++)
+                    {
+                        sw.Write((row[i]?.ToString() ?? "").PadRight(columnWidths[i]));
+                        if (i < columnNames.Count - 1) sw.Write(" | ");
+                    }
+                    sw.WriteLine();
                 }
-                sw.WriteLine($"Total Reservasi: {dt.Rows.Count}");
+
+                
+                var summary = HitungSummaryDariDataTable(dt);
+                sw.WriteLine();
+                sw.WriteLine("Ringkasan Status:");
+                sw.WriteLine($"- Menunggu     : {summary.reservasiPending}");
+                sw.WriteLine($"- Selesai      : {summary.reservasiSelesai}");
+                sw.WriteLine($"- Dibatalkan   : {summary.reservasiDibatalkan}");
+                sw.WriteLine();
+                sw.WriteLine($"Total Reservasi: {summary.totalReservasi}");
             }
         }
 
-        public virtual LaporanReservasi GetReportSummary()
+
+
+
+        protected virtual LaporanReservasi HitungSummaryDariDataTable(DataTable dt)
         {
-            DataTable dt = AmbilData();
-            
             var summary = new LaporanReservasi
             {
                 totalReservasi = dt.Rows.Count
@@ -126,46 +161,23 @@ namespace test_part_kesekian.controller
 
             foreach (DataRow row in dt.Rows)
             {
-                string status = row["status"].ToString().ToLower();
+                string status = row["status"]?.ToString()?.Trim().ToLower() ?? "";
+
                 switch (status)
                 {
                     case "menunggu":
-                        summary.reservasiPending++;
-                        break;
-                    case "dikonfirmasi":
-                        summary.reservasiDikonfirmasi++;
-                        break;
+                        summary.reservasiPending++; break;
                     case "selesai":
-                        summary.reservasiSelesai++;
-                        break;
+                        summary.reservasiSelesai++; break;
                     case "dibatalkan":
-                        summary.reservasiDibatalkan++;
-                        break;
+                        summary.reservasiDibatalkan++; break;
                 }
             }
 
             return summary;
-        }        
-        public static void ExportToTextFileStatic(DataTable dt, string filePath)
-        {
-            var tempController = new LaporanUmumController();
-            tempController.ExportToTextFile(dt, filePath);
-        }        public static DataTable GetLaporanReservasi()
-        {
-            const string query = @"
-                SELECT r.id AS ""ID Reservasi"", 
-                       u.username AS ""Nama Pengguna"", 
-                       r.nomor_hp AS ""Nomor HP"", 
-                       r.reservation_time AS ""Waktu Reservasi"", 
-                       r.jumlah_orang AS ""Jumlah Orang"", 
-                       r.table_number AS ""Nomor Meja"", 
-                       r.status AS ""Status""
-                FROM reservations r
-                JOIN users u ON r.user_id = u.id
-                WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')";
-            
-            return DatabaseHelper.GetData(query);
         }
+
+       
     }
 
     public class LaporanUmumController : LaporanReservasiController
@@ -178,7 +190,6 @@ namespace test_part_kesekian.controller
                 SELECT r.id, u.username, r.nomor_hp, r.reservation_time, r.jumlah_orang, r.table_number, r.status
                 FROM reservations r
                 JOIN users u ON r.user_id = u.id
-                WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')
                 ORDER BY r.reservation_time DESC";
 
             return _database.GetData(query);
@@ -194,10 +205,10 @@ namespace test_part_kesekian.controller
         public LaporanMingguanController(int mingguKe) : base()
         {
             minggu = mingguKe;
-            CalculateWeekDates();
+            hitungtanggalmingguan();
         }
 
-        private void CalculateWeekDates()
+        private void hitungtanggalmingguan()
         {
             DateTime startOfYear = new DateTime(DateTime.Now.Year, 1, 1);
             startDate = startOfYear.AddDays((minggu - 1) * 7);
@@ -211,7 +222,6 @@ namespace test_part_kesekian.controller
                        r.jumlah_orang, r.table_number, r.status
                 FROM reservations r
                 JOIN users u ON r.user_id = u.id
-                WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')
                 AND DATE(r.reservation_time) BETWEEN @startDate AND @endDate
                 ORDER BY r.reservation_time DESC";
 
@@ -224,12 +234,12 @@ namespace test_part_kesekian.controller
             return _database.GetData(query, parameters);
         }
 
-        protected override string FormatRowForPrint(DataRow row)
+        protected override string FormatData(DataRow row)
         {
             DateTime reservationTime = Convert.ToDateTime(row["reservation_time"]);
             string dayOfWeek = reservationTime.ToString("dddd");
             
-            return $"{dayOfWeek} - {base.FormatRowForPrint(row)}";
+            return $"{dayOfWeek} - {base.FormatData(row)}";
         }
     }
 
@@ -262,7 +272,6 @@ namespace test_part_kesekian.controller
                        r.jumlah_orang, r.table_number, r.status
                 FROM reservations r
                 JOIN users u ON r.user_id = u.id
-                WHERE r.status IN ('Selesai', 'Dibatalkan', 'Tidak Datang')
                 AND DATE(r.reservation_time) BETWEEN @startDate AND @endDate
                 ORDER BY r.reservation_time DESC";
 
