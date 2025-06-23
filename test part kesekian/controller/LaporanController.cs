@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing.Printing;
 using Npgsql;
 using test_part_kesekian.models;
@@ -20,6 +21,7 @@ namespace test_part_kesekian.controller
         public int reservasiPending { get; set; }
         public int reservasiSelesai { get; set; }
         public int reservasiDibatalkan { get; set; }
+        public int reservasiTidakDatang { get; set; }
         public DateTime tanggalLaporan { get; set; }
 
         public LaporanReservasi()
@@ -27,8 +29,6 @@ namespace test_part_kesekian.controller
             tanggalLaporan = DateTime.Now;
         }
 
-        public double rataRataPembatalan => totalReservasi > 0 ? (double)rataRataPembatalan / totalReservasi * 100 : 0;
-        public double rataRataSelesai => totalReservasi > 0 ? (double)rataRataSelesai / totalReservasi * 100 : 0;
     }
 
     public abstract class LaporanReservasiController : Laporan
@@ -144,6 +144,7 @@ namespace test_part_kesekian.controller
                 sw.WriteLine($"- Menunggu     : {summary.reservasiPending}");
                 sw.WriteLine($"- Selesai      : {summary.reservasiSelesai}");
                 sw.WriteLine($"- Dibatalkan   : {summary.reservasiDibatalkan}");
+                sw.WriteLine($"- Tidak Datang : {summary.reservasiTidakDatang}");
                 sw.WriteLine();
                 sw.WriteLine($"Total Reservasi: {summary.totalReservasi}");
             }
@@ -171,6 +172,8 @@ namespace test_part_kesekian.controller
                         summary.reservasiSelesai++; break;
                     case "dibatalkan":
                         summary.reservasiDibatalkan++; break;
+                    case "tidak datang":
+                        summary.reservasiTidakDatang++; break;
                 }
             }
 
@@ -234,13 +237,13 @@ namespace test_part_kesekian.controller
             return _database.GetData(query, parameters);
         }
 
-        protected override string FormatData(DataRow row)
-        {
-            DateTime reservationTime = Convert.ToDateTime(row["reservation_time"]);
-            string dayOfWeek = reservationTime.ToString("dddd");
+        //protected override string FormatData(DataRow row)
+        //{
+        //    DateTime reservationTime = Convert.ToDateTime(row["reservation_time"]);
+        //    string dayOfWeek = reservationTime.ToString("dddd");
             
-            return $"{dayOfWeek} - {base.FormatData(row)}";
-        }
+        //    return $"{dayOfWeek} - {base.FormatData(row)}";
+        //}
     }
 
     public class LaporanBulananController : LaporanReservasiController
@@ -292,35 +295,7 @@ namespace test_part_kesekian.controller
         }
     }
 
-    public class LaporanStatusController : LaporanReservasiController
-    {
-        private readonly ReservationStatus status;
-
-        public override string JudulLaporan => $"Laporan Reservasi - Status {status}";
-
-        public LaporanStatusController(ReservationStatus Status) : base()
-        {
-            status = Status;
-        }
-
-        public override DataTable AmbilData()
-        {
-            string query = @"
-                SELECT r.id, u.username, r.nomor_hp, r.reservation_time, 
-                       r.jumlah_orang, r.table_number, r.status
-                FROM reservations r
-                JOIN users u ON r.user_id = u.id
-                WHERE r.status = @status
-                ORDER BY r.reservation_time DESC";
-
-            var parameters = new NpgsqlParameter[]
-            {
-                new("@status", status.ToString())
-            };
-
-            return _database.GetData(query, parameters);
-        }
-    }
+    
 
     public class ReportException : Exception
     {
