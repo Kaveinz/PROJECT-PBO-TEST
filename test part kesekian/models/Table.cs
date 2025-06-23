@@ -27,7 +27,6 @@ namespace test_part_kesekian.models
             TableNumber = tableNumber?.Trim().ToUpper();
             Capacity = capacity;
             Status = TableStatus.Available;
-          
         }
     }
 

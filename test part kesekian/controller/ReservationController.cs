@@ -34,8 +34,7 @@ namespace test_part_kesekian.controller
         public abstract bool JamOperasional(DateTime reservationTime);
         public abstract void UpdateStatusMeja(string tableNumber, string status);
 
-
-
+        
 
         protected virtual bool ValidateReservationData(Reservation reservation)
         {
